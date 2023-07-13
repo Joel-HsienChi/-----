@@ -488,6 +488,11 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.addTab(self.Search_Edit_Tab, "")
         self.Login_History_Tab = QtWidgets.QWidget()
         self.Login_History_Tab.setObjectName("Login_History_Tab")
+        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
+        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
+        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
+        self.ID_input_login_history.setText("")
+        self.ID_input_login_history.setObjectName("ID_input_login_history")        
         self.Password_doesnt_match_ID_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Password_doesnt_match_ID_button.setGeometry(QtCore.QRect(50, 290, 211, 20))
         self.Password_doesnt_match_ID_button.setMinimumSize(QtCore.QSize(100, 20))
@@ -504,11 +509,6 @@ class Ui_Concentrate_Advance(object):
         self.ID_doesnt_exist_button.setGeometry(QtCore.QRect(50, 260, 121, 20))
         self.ID_doesnt_exist_button.setMinimumSize(QtCore.QSize(100, 20))
         self.ID_doesnt_exist_button.setObjectName("ID_doesnt_exist_button")
-        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
-        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
-        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input_login_history.setText("")
-        self.ID_input_login_history.setObjectName("ID_input_login_history")
         self.ID_search_button_login_history = QtWidgets.QPushButton(self.Login_History_Tab)
         self.ID_search_button_login_history.setGeometry(QtCore.QRect(120, 60, 140, 30))
         self.ID_search_button_login_history.setMinimumSize(QtCore.QSize(0, 0))
@@ -697,6 +697,8 @@ class Ui_Concentrate_Advance(object):
         # let table be read only
         self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
+        # Set the rule to sort the table
+        self.Display_Login_info.sortItems(1, QtCore.Qt.AscendingOrder)               
 
 # Modding for plate info
         # adjust column size
@@ -710,7 +712,8 @@ class Ui_Concentrate_Advance(object):
 
         # connect button to function
         self.Show_all_button_Plate_Info.clicked.connect(lambda: self.show_all_plate_info())
-       
+        self.ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info_by_user_id(self.ID_input_Plate_Info.text()))
+        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info_by_plate_id(self.Plate_ID_input_Plate_Info.text()))
 
 
     def retranslateUi(self, Concentrate_Advance):
@@ -807,16 +810,19 @@ class Ui_Concentrate_Advance(object):
         data = f.get_all_data_from_user_info()
         self.insert_data_into_table_Search_Edit(data)
         self.lock_the_ID_Column()
+        self.Display_table.sortItems(1, QtCore.Qt.AscendingOrder)        
         
     def show_user_by_id(self, userid):
         data = f.get_data_from_user_info_contains_id(userid)
         self.insert_data_into_table_Search_Edit(data)
         self.lock_the_ID_Column()
+        self.Display_table.sortItems(1, QtCore.Qt.AscendingOrder)
 
     def show_user_by_name(self, name):
         data = f.get_data_from_user_info_contains_name(name)        
         self.insert_data_into_table_Search_Edit(data)
         self.lock_the_ID_Column()
+        self.Display_table.sortItems(4, QtCore.Qt.AscendingOrder)
 
     def show_user_by_permission(self):
         if(self.User_button.isChecked()):
@@ -827,6 +833,7 @@ class Ui_Concentrate_Advance(object):
             data = f.get_data_from_user_info_by_permission(None)
         self.insert_data_into_table_Search_Edit(data)
         self.lock_the_ID_Column()
+        self.Display_table.sortItems(1, QtCore.Qt.AscendingOrder)        
 
     def show_user_by_gender(self):
         if(self.Male_button.isChecked()):
@@ -839,6 +846,7 @@ class Ui_Concentrate_Advance(object):
             data = f.get_data_from_user_info_by_gender(None)
         self.insert_data_into_table_Search_Edit(data) 
         self.lock_the_ID_Column()       
+        self.Display_table.sortItems(1, QtCore.Qt.AscendingOrder)
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
@@ -969,6 +977,21 @@ class Ui_Concentrate_Advance(object):
         data = f.get_all_data_from_plate_info()
         self.insert_data_into_table_plate_info(data)
         self.lock_the_ID_Column_plate_info()
+        self.Display_Plate_Info.sortItems(1, QtCore.Qt.AscendingOrder)
+
+    def show_plate_info_by_plate_id(self, plateid):
+        data = f.get_data_from_plate_info_by_plate_id(plateid)
+        self.lock_the_ID_Column_plate_info()
+        self.insert_data_into_table_plate_info(data)
+        self.Display_Plate_Info.sortItems(1, QtCore.Qt.AscendingOrder)
+
+
+    def show_plate_info_by_user_id(self, userid):
+        data = f.get_data_from_plate_info_by_user_id(userid)
+        self.lock_the_ID_Column_plate_info()
+        self.insert_data_into_table_plate_info(data)
+        self.Display_Plate_Info.sortItems(1, QtCore.Qt.AscendingOrder)
+
 
     def insert_data_into_table_plate_info(self, data):
         # initialize the table
@@ -994,6 +1017,8 @@ class Ui_Concentrate_Advance(object):
         for i in range(rows):
             Plate_ID_column = self.Display_Plate_Info.item(i, 1)
             Plate_ID_column.setFlags(QtCore.Qt.ItemIsEnabled)          
+
+
 # done
 class Ui_Info_Editor(object):
     current_user_ID = ''
@@ -1142,623 +1167,4 @@ if __name__ == "__main__":
 
 
 
-'''
-# done
-class Ui_Advance(object):
-    def setupUi(self, Advance):
-        Advance.setObjectName("Advance")
-        Advance.resize(300, 300)
-        self.Add_Button = QtWidgets.QPushButton(Advance)
-        self.Add_Button.setGeometry(QtCore.QRect(70, 30, 161, 32))
-        self.Add_Button.setObjectName("Add_Button")
-        self.Delete_Button = QtWidgets.QPushButton(Advance)
-        self.Delete_Button.setGeometry(QtCore.QRect(70, 90, 161, 32))
-        self.Delete_Button.setObjectName("Delete_Button")
-        self.Search_Button = QtWidgets.QPushButton(Advance)
-        self.Search_Button.setGeometry(QtCore.QRect(70, 150, 161, 32))
-        self.Search_Button.setObjectName("Search_Button")
-        self.Login_history_Button = QtWidgets.QPushButton(Advance)
-        self.Login_history_Button.setGeometry(QtCore.QRect(70, 210, 161, 32))
-        self.Login_history_Button.setObjectName("Login_history_Button")
 
-        self.retranslateUi(Advance)
-        QtCore.QMetaObject.connectSlotsByName(Advance)
-
-
-        # connect button to function 
-        self.Delete_Button.clicked.connect(self.open_Delete_window)
-        self.Add_Button.clicked.connect(self.open_Register_window)
-        self.Login_history_Button.clicked.connect(self.open_Search_Login_history_window)
-        self.Search_Button.clicked.connect(self.open_Search_window)
-
-
-
-    def retranslateUi(self, Advance):
-        _translate = QtCore.QCoreApplication.translate
-        Advance.setWindowTitle(_translate("Advance", "Advance"))
-        self.Add_Button.setText(_translate("Advance", "Add a User"))
-        self.Add_Button.setShortcut(_translate("Advance", "Return"))
-        self.Delete_Button.setText(_translate("Advance", "Delete a User"))
-        self.Delete_Button.setShortcut(_translate("Advance", "Return"))
-        self.Search_Button.setText(_translate("Advance", "Search/Edit a User"))
-        self.Search_Button.setShortcut(_translate("Advance", "Return"))
-        self.Login_history_Button.setText(_translate("Advance", "Check out login history"))
-        self.Login_history_Button.setShortcut(_translate("Advance", "Return"))
-
-    def open_Search_Login_history_window(self):
-        self.Search_Login_history = QtWidgets.QWidget()
-        self.Search_Login_history_ui = Ui_Search_Login_history()
-        self.Search_Login_history_ui.setupUi(self.Search_Login_history)
-        self.Search_Login_history.show()
-
-    def open_Search_window(self):
-        self.Search = QtWidgets.QWidget()
-        self.Search_ui = Ui_Search()
-        self.Search_ui.setupUi(self.Search)
-        self.Search.show()
-
-    def open_Register_window(self):
-        self.Register = QtWidgets.QWidget()
-        self.Register_ui = Ui_Register()
-        self.Register_ui.setupUi(self.Register)
-        self.Register.show()
-
-
-    def open_Delete_window(self):
-        self.Delete = QtWidgets.QWidget()
-        self.Delete_ui = Ui_Delete()
-        self.Delete_ui.setupUi(self.Delete)
-        self.Delete.show()
-'''
-
-'''
-# done
-class Ui_Delete(object):
-    def setupUi(self, Delete):
-        Delete.setObjectName("Delete")
-        Delete.resize(250, 175)
-        self.Delete_button = QtWidgets.QPushButton(Delete)
-        self.Delete_button.setGeometry(QtCore.QRect(70, 80, 113, 32))
-        self.Delete_button.setObjectName("Delete_button")
-        self.ID_label = QtWidgets.QLabel(Delete)
-        self.ID_label.setGeometry(QtCore.QRect(50, 50, 81, 16))
-        self.ID_label.setObjectName("ID_label")
-        self.ID_input = QtWidgets.QLineEdit(Delete)
-        self.ID_input.setGeometry(QtCore.QRect(90, 50, 113, 21))
-        self.ID_input.setText("")
-        self.ID_input.setObjectName("ID_input")
-        self.Delete_message = QtWidgets.QLabel(Delete)
-        self.Delete_message.setGeometry(QtCore.QRect(30, 10, 201, 31))
-        self.Delete_message.setObjectName("Delete_message")
-        self.Delete_success_message = QtWidgets.QLabel(Delete)
-        self.Delete_success_message.setGeometry(QtCore.QRect(80, 120, 151, 16))
-        self.Delete_success_message.setObjectName("Delete_success_message")
-        self.ID_Doesnt_Exist_message = QtWidgets.QLabel(Delete)
-        self.ID_Doesnt_Exist_message.setGeometry(QtCore.QRect(80, 120, 151, 16))
-        self.ID_Doesnt_Exist_message.setObjectName("ID_Doesnt_Exist_message")
-
-        # hide the delete_success_message initially
-        self.Delete_success_message.setHidden(True)
-        self.ID_Doesnt_Exist_message.setHidden(True)
-
-
-        self.retranslateUi(Delete)
-        QtCore.QMetaObject.connectSlotsByName(Delete)
-
-        self.Delete_button.clicked.connect(lambda: self.delete_the_user(self.ID_input.text()))
-
-    def retranslateUi(self, Delete):
-        _translate = QtCore.QCoreApplication.translate
-        Delete.setWindowTitle(_translate("Delete", "Delete"))
-        self.Delete_button.setText(_translate("Delete", "Delete"))
-        self.ID_label.setText(_translate("Delete", "ID"))
-        self.Delete_message.setText(_translate("Delete", "Type the user ID to delete a user"))
-        self.Delete_success_message.setText(_translate("Delete", "Delete success!!"))
-        self.ID_Doesnt_Exist_message.setText(_translate("Delete", "ID doesn't exist!!"))
-
-    def open_Remove_confirm_window(self):
-        self.Remove_confirm = QtWidgets.QDialog()
-        self.Remove_confirm_ui = Ui_Remove_confirm()
-        self.Remove_confirm_ui.setupUi(self.Remove_confirm)
-        self.Remove_confirm.show()
-
-
-    def delete_the_user(self, userid):
-        print(str(userid))
-        exist = f.check_ID_exist(userid)
-        if(exist == True):
-            self.open_Remove_confirm_window()
-            self.ID_Doesnt_Exist_message.setHidden(True)
-        else:
-            self.ID_Doesnt_Exist_message.setHidden(False)
-            self.Delete_success_message.setHidden(True)
-
-'''
-
-'''
-# yet
-class Ui_Search(object):
-    # global variable
-    check_button_array = []
-    def setupUi(self, Search):
-        Search.setObjectName("Search")
-        Search.resize(1188, 787)
-        self.Name_input = QtWidgets.QLineEdit(Search)
-        self.Name_input.setGeometry(QtCore.QRect(150, 150, 141, 21))
-        self.Name_input.setMinimumSize(QtCore.QSize(141, 21))
-        self.Name_input.setText("")
-        self.Name_input.setObjectName("Name_input")
-        self.line = QtWidgets.QFrame(Search)
-        self.line.setGeometry(QtCore.QRect(90, 110, 201, 20))
-        self.line.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line.setObjectName("line")
-        self.ID_search_button = QtWidgets.QPushButton(Search)
-        self.ID_search_button.setGeometry(QtCore.QRect(150, 70, 141, 32))
-        self.ID_search_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.ID_search_button.setObjectName("ID_search_button")
-        self.Permission_button = QtWidgets.QPushButton(Search)
-        self.Permission_button.setGeometry(QtCore.QRect(130, 320, 161, 32))
-        self.Permission_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Permission_button.setObjectName("Permission_button")
-        self.line_3 = QtWidgets.QFrame(Search)
-        self.line_3.setGeometry(QtCore.QRect(80, 360, 201, 20))
-        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_3.setObjectName("line_3")
-        self.ID_input = QtWidgets.QLineEdit(Search)
-        self.ID_input.setGeometry(QtCore.QRect(150, 30, 141, 21))
-        self.ID_input.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input.setText("")
-        self.ID_input.setObjectName("ID_input")
-        self.Show_all_button = QtWidgets.QPushButton(Search)
-        self.Show_all_button.setGeometry(QtCore.QRect(50, 550, 161, 32))
-        self.Show_all_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Show_all_button.setObjectName("Show_all_button")
-        self.Name_search_button = QtWidgets.QPushButton(Search)
-        self.Name_search_button.setGeometry(QtCore.QRect(150, 190, 141, 32))
-        self.Name_search_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.Name_search_button.setObjectName("Name_search_button")
-        self.line_2 = QtWidgets.QFrame(Search)
-        self.line_2.setGeometry(QtCore.QRect(80, 230, 201, 20))
-        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_2.setObjectName("line_2")
-        self.Display_table = QtWidgets.QTableWidget(Search)
-        self.Display_table.setGeometry(QtCore.QRect(350, 20, 800, 731))
-        self.Display_table.setMinimumSize(QtCore.QSize(800, 361))
-        self.Display_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.Display_table.setObjectName("Display_table")
-        self.Display_table.setColumnCount(7)
-        self.Display_table.setRowCount(0)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(5, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.Display_table.setHorizontalHeaderItem(6, item)
-        self.Display_table.horizontalHeader().setVisible(True)
-        self.Display_table.horizontalHeader().setCascadingSectionResizes(False)
-        self.Display_table.horizontalHeader().setDefaultSectionSize(100)
-        self.Display_table.horizontalHeader().setMinimumSectionSize(20)
-        self.Display_table.horizontalHeader().setSortIndicatorShown(False)
-        self.Display_table.horizontalHeader().setStretchLastSection(True)
-        self.Name_label = QtWidgets.QLabel(Search)
-        self.Name_label.setGeometry(QtCore.QRect(80, 150, 61, 16))
-        self.Name_label.setMinimumSize(QtCore.QSize(61, 16))
-        self.Name_label.setObjectName("Name_label")
-        self.Male_button = QtWidgets.QRadioButton(Search)
-        self.Male_button.setGeometry(QtCore.QRect(170, 390, 100, 20))
-        self.Male_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Male_button.setObjectName("Male_button")
-        self.Edit_error_message = QtWidgets.QLabel(Search)
-        self.Edit_error_message.setGeometry(QtCore.QRect(230, 680, 81, 16))
-        self.Edit_error_message.setMinimumSize(QtCore.QSize(71, 16))
-        self.Edit_error_message.setObjectName("Edit_error_message")
-        self.Female_button = QtWidgets.QRadioButton(Search)
-        self.Female_button.setGeometry(QtCore.QRect(170, 420, 100, 20))
-        self.Female_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Female_button.setObjectName("Female_button")
-        self.Save_change_button = QtWidgets.QPushButton(Search)
-        self.Save_change_button.setGeometry(QtCore.QRect(50, 670, 161, 32))
-        self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Save_change_button.setObjectName("Save_change_button")
-        self.Gender_button = QtWidgets.QPushButton(Search)
-        self.Gender_button.setGeometry(QtCore.QRect(130, 470, 161, 32))
-        self.Gender_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Gender_button.setObjectName("Gender_button")
-        self.Add_User_button = QtWidgets.QPushButton(Search)
-        self.Add_User_button.setGeometry(QtCore.QRect(50, 630, 161, 32))
-        self.Add_User_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Add_User_button.setObjectName("Add_User_button")
-        self.line_4 = QtWidgets.QFrame(Search)
-        self.line_4.setGeometry(QtCore.QRect(80, 510, 201, 20))
-        self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
-        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_4.setObjectName("line_4")
-        self.Permission_label = QtWidgets.QLabel(Search)
-        self.Permission_label.setGeometry(QtCore.QRect(80, 260, 81, 20))
-        self.Permission_label.setMinimumSize(QtCore.QSize(81, 20))
-        self.Permission_label.setObjectName("Permission_label")
-        self.Delete_User_button = QtWidgets.QPushButton(Search)
-        self.Delete_User_button.setGeometry(QtCore.QRect(50, 590, 161, 32))
-        self.Delete_User_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Delete_User_button.setObjectName("Delete_User_button")
-        self.Others_button = QtWidgets.QRadioButton(Search)
-        self.Others_button.setGeometry(QtCore.QRect(170, 450, 100, 20))
-        self.Others_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Others_button.setObjectName("Others_button")
-        self.ID_label = QtWidgets.QLabel(Search)
-        self.ID_label.setGeometry(QtCore.QRect(80, 30, 61, 16))
-        self.ID_label.setMinimumSize(QtCore.QSize(61, 16))
-        self.ID_label.setObjectName("ID_label")
-        self.Admin_button = QtWidgets.QRadioButton(Search)
-        self.Admin_button.setGeometry(QtCore.QRect(170, 290, 100, 20))
-        self.Admin_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Admin_button.setObjectName("Admin_button")
-        self.Gender_label = QtWidgets.QLabel(Search)
-        self.Gender_label.setGeometry(QtCore.QRect(80, 390, 81, 20))
-        self.Gender_label.setMinimumSize(QtCore.QSize(81, 20))
-        self.Gender_label.setObjectName("Gender_label")
-        self.User_button = QtWidgets.QRadioButton(Search)
-        self.User_button.setGeometry(QtCore.QRect(170, 260, 100, 20))
-        self.User_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.User_button.setObjectName("User_button")
-
-        self.retranslateUi(Search)
-        QtCore.QMetaObject.connectSlotsByName(Search)
-
-        # adjust column size
-        header = self.Display_table.horizontalHeader()   
-        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)    
-
-        # hide the error message
-        self.Edit_error_message.setHidden(True)
-
-
-        # connect button to function
-        self.Show_all_button.clicked.connect(lambda: self.show_all_user())
-        self.ID_search_button.clicked.connect(lambda: self.show_user_by_id(self.ID_input.text()))
-        self.Name_search_button.clicked.connect(lambda: self.show_user_by_name(self.Name_input.text()))
-        self.Gender_button.clicked.connect(lambda: self.show_user_by_gender())
-        self.Permission_button.clicked.connect(lambda: self.show_user_by_permission())
-        self.Save_change_button.clicked.connect(lambda: self.get_data_from_table())
-        self.Delete_User_button.clicked.connect(lambda: self.open_Remove_confirm_window())
-        self.Add_User_button.clicked.connect(lambda: self.open_Register_window())
-
-
-    def retranslateUi(self, Search):
-        _translate = QtCore.QCoreApplication.translate
-        Search.setWindowTitle(_translate("Search", "Search/Edit"))
-        self.ID_search_button.setText(_translate("Search", "Search by ID"))
-        self.Permission_button.setText(_translate("Search", "Search by Permission"))
-        self.Show_all_button.setText(_translate("Search", "Show All Users"))
-        self.Name_search_button.setText(_translate("Search", "Search by Name"))
-        item = self.Display_table.horizontalHeaderItem(0)
-        item.setText(_translate("Search", "Checkbox"))
-        item = self.Display_table.horizontalHeaderItem(1)
-        item.setText(_translate("Search", "ID"))
-        item = self.Display_table.horizontalHeaderItem(2)
-        item.setText(_translate("Search", "Password"))
-        item = self.Display_table.horizontalHeaderItem(3)
-        item.setText(_translate("Search", "Permission"))
-        item = self.Display_table.horizontalHeaderItem(4)
-        item.setText(_translate("Search", "Name"))
-        item = self.Display_table.horizontalHeaderItem(5)
-        item.setText(_translate("Search", "Gender"))
-        item = self.Display_table.horizontalHeaderItem(6)
-        item.setText(_translate("Search", "Plate amount"))
-        self.Name_label.setText(_translate("Search", "Name"))
-        self.Male_button.setText(_translate("Search", "Male"))
-        self.Edit_error_message.setText(_translate("Search", "Invalid input!"))
-        self.Female_button.setText(_translate("Search", "Female"))
-        self.Save_change_button.setText(_translate("Search", "Save change"))
-        self.Gender_button.setText(_translate("Search", "Search by Gender"))
-        self.Add_User_button.setText(_translate("Search", "Add a User"))
-        self.Permission_label.setText(_translate("Search", "Permission"))
-        self.Delete_User_button.setText(_translate("Search", "Delete a User"))
-        self.Others_button.setText(_translate("Search", "Others"))
-        self.ID_label.setText(_translate("Search", "ID"))
-        self.Admin_button.setText(_translate("Search", "Admin"))
-        self.Gender_label.setText(_translate("Search", "Gender"))
-        self.User_button.setText(_translate("Search", "User"))
-
-    def lock_the_ID_Column(self):
-        rows = self.Display_table.rowCount()
-        for i in range(rows):
-            item = self.Display_table.item(i, 1)
-            item.setFlags(QtCore.Qt.ItemIsEnabled)
-
-    def show_all_user(self):
-        data = f.get_all_data_from_user_info()
-        self.insert_data_into_table(data)
-        self.lock_the_ID_Column()
-        
-    def show_user_by_id(self, userid):
-        data = f.get_data_from_user_info_by_id(userid)
-        self.insert_data_into_table(data)
-        self.lock_the_ID_Column()
-
-    def show_user_by_name(self, name):
-        data = f.get_data_from_user_info_by_name(name)        
-        self.insert_data_into_table(data)
-        self.lock_the_ID_Column()
-
-    def show_user_by_permission(self):
-        if(self.User_button.isChecked()):
-            data = f.get_data_from_user_info_by_permission("USER")
-        elif(self.Admin_button.isChecked()):  
-            data = f.get_data_from_user_info_by_permission("ADMIN")
-        else:
-            data = f.get_data_from_user_info_by_permission(None)
-        self.insert_data_into_table(data)
-        self.lock_the_ID_Column()
-
-    def show_user_by_gender(self):
-        if(self.Male_button.isChecked()):
-            data = f.get_data_from_user_info_by_gender("MALE")
-        elif(self.Female_button.isChecked()):  
-            data = f.get_data_from_user_info_by_gender("FEMALE")
-        elif(self.Others_button.isChecked()):
-            data = f.get_data_from_user_info_by_gender("OTHERS")            
-        else:
-            data = f.get_data_from_user_info_by_gender(None)
-        self.insert_data_into_table(data) 
-        self.lock_the_ID_Column()       
-
-
-    def insert_data_into_table(self, data):
-        # initialize the table
-        self.Display_table.setRowCount(0) 
-        row = 0
-        self.check_button_array = []
-        for login_record in data:
-            self.Display_table.insertRow(row)
-            self.Display_table.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[0]))
-            self.Display_table.setItem(row, 2, QtWidgets.QTableWidgetItem("************"))
-            self.Display_table.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[2]))
-            self.Display_table.setItem(row, 4, QtWidgets.QTableWidgetItem(login_record[3]))
-            self.Display_table.setItem(row, 5, QtWidgets.QTableWidgetItem(login_record[4]))     
-            self.Display_table.setItem(row, 6, QtWidgets.QTableWidgetItem(str(login_record[5]))) 
-            
-            # set a button to table
-            check_box = QtWidgets.QCheckBox()
-            self.Display_table.setCellWidget(row, 0, check_box)
-            self.check_button_array.append(check_box)
-            row = row+1
-    # mod needed
-    def get_data_from_table(self):
-        # go through entire table row by row
-        for row in range(self.Display_table.rowCount()):
-            data = []
-            for column in range(self.Display_table.columnCount()):
-                if(self.Display_table.item(row, column) != None):
-                    data.append(self.Display_table.item(row, column).text())
-
-            # check if check box is checked (防呆機制)
-            if(self.check_button_array[row].isChecked()):
-                # check if input permission and gender fit format
-                if(data[2] == "USER" or data[2] == "ADMIN"):
-                    if(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS"):
-                        # update name, gender, and permission
-                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4])
-                        self.Edit_error_message.setHidden(True)
-
-                else:
-                    self.Edit_error_message.setHidden(False)
-                    return
-
-                # check if password had been changed
-                if(data[1] != "************"):
-                    # check if edited password fit format
-                    if(f.check_password_availability(data[1])):
-                        f.update_data_to_user_info(data[0], f.encode_password(data[1]), data[2], data[3], data[4])
-                        self.Edit_error_message.setHidden(True)
-                    else:
-                        self.Edit_error_message.setHidden(False)
-                        return
-
-    def open_Remove_confirm_window(self):
-        self.Remove_confirm = QtWidgets.QDialog()
-        self.Remove_confirm_ui = Ui_Remove_confirm()
-        self.Remove_confirm_ui.setupUi(self.Remove_confirm)
-        self.Remove_confirm.show()
-
-    def open_Register_window(self):
-        self.Register = QtWidgets.QWidget()
-        self.Register_ui = Ui_Register()
-        self.Register_ui.setupUi(self.Register)
-        self.Register.show()
-'''
-
-'''
-# done
-class Ui_Search_Login_history(object):
-    def setupUi(self, Search_Login_history):
-        Search_Login_history.setObjectName("Search_Login_history")
-        Search_Login_history.resize(800, 500)
-        self.Display_Login_info = QtWidgets.QTableWidget(Search_Login_history)
-        self.Display_Login_info.setGeometry(QtCore.QRect(30, 150, 720, 300))
-        self.Display_Login_info.setObjectName("Display_Login_info")
-        self.Display_Login_info.resizeColumnsToContents()
-        self.Display_Login_info.setColumnCount(4)
-        self.Display_Login_info.setRowCount(0)
-
-        header = self.Display_Login_info.horizontalHeader()       
-        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)
-        self.ID_search_button = QtWidgets.QPushButton(Search_Login_history)
-        self.ID_search_button.setGeometry(QtCore.QRect(80, 90, 141, 32))
-        self.ID_search_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.ID_search_button.setObjectName("ID_search_button")
-        self.ID_label = QtWidgets.QLabel(Search_Login_history)
-        self.ID_label.setGeometry(QtCore.QRect(30, 30, 61, 16))
-        self.ID_label.setMinimumSize(QtCore.QSize(61, 16))
-        self.ID_label.setObjectName("ID_label")
-        self.ID_input = QtWidgets.QLineEdit(Search_Login_history)
-        self.ID_input.setGeometry(QtCore.QRect(80, 30, 141, 21))
-        self.ID_input.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input.setText("")
-        self.ID_input.setObjectName("ID_input")
-        self.line_4 = QtWidgets.QFrame(Search_Login_history)
-        self.line_4.setGeometry(QtCore.QRect(230, 20, 20, 111))
-        self.line_4.setMinimumSize(QtCore.QSize(20, 111))
-        self.line_4.setFrameShape(QtWidgets.QFrame.VLine)
-        self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line_4.setObjectName("line_4")
-        self.Fail_type_button = QtWidgets.QPushButton(Search_Login_history)
-        self.Fail_type_button.setGeometry(QtCore.QRect(520, 90, 141, 32))
-        self.Fail_type_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.Fail_type_button.setObjectName("Fail_type_button")
-        self.ID_doesnt_exist_button = QtWidgets.QRadioButton(Search_Login_history)
-        self.ID_doesnt_exist_button.setGeometry(QtCore.QRect(520, 30, 121, 20))
-        self.ID_doesnt_exist_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.ID_doesnt_exist_button.setObjectName("ID_doesnt_exist_button")
-        self.Password_doesnt_match_ID_button = QtWidgets.QRadioButton(Search_Login_history)
-        self.Password_doesnt_match_ID_button.setGeometry(QtCore.QRect(520, 60, 211, 20))
-        self.Password_doesnt_match_ID_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Password_doesnt_match_ID_button.setObjectName("Password_doesnt_match_ID_button")
-        self.Fail_button = QtWidgets.QRadioButton(Search_Login_history)
-        self.Fail_button.setGeometry(QtCore.QRect(280, 60, 100, 20))
-        self.Fail_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Fail_button.setObjectName("Fail_button")
-        self.Success_button = QtWidgets.QRadioButton(Search_Login_history)
-        self.Success_button.setGeometry(QtCore.QRect(280, 30, 100, 20))
-        self.Success_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Success_button.setObjectName("Success_button")
-        self.Status_show_button = QtWidgets.QPushButton(Search_Login_history)
-        self.Status_show_button.setGeometry(QtCore.QRect(280, 90, 161, 32))
-        self.Status_show_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.Status_show_button.setObjectName("Status_show_button")
-        self.Show_all_button = QtWidgets.QPushButton(Search_Login_history)
-        self.Show_all_button.setGeometry(QtCore.QRect(330, 460, 141, 32))
-        self.Show_all_button.setMinimumSize(QtCore.QSize(141, 32))
-        self.Show_all_button.setObjectName("Show_all_button")
-
-        self.retranslateUi(Search_Login_history)
-        QtCore.QMetaObject.connectSlotsByName(Search_Login_history)
-
-        # connect button to function
-        self.Show_all_button.clicked.connect(lambda: self.show_all_login_history())
-        self.ID_search_button.clicked.connect(lambda: self.show_login_history_by_id(self.ID_input.text()))
-        self.Status_show_button.clicked.connect(lambda: self.show_login_history_by_status())
-        self.Fail_type_button.clicked.connect(lambda: self.show_login_history_by_fail_type())
-        
-        # let table be read only
-        self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-
-
-    def retranslateUi(self, Search_Login_history):
-        _translate = QtCore.QCoreApplication.translate
-        Search_Login_history.setWindowTitle(_translate("Search_Login_history", "Search_Login_history"))
-        item = self.Display_Login_info.horizontalHeaderItem(0)
-        item.setText(_translate("Search_Login_history", "Login_ID"))
-        item = self.Display_Login_info.horizontalHeaderItem(1)
-        item.setText(_translate("Search_Login_history", "Login_Time"))
-        item = self.Display_Login_info.horizontalHeaderItem(2)
-        item.setText(_translate("Search_Login_history", "Login_Status"))
-        item = self.Display_Login_info.horizontalHeaderItem(3)
-        item.setText(_translate("Search_Login_history", "Fail_Type"))
-        self.ID_search_button.setText(_translate("Search_Login_history", "Search by ID"))
-        self.ID_label.setText(_translate("Search_Login_history", "ID"))
-        self.Fail_type_button.setText(_translate("Search_Login_history", "Search by Fail type"))
-        self.ID_doesnt_exist_button.setText(_translate("Search_Login_history", "ID doesn\'t exist"))
-        self.Password_doesnt_match_ID_button.setText(_translate("Search_Login_history", "Password doesn\'t match ID"))
-        self.Fail_button.setText(_translate("Search_Login_history", "Fail "))
-        self.Success_button.setText(_translate("Search_Login_history", "Success"))
-        self.Status_show_button.setText(_translate("Search_Login_history", "Show by Status"))
-        self.Show_all_button.setText(_translate("Search_Login_history", "Show All"))
-
-
-    # helper function
-    def show_all_login_history(self):
-        data = f.get_all_data_from_login_history()
-        self.insert_data_into_table(data)
-        
-
-    def show_login_history_by_id(self, userid):
-        data = f.get_data_from_login_history_by_id(userid)
-        self.insert_data_into_table(data)
- 
-    def show_login_history_by_status(self):
-        data = f.get_data_from_login_history_by_status(None)
-        if(self.Success_button.isChecked()):
-            data = f.get_data_from_login_history_by_status("SUCCESS")
-        if(self.Fail_button.isChecked()):  
-            data = f.get_data_from_login_history_by_status("FAIL")
-        self.insert_data_into_table(data)
-
-    def show_login_history_by_fail_type(self):
-        data = f.get_data_from_login_history_by_fail_type(None)
-        if(self.ID_doesnt_exist_button.isChecked()):
-            data = f.get_data_from_login_history_by_fail_type("ID doesn't exist")
-        if(self.Password_doesnt_match_ID_button.isChecked()):
-            data = f.get_data_from_login_history_by_fail_type("ID and Password doesn't match")
-        self.insert_data_into_table(data)
-
-
-    def insert_data_into_table(self, data):
-        # initialize the table
-        self.Display_Login_info.setRowCount(0) 
-        row = 0
-
-        for login_record in data:
-            self.Display_Login_info.insertRow(row)
-            self.Display_Login_info.setItem(row, 0, QtWidgets.QTableWidgetItem(login_record[0]))
-            self.Display_Login_info.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[1]))
-            self.Display_Login_info.setItem(row, 2, QtWidgets.QTableWidgetItem(login_record[2]))
-            self.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
-            row = row+1       
-'''
-
-'''
-# done
-class Ui_Remove_confirm(object):
-    def setupUi(self, Remove_confirm):
-        Remove_confirm.setObjectName("Remove_confirm")
-        Remove_confirm.resize(250, 180)
-        self.Confirm_buttons = QtWidgets.QDialogButtonBox(Remove_confirm)
-        self.Confirm_buttons.setGeometry(QtCore.QRect(40, 90, 171, 31))
-        self.Confirm_buttons.setOrientation(QtCore.Qt.Horizontal)
-        self.Confirm_buttons.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.Confirm_buttons.setObjectName("Confirm_buttons")
-        self.Confirm_message = QtWidgets.QTextBrowser(Remove_confirm)
-        self.Confirm_message.setGeometry(QtCore.QRect(50, 40, 161, 31))
-        self.Confirm_message.setObjectName("Confirm_message")
-
-        self.retranslateUi(Remove_confirm)
-        # These two lines will close the window after pressing buttons
-        self.Confirm_buttons.accepted.connect(Remove_confirm.accept)
-        self.Confirm_buttons.rejected.connect(Remove_confirm.reject)
-        QtCore.QMetaObject.connectSlotsByName(Remove_confirm)
-
-        # Function to remove the user
-        self.Confirm_buttons.accepted.connect(lambda: Loginui.Concentrate_Advance_ui.delete_users())
-        
-
-    def retranslateUi(self, Remove_confirm):
-        _translate = QtCore.QCoreApplication.translate
-        Remove_confirm.setWindowTitle(_translate("Remove_confirm", "Remove_confirm"))
-        self.Confirm_message.setHtml(_translate("Remove_confirm", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:18pt;\">Remove the user?</span></p></body></html>"))
-'''

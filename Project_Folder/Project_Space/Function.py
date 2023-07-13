@@ -591,4 +591,50 @@ class function_class:
     
         return data    
     
+    def get_data_from_plate_info_by_plate_id(self, plateid):
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            SELECT * 
+            FROM Plate_Information
+            WHERE PLATE_ID=?
+            ''', (plateid,))
+        except:
+            print("get_data_from_user_info_by_id Encountered error!")
+            return -1   
+                 
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
     
+        return data        
+
+    def get_data_from_plate_info_by_user_id(self, userid):
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            SELECT * 
+            FROM Plate_Information
+            WHERE LAST_ASSIGNED_USER_ID=?
+            ''', (userid,))
+        except:
+            print("get_data_from_user_info_by_id Encountered error!")
+            return -1   
+                 
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return data        
