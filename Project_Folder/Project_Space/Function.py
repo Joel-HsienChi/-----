@@ -321,7 +321,7 @@ class function_class:
         try:
             self.create_User_information_table(project_db)
             # go through the entire database
-            data = project_db.execute('''SELECT * FROM User_Information''')
+            data = project_db.execute('''SELECT * FROM User_Information ORDER BY ID''')
         except:
             print("get_all_data_from_user_info Encountered error!")
             return -1
@@ -370,6 +370,7 @@ class function_class:
             FROM User_Information
             WHERE ID
             LIKE ?
+            ORDER BY ID ASC                                      
             ''', ('%'+userid+'%', ))
         except:
             print("get_data_from_user_info_contains_id Encountered error!")
@@ -419,6 +420,7 @@ class function_class:
             FROM User_Information
             WHERE REAL_NAME
             LIKE ?
+            ORDER BY REAL_NAME ASC
             ''', ('%'+name+'%', ))
         except:
             print("get_data_from_user_info_contains_name Encountered error!")
@@ -438,11 +440,12 @@ class function_class:
 
         try:
             self.create_User_information_table(project_db)
-            # go through the entire database
+            # go through the entire database            
             data = project_db.execute('''
             SELECT * 
             FROM User_Information
             WHERE PERMISSION=?
+            ORDER BY ID ASC
             ''', (permission,))
         except:
             print("get_data_from_login_history_by_fail_type Encountered error!")
@@ -462,11 +465,12 @@ class function_class:
 
         try:
             self.create_User_information_table(project_db)
-            # go through the entire database
+            # go through the entire database        
             data = project_db.execute('''
             SELECT * 
             FROM User_Information
             WHERE GENDER=?
+            ORDER BY ID ASC    
             ''', (gender,))
         except:
             print("get_data_from_login_history_by_fail_type Encountered error!")
@@ -576,7 +580,7 @@ class function_class:
         try:
             self.create_plate_info_table(project_db)
             # go through the entire database
-            data = project_db.execute('''SELECT * FROM Plate_Information''')
+            data = project_db.execute('''SELECT * FROM Plate_Information ORDER BY PLATE_ID ASC''')
         except:
             print("get_all_data_from_plate_info Encountered error!")
             return -1
@@ -598,9 +602,11 @@ class function_class:
             # go through the entire database
             data = project_db.execute('''
             SELECT * 
-            FROM Plate_Information
-            WHERE PLATE_ID=?
-            ''', (plateid,))
+            FROM Plate_Information                                      
+            WHERE PLATE_ID
+            LIKE ?                
+            ORDER BY PLATE_ID ASC                                                                                                 
+            ''', ('%'+plateid+'%',))
         except:
             print("get_data_from_user_info_by_id Encountered error!")
             return -1   
@@ -622,9 +628,11 @@ class function_class:
             # go through the entire database
             data = project_db.execute('''
             SELECT * 
-            FROM Plate_Information
-            WHERE LAST_ASSIGNED_USER_ID=?
-            ''', (userid,))
+            FROM Plate_Information                                      
+            WHERE LAST_ASSIGNED_USER_ID
+            LIKE ?                
+            ORDER BY LAST_ASSIGNED_USER_ID ASC                                                                                                 
+            ''', ('%'+userid+'%',))
         except:
             print("get_data_from_user_info_by_id Encountered error!")
             return -1   
@@ -646,8 +654,9 @@ class function_class:
             # go through the entire database
             data = project_db.execute('''
             SELECT * 
-            FROM Plate_Information
+            FROM Plate_Information                                      
             WHERE AVAILABLE_FOR_ASSIGN=?
+            ORDER BY PLATE_ID ASC  
             ''', (availability,))
         except:
             print("get_data_from_login_history_by_availability Encountered error!")
