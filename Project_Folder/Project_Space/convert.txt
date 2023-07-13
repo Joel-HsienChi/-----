@@ -1,0 +1,34 @@
+pyuic5 -x Delete.ui -o Delete.py
+pyuic5 -x Login.ui -o Login.py
+pyuic5 -x Register.ui -o Register.py
+pyuic5 -x Advance.ui -o Advance.py
+pyuic5 -x Basic.ui -o Basic.py
+pyuic5 -x Search.ui -o Search.py
+pyuic5 -x Show_ID.ui -o Show_ID.py
+pyuic5 -x Info_Editor.ui -o info_Editor.py
+pyuic5 -x Concentrate_Advance.ui -o Concentrate_Advance.py
+pyuic5 -x Search_Login_history.ui -o Search_Login_history.py
+
+Password-1:
+c4ca4238a0b923820dcc509a6f75849b
+
+Default Password = 
+
+Password: encoded by md5 format
+
+
+
+需求：
+
+將Search 和 History 頁面整合            (V)
+
+Normal user 的 編輯畫面                 (V)
+
+大量刪除                                (V)
+
+搜尋功能要能夠顯示多個符合條件的資料         (V)
+
+Tab pages for Assigning the board 
+
+SELECT * FROM User_Information WHERE ID LIKE '%?%'
+

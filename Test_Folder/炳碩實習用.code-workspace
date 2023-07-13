@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../功課/UC_DAVIS/Spring2023/ECS150/Project2"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default",
+					"enableSsl": "Disabled"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MySQL",
+				"name": "FirstConnection",
+				"database": "Test_Schema",
+				"username": "Joel",
+				"password": "Ar0340252"
+			}
+		]
+	}
+}
