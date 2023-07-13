@@ -568,7 +568,7 @@ class function_class:
             LAST_ASSIGNED_USER_ID TEXT NOT NULL,
             AVALIABLE_FOR_ASSIGN TEXT NOT NULL,
             LAST_ASSIGN_TIME TEXT NOT NULL,
-            LAST_DEASSIGN_TIME TEXT NOT NULL,
+            LAST_DEASSIGN_TIME TEXT NOT NULL
         )''')
 
     def get_all_data_from_plate_info(self):
@@ -578,7 +578,7 @@ class function_class:
         try:
             self.create_plate_info_table(project_db)
             # go through the entire database
-            data = project_db.execute('''SELECT * FROM User_Information''')
+            data = project_db.execute('''SELECT * FROM Plate_Information''')
         except:
             print("get_all_data_from_plate_info Encountered error!")
             return -1
@@ -590,3 +590,5 @@ class function_class:
         project_db.close 
     
         return data    
+    
+    

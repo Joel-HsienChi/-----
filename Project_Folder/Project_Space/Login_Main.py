@@ -587,7 +587,7 @@ class Ui_Concentrate_Advance(object):
         self.Display_Plate_Info = QtWidgets.QTableWidget(self.Plate_Scan_Tab)
         self.Display_Plate_Info.setGeometry(QtCore.QRect(320, 10, 800, 730))
         self.Display_Plate_Info.setObjectName("Display_Plate_Info")
-        self.Display_Plate_Info.setColumnCount(4)
+        self.Display_Plate_Info.setColumnCount(6)
         self.Display_Plate_Info.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.Display_Plate_Info.setHorizontalHeaderItem(0, item)
@@ -597,6 +597,10 @@ class Ui_Concentrate_Advance(object):
         self.Display_Plate_Info.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Display_Plate_Info.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Display_Plate_Info.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Display_Plate_Info.setHorizontalHeaderItem(5, item)
         self.Display_Plate_Info.horizontalHeader().setCascadingSectionResizes(False)
         self.Display_Plate_Info.horizontalHeader().setDefaultSectionSize(190)
         self.Display_Plate_Info.horizontalHeader().setStretchLastSection(True)
@@ -694,6 +698,21 @@ class Ui_Concentrate_Advance(object):
         self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
 
+# Modding for plate info
+        # adjust column size
+        header = self.Display_Plate_Info.horizontalHeader()   
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)    
+        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)    
+        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)    
+        header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)    
+
+        # connect button to function
+        self.Show_all_button_Plate_Info.clicked.connect(lambda: self.show_all_plate_info())
+       
+
+
     def retranslateUi(self, Concentrate_Advance):
         _translate = QtCore.QCoreApplication.translate
         Concentrate_Advance.setWindowTitle(_translate("Concentrate_Advance", "Concentrate_Advance"))
@@ -753,9 +772,17 @@ class Ui_Concentrate_Advance(object):
         self.Advance_login_button.setText(_translate("Concentrate_Advance", "Advance login"))
         Concentrate_Advance.setTabText(Concentrate_Advance.indexOf(self.Login_History_Tab), _translate("Concentrate_Advance", "Login History"))
         item = self.Display_Plate_Info.horizontalHeaderItem(0)
-        item.setText(_translate("Concentrate_Advance", "Plate_ID"))
+        item.setText(_translate("Concentrate_Advance", "Checkbox"))
         item = self.Display_Plate_Info.horizontalHeaderItem(1)
-        item.setText(_translate("Concentrate_Advance", "User_ID"))
+        item.setText(_translate("Concentrate_Advance", "Plate_ID"))
+        item = self.Display_Plate_Info.horizontalHeaderItem(2)
+        item.setText(_translate("Concentrate_Advance", "Last_Assigned_User_ID"))
+        item = self.Display_Plate_Info.horizontalHeaderItem(3)
+        item.setText(_translate("Concentrate_Advance", "Avaliable_for_assign"))
+        item = self.Display_Plate_Info.horizontalHeaderItem(4)
+        item.setText(_translate("Concentrate_Advance", "Last_Assign_Time"))
+        item = self.Display_Plate_Info.horizontalHeaderItem(5)
+        item.setText(_translate("Concentrate_Advance", "Last_Deassign_Time"))
         __sortingEnabled = self.Display_Plate_Info.isSortingEnabled()
         self.Display_Plate_Info.setSortingEnabled(False)
         self.Display_Plate_Info.setSortingEnabled(__sortingEnabled)
@@ -832,7 +859,7 @@ class Ui_Concentrate_Advance(object):
             self.Display_table.setCellWidget(row, 0, check_box)
             self.check_button_array.append(check_box)
             row = row+1
-    # mod needed
+
     def get_data_from_table(self):
         # go through entire table row by row
         for row in range(self.Display_table.rowCount()):
@@ -890,7 +917,6 @@ class Ui_Concentrate_Advance(object):
 
 
 # Function for Login History
-    # helper function
     def show_all_login_history(self):
         data = f.get_all_data_from_login_history()
         self.insert_data_into_table(data)
@@ -938,6 +964,36 @@ class Ui_Concentrate_Advance(object):
             self.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
             row = row+1  
 
+# Function for Plate Scan
+    def show_all_plate_info(self):
+        data = f.get_all_data_from_plate_info()
+        self.insert_data_into_table_plate_info(data)
+        self.lock_the_ID_Column_plate_info()
+
+    def insert_data_into_table_plate_info(self, data):
+        # initialize the table
+        self.Display_Plate_Info.setRowCount(0) 
+        row = 0
+        self.check_button_array = []
+        for plate_info in data:
+            self.Display_Plate_Info.insertRow(row)
+            self.Display_Plate_Info.setItem(row, 1, QtWidgets.QTableWidgetItem(plate_info[0]))
+            self.Display_Plate_Info.setItem(row, 2, QtWidgets.QTableWidgetItem(plate_info[1]))
+            self.Display_Plate_Info.setItem(row, 3, QtWidgets.QTableWidgetItem(plate_info[2]))
+            self.Display_Plate_Info.setItem(row, 4, QtWidgets.QTableWidgetItem(plate_info[3]))
+            self.Display_Plate_Info.setItem(row, 5, QtWidgets.QTableWidgetItem(plate_info[4]))     
+            
+            # set a button to table
+            check_box = QtWidgets.QCheckBox()
+            self.Display_Plate_Info.setCellWidget(row, 0, check_box)
+            self.check_button_array.append(check_box)
+            row = row+1      
+
+    def lock_the_ID_Column_plate_info(self):
+        rows = self.Display_Plate_Info.rowCount()
+        for i in range(rows):
+            Plate_ID_column = self.Display_Plate_Info.item(i, 1)
+            Plate_ID_column.setFlags(QtCore.Qt.ItemIsEnabled)          
 # done
 class Ui_Info_Editor(object):
     current_user_ID = ''
