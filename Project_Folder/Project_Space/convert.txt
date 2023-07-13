@@ -41,3 +41,8 @@ Tab pages for Assigning the board
 SELECT * FROM User_Information WHERE ID LIKE '%?%'
 
 
+SELECT * From Plate_Information, User_Information ON USER_INFORMATION.ID = PLATE_INFORMATION.LAST_ASSIGNED_USER_ID
+SELECT Plate_Information.PLATE_ID, User_Information. ID from Plate_Information, User_Information on User_Information.ID = Plate_Information.LAST_ASSIGNED_USER_ID
+SELECT Plate_Information.PLATE_ID, User_Information. ID , AVALIABLE_FOR_ASSIGN , LAST_ASSIGN_TIME, LAST_DEASSIGN_TIME from Plate_Information, User_Information on User_Information.ID = Plate_Information.LAST_ASSIGNED_USER_ID
+
+SELECT Plate_Information.PLATE_ID, Plate_Information.LAST_ASSIGNED_USER_ID , AVALIABLE_FOR_ASSIGN , LAST_ASSIGN_TIME, LAST_DEASSIGN_TIME from Plate_Information, User_Information on User_Information.ID = Plate_Information.LAST_ASSIGNED_USER_ID
