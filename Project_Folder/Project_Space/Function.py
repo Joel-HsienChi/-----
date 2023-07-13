@@ -325,7 +325,7 @@ class function_class:
             # go through the entire database
             data = project_db.execute('''SELECT * FROM User_Information''')
         except:
-            print("get_all_data_from_login_history Encountered error!")
+            print("get_all_data_from_user_info Encountered error!")
             return -1
 
         # Apply changes
@@ -561,3 +561,32 @@ class function_class:
         return data         
 
 
+    # plate info function
+    def create_plate_info_table(self, db):
+        db.execute('''CREATE TABLE IF NOT EXISTS Plate_Information(
+            PLATE_ID TEXT PRIMARY KEY NOT NULL,
+            LAST_ASSIGNED_USER_ID TEXT NOT NULL,
+            AVALIABLE_FOR_ASSIGN TEXT NOT NULL,
+            LAST_ASSIGN_TIME TEXT NOT NULL,
+            LAST_DEASSIGN_TIME TEXT NOT NULL,
+        )''')
+
+    def get_all_data_from_plate_info(self):
+
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+        try:
+            self.create_plate_info_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''SELECT * FROM User_Information''')
+        except:
+            print("get_all_data_from_plate_info Encountered error!")
+            return -1
+
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return data    
