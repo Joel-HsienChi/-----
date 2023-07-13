@@ -17,7 +17,6 @@ Default Password =
 Password: encoded by md5 format
 
 
-
 需求：
 
 將Search 和 History 頁面整合            (V)
@@ -29,6 +28,15 @@ Normal user 的 編輯畫面                 (V)
 搜尋功能要能夠顯示多個符合條件的資料         (V)
 
 Tab pages for Assigning the board 
+
+    > 增加
+    > 搜尋
+    > 刪除配對到的使用者
+
+    plate status: can be assigned
+    assign and expire time
+
+
 
 SELECT * FROM User_Information WHERE ID LIKE '%?%'
 
