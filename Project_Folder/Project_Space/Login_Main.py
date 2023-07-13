@@ -1199,10 +1199,10 @@ class Ui_Concentrate_Advance(object):
                         f.assign_plate_to_user(data[0], userid, "FALSE", f.get_time())
                         self.Assign_success_label.setHidden(False)
                         self.Assign_fail_label.setHidden(True)
-                        return
-        self.Assign_success_label.setHidden(True)
-        self.Assign_fail_label.setHidden(False)
-        return
+        else:
+            self.Assign_success_label.setHidden(True)
+            self.Assign_fail_label.setHidden(False)
+
 
     def show_deassign_plate_to_user_window(self):
         confirm = QMessageBox()

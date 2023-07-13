@@ -27,7 +27,7 @@ Normal user 的 編輯畫面                 (V)
 
 搜尋功能要能夠顯示多個符合條件的資料         (V)
 
-Tab pages for Assigning the board 
+Tab pages for Assigning the board       (V)
 
     > 增加
     > 搜尋
@@ -36,6 +36,7 @@ Tab pages for Assigning the board
     plate status: can be assigned
     assign and expire time
 
+編輯後需要馬上刷新頁面
 
 
 SELECT * FROM User_Information WHERE ID LIKE '%?%'
