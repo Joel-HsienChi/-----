@@ -14,10 +14,8 @@ class function_class:
         hash_md5.update(password.encode("utf-8"))
         return hash_md5.hexdigest()
 
-    def print_time(self):
-        # Get login time
-        login_time = datetime.datetime.now()
-        print("login time : ", login_time)
+    def get_time(self):
+        return datetime.datetime.now()
 
     # checker for password
     def has_capital_letters(self, password):
@@ -179,7 +177,7 @@ class function_class:
     def add_login_record(self, userid, login_state, fail_type):
         # Open database
         project_db = sqlite3.connect('Project.db')
-        login_time = datetime.datetime.now()
+        login_time = self.get_time()
         
         project_db.execute('''CREATE TABLE IF NOT EXISTS Login_record(
             ID TEXT NOT NULL,
@@ -566,7 +564,7 @@ class function_class:
         db.execute('''CREATE TABLE IF NOT EXISTS Plate_Information(
             PLATE_ID TEXT PRIMARY KEY NOT NULL,
             LAST_ASSIGNED_USER_ID TEXT NOT NULL,
-            AVALIABLE_FOR_ASSIGN TEXT NOT NULL,
+            AVAILABLE_FOR_ASSIGN TEXT NOT NULL,
             LAST_ASSIGN_TIME TEXT NOT NULL,
             LAST_DEASSIGN_TIME TEXT NOT NULL
         )''')
@@ -638,3 +636,112 @@ class function_class:
         project_db.close 
     
         return data        
+
+    def get_data_from_plate_info_by_availability(self, availability):
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            SELECT * 
+            FROM Plate_Information
+            WHERE AVAILABLE_FOR_ASSIGN=?
+            ''', (availability,))
+        except:
+            print("get_data_from_login_history_by_availability Encountered error!")
+            return -1   
+                 
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return data        
+
+    def add_new_plate(self, plateid):
+        # Open the database
+        project_db = sqlite3.connect('Project.db')
+        try:
+            self.create_User_information_table(project_db)
+        
+            # go through the entire database
+            project_db.execute('''INSERT INTO Plate_Information(PLATE_ID, LAST_ASSIGNED_USER_ID, AVAILABLE_FOR_ASSIGN, LAST_ASSIGN_TIME, LAST_DEASSIGN_TIME)
+                VALUES(?, ?, ?, ?, ?)
+            ''', (plateid, "NONE", "TRUE", "NONE", "NONE")) 
+        except:
+            print("add_new_plate Encountered error!")
+
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return        
+
+    def assign_plate_to_user(self, plateid, userid, availability, last_assign_time):
+        # Open the database
+        project_db = sqlite3.connect('Project.db')
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            UPDATE Plate_Information
+            SET LAST_ASSIGNED_USER_ID=?, AVAILABLE_FOR_ASSIGN=?, LAST_ASSIGN_TIME=?
+            WHERE PLATE_ID=?
+            ''', (userid, availability, last_assign_time, plateid))
+        except:
+            print("assign_plate_to_user Encountered error!")
+            return -1   
+
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return        
+
+    def deassign_plate_from_user(self, plateid, availability, last_deassign_time):
+        # Open the database
+        project_db = sqlite3.connect('Project.db')
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            UPDATE Plate_Information
+            SET AVAILABLE_FOR_ASSIGN=?, LAST_DEASSIGN_TIME=?
+            WHERE PLATE_ID=?
+            ''', (availability, last_deassign_time, plateid))
+        except:
+            print("assign_plate_to_user Encountered error!")
+            return -1   
+
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return       
+    
+    def remove_plate(self, plateid):
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+        try:
+            self.create_plate_info_table(project_db)
+            # delete the user
+            project_db.execute('''DELETE FROM Plate_Information WHERE PLATE_ID=?''', (plateid,))
+        except:
+            print("Encountered error, please check if your input is valid!")
+            return -1
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close         
+
+
