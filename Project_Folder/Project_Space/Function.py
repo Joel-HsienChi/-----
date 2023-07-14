@@ -474,16 +474,10 @@ class function_class:
         # Open database
         project_db = sqlite3.connect('Project.db')
         if(password != None):
-            self.update_password(project_db, userid, password)
-
-        self.update_permission(project_db, userid, permission)
-
-        self.update_name(project_db, userid, real_name)
-
-        self.update_gender(project_db, userid, gender)
-
-        self.update_plate_amount(project_db, userid, plate_amount)
-
+            self.update_all(project_db, userid, password, permission, real_name, gender, plate_amount)
+        else:
+            self.update_all_but_password(project_db, userid, permission, real_name, gender, plate_amount)
+        
         # Apply changes
         project_db.commit()        
         
@@ -492,75 +486,33 @@ class function_class:
     
         return          
 
-    def update_password(self, database, userid, password):
+    def update_all(self, database, userid, password, permission, real_name, gender, plate_amount):
         try:
             self.create_User_information_table(database)
             # go through the entire database
             data = database.execute('''
             UPDATE User_Information
-            SET PASSWORD=?
+            SET PASSWORD=?, PERMISSION=?, REAL_NAME=?, GENDER=?, PLATE_NUM=?
             WHERE ID=?
-            ''', (password, userid))
+            ''', (password, permission, real_name, gender, plate_amount, userid))
         except:
             print("update_password Encountered error!")
             return -1   
         return data
-    
-    def update_name(self, database, userid, name):
-        try:
-            self.create_User_information_table(database)
-            # go through the entire database
-            data = database.execute('''
-            UPDATE User_Information
-            SET REAL_NAME=?
-            WHERE ID=?
-            ''', (name, userid))
-        except:
-            print("update_name Encountered error!")
-            return -1   
-        return data                 
 
-    def update_permission(self, database, userid, permission):
+    def update_all_but_password(self, database, userid, permission, real_name, gender, plate_amount):
         try:
             self.create_User_information_table(database)
             # go through the entire database
             data = database.execute('''
             UPDATE User_Information
-            SET PERMISSION=?
+            SET PERMISSION=?, REAL_NAME=?, GENDER=?, PLATE_NUM=?
             WHERE ID=?
-            ''', (permission, userid))
+            ''', (permission, real_name, gender, plate_amount, userid))
         except:
-            print("update_permission Encountered error!")
+            print("update_password Encountered error!")
             return -1   
-        return data   
-  
-    def update_gender(self, database, userid, gender):
-        try:
-            self.create_User_information_table(database)
-            # go through the entire database
-            data = database.execute('''
-            UPDATE User_Information
-            SET GENDER=?
-            WHERE ID=?
-            ''', (gender, userid))
-        except:
-            print("update_gender Encountered error!")
-            return -1   
-        return data         
-
-    def update_plate_amount(self, database, userid, plateamount):
-        try:
-            self.create_User_information_table(database)
-            # go through the entire database
-            data = database.execute('''
-            UPDATE User_Information
-            SET PLATE_NUM=?
-            WHERE ID=?
-            ''', (plateamount, userid))
-        except:
-            print("update_gender Encountered error!")
-            return -1   
-        return data            
+        return data  
 
     # plate info function
     def create_plate_info_table(self, db):

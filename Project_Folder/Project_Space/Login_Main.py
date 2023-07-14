@@ -392,7 +392,6 @@ class Ui_Info_Editor(object):
         f.lock_the_Column(self.Display_table, 1)
         f.lock_the_Column(self.Display_table, 3)   
 
-
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
         self.Display_table.setRowCount(0) 
@@ -585,6 +584,11 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.addTab(self.Search_Edit_Tab, "")
         self.Login_History_Tab = QtWidgets.QWidget()
         self.Login_History_Tab.setObjectName("Login_History_Tab")
+        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
+        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
+        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
+        self.ID_input_login_history.setText("")
+        self.ID_input_login_history.setObjectName("ID_input_login_history")        
         self.Password_doesnt_match_ID_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Password_doesnt_match_ID_button.setGeometry(QtCore.QRect(50, 290, 211, 20))
         self.Password_doesnt_match_ID_button.setMinimumSize(QtCore.QSize(100, 20))
@@ -601,11 +605,6 @@ class Ui_Concentrate_Advance(object):
         self.ID_doesnt_exist_button.setGeometry(QtCore.QRect(50, 260, 121, 20))
         self.ID_doesnt_exist_button.setMinimumSize(QtCore.QSize(100, 20))
         self.ID_doesnt_exist_button.setObjectName("ID_doesnt_exist_button")
-        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
-        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
-        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input_login_history.setText("")
-        self.ID_input_login_history.setObjectName("ID_input_login_history")
         self.ID_search_button_login_history = QtWidgets.QPushButton(self.Login_History_Tab)
         self.ID_search_button_login_history.setGeometry(QtCore.QRect(120, 60, 140, 30))
         self.ID_search_button_login_history.setMinimumSize(QtCore.QSize(0, 0))
@@ -829,7 +828,7 @@ class Ui_Concentrate_Advance(object):
         self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
         # show all info initially 
-        self.show_all_login_history()
+        self.show_login_history("all", None)
 
 # Modding for plate info
         # adjust column size
@@ -944,7 +943,6 @@ class Ui_Concentrate_Advance(object):
         self.Assign_success_label.setText(_translate("Concentrate_Advance", "Success"))
         Concentrate_Advance.setTabText(Concentrate_Advance.indexOf(self.Plate_Scan_Tab), _translate("Concentrate_Advance", "Plate Scan"))
 
-
 # Function for Search/Edit
     def show_user(self, type, value):
         if(type == "all"):
@@ -1006,15 +1004,13 @@ class Ui_Concentrate_Advance(object):
             # check if check box is checked (防呆機制)
             if(self.check_button_array_search_edit[row].isChecked()):
                 # check if input permission and gender fit format
-                if(data[2] == "USER" or data[2] == "ADMIN"):
-                    if(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS"):
-                        # update name, gender, and permission
-                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
-                        self.Edit_error_message.setHidden(True)
+                if((data[2] == "USER" or data[2] == "ADMIN")and(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS")):
+                    # update name, gender, and permission
+                    f.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
+                    self.Edit_error_message.setHidden(True)
                 else:
                     self.Edit_error_message.setHidden(False)
                     return
-
                 # check if password had been changed
                 if(data[1] != "************"):
                     # check if edited password fit format
@@ -1024,7 +1020,8 @@ class Ui_Concentrate_Advance(object):
                     else:
                         self.Edit_error_message.setHidden(False)
                         return
-                self.show_user("all", None)
+            
+        self.show_user("all", None)
 
     def open_Register_window(self):
         self.Register = QtWidgets.QWidget()
@@ -1051,7 +1048,6 @@ class Ui_Concentrate_Advance(object):
         confirm.accepted.connect(lambda: self.delete_users())
         confirm.accepted.connect(lambda: self.show_user("all", None))
         x = confirm.exec_()
-
 
 # Function for Login History
 
@@ -1080,40 +1076,6 @@ class Ui_Concentrate_Advance(object):
                 data = f.get_data_from_login_history_by_success_type("Login with normal user mode")
             if(self.Advance_login_button.isChecked()):
                 data = f.get_data_from_login_history_by_success_type("Login with Advance mode")
-        self.insert_data_into_table(data)
-
-    def show_all_login_history(self):
-        data = f.get_all_data_from_login_history()
-        self.insert_data_into_table(data)
-        
-    def show_login_history_by_id(self, userid):
-        data = f.get_data_from_login_history_by_id(userid)
-        self.insert_data_into_table(data)
- 
-    def show_login_history_by_status(self):
-        data = f.get_data_from_login_history_by_status(None)
-        if(self.Success_button.isChecked()):
-            data = f.get_data_from_login_history_by_status("SUCCESS")
-        if(self.Fail_button.isChecked()):  
-            data = f.get_data_from_login_history_by_status("FAIL")
-        self.insert_data_into_table(data)
-
-    def show_login_history_by_fail_type(self):
-        data = f.get_data_from_login_history_by_fail_type(None)
-        if(self.ID_doesnt_exist_button.isChecked()):
-            data = f.get_data_from_login_history_by_fail_type("ID doesn't exist")
-        if(self.Password_doesnt_match_ID_button.isChecked()):
-            data = f.get_data_from_login_history_by_fail_type("ID and Password doesn't match")
-        if(self.User_enter_advance_button.isChecked()):
-            data = f.get_data_from_login_history_by_fail_type("A normal user tries to enter Advance mode")            
-        self.insert_data_into_table(data)
-
-    def show_login_history_by_success_type(self):
-        data = f.get_data_from_login_history_by_success_type(None)
-        if(self.Normal_login_button.isChecked()):
-            data = f.get_data_from_login_history_by_success_type("Login with normal user mode")
-        if(self.Advance_login_button.isChecked()):
-            data = f.get_data_from_login_history_by_success_type("Login with Advance mode")
         self.insert_data_into_table(data)
 
     def insert_data_into_table(self, data):
@@ -1194,7 +1156,6 @@ class Ui_Concentrate_Advance(object):
                     if(self.Display_Plate_Info.item(row, column) != None):
                         data.append(self.Display_Plate_Info.item(row, column).text())
                 if(self.check_button_array_plate_info[row].isChecked()):
-                    print(data)
                     if(data[2] == "TRUE"):
                         f.assign_plate_to_user(data[0], userid, "FALSE", f.get_time())
                         self.Assign_success_label.setHidden(False)
@@ -1257,7 +1218,4 @@ if __name__ == "__main__":
     Loginui.setupUi(Login)
     Login.show()
     sys.exit(app.exec_())
-
-
-
 

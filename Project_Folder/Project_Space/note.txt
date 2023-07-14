@@ -12,7 +12,7 @@ pyuic5 -x Search_Login_history.ui -o Search_Login_history.py
 Password-1:
 c4ca4238a0b923820dcc509a6f75849b
 
-Default Password = 
+Default Password = Point1
 
 Password: encoded by md5 format
 
