@@ -2,10 +2,7 @@ import datetime
 import sqlite3
 import hashlib
 import re
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import pyqtSignal, Qt
-from PyQt5.QtWidgets import QStyledItemDelegate, QApplication, QTableWidget, QMessageBox
-
+from PyQt5 import QtCore
 
 class function_class:
 

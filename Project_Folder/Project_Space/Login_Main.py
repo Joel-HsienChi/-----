@@ -1,6 +1,5 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QStyledItemDelegate, QApplication, QTableWidget, QMessageBox
+from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 from Function import function_class
 import sys
 
