@@ -2,11 +2,12 @@ import datetime
 import sqlite3
 import hashlib
 import re
-from functools import partial
-from PyQt5.QtCore import pyqtSignal
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSignal, Qt
+from PyQt5.QtWidgets import QStyledItemDelegate, QApplication, QTableWidget, QMessageBox
+
 
 class function_class:
-    ID_PASSWORD_MATCH = pyqtSignal()
 
     # helper function
     def encode_password(self, password):
@@ -16,6 +17,12 @@ class function_class:
 
     def get_time(self):
         return datetime.datetime.now()
+
+    def lock_the_Column(self, display_table, lock_column):
+        rows = display_table.rowCount()
+        for i in range(rows):
+            item = display_table.item(i, lock_column)
+            item.setFlags(QtCore.Qt.ItemIsEnabled)
 
     # checker for password
     def has_capital_letters(self, password):
@@ -334,30 +341,6 @@ class function_class:
     
         return data        
 
-    def get_data_from_user_info_by_id(self, userid):
-        # Open database
-        project_db = sqlite3.connect('Project.db')
-
-        try:
-            self.create_User_information_table(project_db)
-            # go through the entire database
-            data = project_db.execute('''
-            SELECT * 
-            FROM User_Information
-            WHERE ID=?
-            ''', (userid,))
-        except:
-            print("get_data_from_user_info_by_id Encountered error!")
-            return -1   
-                 
-        # Apply changes
-        project_db.commit()        
-        
-        # Close the data base
-        project_db.close 
-    
-        return data
-
     def get_data_from_user_info_contains_id(self, userid):
         # Open database
         project_db = sqlite3.connect('Project.db')
@@ -383,30 +366,6 @@ class function_class:
         project_db.close 
     
         return data        
-
-    def get_data_from_user_info_by_name(self, name):
-        # Open database
-        project_db = sqlite3.connect('Project.db')
-
-        try:
-            self.create_User_information_table(project_db)
-            # go through the entire database
-            data = project_db.execute('''
-            SELECT * 
-            FROM User_Information
-            WHERE REAL_NAME=?
-            ''', (name,))
-        except:
-            print("get_data_from_user_info_by_name Encountered error!")
-            return -1   
-                 
-        # Apply changes
-        project_db.commit()        
-        
-        # Close the data base
-        project_db.close 
-    
-        return data  
 
     def get_data_from_user_info_contains_name(self, name):
         # Open database
@@ -486,7 +445,7 @@ class function_class:
 
   
     # update user info function
-    def update_data_to_user_info(self, userid, password, permission, real_name, gender):
+    def update_data_to_user_info(self, userid, password, permission, real_name, gender, plate_amount):
         # Open database
         project_db = sqlite3.connect('Project.db')
         if(password != None):
@@ -497,6 +456,8 @@ class function_class:
         self.update_name(project_db, userid, real_name)
 
         self.update_gender(project_db, userid, gender)
+
+        self.update_plate_amount(project_db, userid, plate_amount)
 
         # Apply changes
         project_db.commit()        
@@ -562,6 +523,19 @@ class function_class:
             return -1   
         return data         
 
+    def update_plate_amount(self, database, userid, plateamount):
+        try:
+            self.create_User_information_table(database)
+            # go through the entire database
+            data = database.execute('''
+            UPDATE User_Information
+            SET PLATE_NUM=?
+            WHERE ID=?
+            ''', (plateamount, userid))
+        except:
+            print("update_gender Encountered error!")
+            return -1   
+        return data            
 
     # plate info function
     def create_plate_info_table(self, db):

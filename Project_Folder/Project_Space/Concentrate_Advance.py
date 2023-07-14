@@ -115,7 +115,7 @@ class Ui_Concentrate_Advance(object):
         self.Display_table.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.Display_table.setHorizontalHeaderItem(6, item)
-        self.Display_table.horizontalHeader().setVisible(False)
+        self.Display_table.horizontalHeader().setVisible(True)
         self.Display_table.horizontalHeader().setCascadingSectionResizes(False)
         self.Display_table.horizontalHeader().setDefaultSectionSize(100)
         self.Display_table.horizontalHeader().setMinimumSectionSize(20)
@@ -350,7 +350,7 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.addTab(self.Plate_Scan_Tab, "")
 
         self.retranslateUi(Concentrate_Advance)
-        Concentrate_Advance.setCurrentIndex(2)
+        Concentrate_Advance.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Concentrate_Advance)
 
     def retranslateUi(self, Concentrate_Advance):

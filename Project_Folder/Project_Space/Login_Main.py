@@ -263,7 +263,6 @@ class Ui_Register(object):
         self.Register_success_message.setText(_translate("Register", "Successfully added the user!"))
         self.Other_button.setText(_translate("Register", "Others"))
 
-    # helper function
     def press_register(self, userid, password, real_name):
         return_flag = False
         gender_flag = False
@@ -301,9 +300,6 @@ class Ui_Register(object):
         elif(self.Normal_button.isChecked()):
             permission = "USER" 
         
-
-        # encode the password 
-
         # Just for checking
         # print(userid)
         # print(encrypted_password)
@@ -313,6 +309,7 @@ class Ui_Register(object):
 
         # add the user
         f.add_user(userid, f.encode_password(password), permission, real_name, gender)
+        Loginui.Concentrate_Advance_ui.show_all_user()
         self.Register_error_message.setHidden(True)
         self.Register_success_message.setHidden(False)
 
@@ -388,9 +385,9 @@ class Ui_Info_Editor(object):
         self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
 
     def show_user_info_into_table(self):
-        data = f.get_data_from_user_info_by_id(self.current_user_ID)
+        data = f.get_data_from_user_info_contains_id(self.current_user_ID)
         self.insert_data_into_table_Search_Edit(data)
-        self.lock_the_ID_Column()
+        f.lock_the_Column(self.Display_table, 1)
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
@@ -411,13 +408,7 @@ class Ui_Info_Editor(object):
             self.Display_table.setCellWidget(row, 0, check_box)
             self.check_button_array.append(check_box)
             row = row+1
-
-    def lock_the_ID_Column(self):
-        rows = self.Display_table.rowCount()
-        for i in range(rows):
-            item = self.Display_table.item(i, 1)
-            item.setFlags(QtCore.Qt.ItemIsEnabled)
-
+        
     def get_data_from_table(self):
         # go through entire table row by row
         for row in range(self.Display_table.rowCount()):
@@ -455,7 +446,7 @@ class Ui_Concentrate_Advance(object):
     def setupUi(self, Concentrate_Advance):
         Concentrate_Advance.setObjectName("Concentrate_Advance")
         Concentrate_Advance.resize(1350, 800)
-        self.Search_Edit_Tab = QtWidgets.QWidget()
+        self.Search_Edit_Tab = QtWidgets.QMainWindow()
         self.Search_Edit_Tab.setObjectName("Search_Edit_Tab")
         self.Delete_User_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
         self.Delete_User_button.setGeometry(QtCore.QRect(20, 580, 161, 32))
@@ -555,7 +546,7 @@ class Ui_Concentrate_Advance(object):
         self.Display_table.setHorizontalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.Display_table.setHorizontalHeaderItem(6, item)
-        self.Display_table.horizontalHeader().setVisible(False)
+        self.Display_table.horizontalHeader().setVisible(True)
         self.Display_table.horizontalHeader().setCascadingSectionResizes(False)
         self.Display_table.horizontalHeader().setDefaultSectionSize(100)
         self.Display_table.horizontalHeader().setMinimumSectionSize(20)
@@ -795,13 +786,9 @@ class Ui_Concentrate_Advance(object):
 
 # Modding for Search/Edit
         # adjust column size
-        header = self.Display_table.horizontalHeader()   
-        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)    
+        header = self.Display_table.horizontalHeader()
+        for i in range(5):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
 
         # hide the error message
         self.Edit_error_message.setHidden(True)
@@ -816,13 +803,15 @@ class Ui_Concentrate_Advance(object):
         self.Delete_User_button.clicked.connect(lambda: self.show_delete_confirm())
         self.Add_User_button.clicked.connect(lambda: self.open_Register_window())
 
+        # show all info initially 
+        self.show_all_user()
+
+
 # Modding for Login History
         # adjust column size
-        header = self.Display_Login_info.horizontalHeader()   
-        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)    
+        header = self.Display_Login_info.horizontalHeader() 
+        for i in range(3):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)    
    
         # connect button to function
         self.Show_all_button_login_history.clicked.connect(lambda: self.show_all_login_history())
@@ -834,22 +823,20 @@ class Ui_Concentrate_Advance(object):
         # let table be read only
         self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
+        # show all info initially 
+        self.show_all_login_history()
 
 # Modding for plate info
         # adjust column size
-        header = self.Display_Plate_Info.horizontalHeader()   
-        header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)    
-        header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)    
+        header = self.Display_Plate_Info.horizontalHeader() 
+        for i in range(5):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
 
         # connect button to function
-        self.Show_all_button_Plate_Info.clicked.connect(lambda: self.show_all_plate_info())
-        self.ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info_by_user_id(self.ID_input_Plate_Info.text()))
-        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info_by_plate_id(self.Plate_ID_input_Plate_Info.text()))
-        self.Availability_button.clicked.connect(lambda: self.show_plate_info_by_availability())
+        self.Show_all_button_Plate_Info.clicked.connect(lambda: self.show_plate_info("all", None))
+        self.ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info("user_id", self.ID_input_Plate_Info.text()))
+        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: self.show_plate_info("plate_id", self.Plate_ID_input_Plate_Info.text()))
+        self.Availability_button.clicked.connect(lambda: self.show_plate_info("availability", None))
         self.Add_new_plate.clicked.connect(lambda: self.show_add_new_plate_window())
         self.Assign_plate_to_user.clicked.connect(lambda: self.show_assign_plate_to_user_window())
         self.Deassign_plate_from_user.clicked.connect(lambda: self.show_deassign_plate_to_user_window())
@@ -862,6 +849,9 @@ class Ui_Concentrate_Advance(object):
         # hide the message
         self.Assign_fail_label.setHidden(True)
         self.Assign_success_label.setHidden(True)
+
+        # show all info initially 
+        self.show_plate_info("all", None)
 
 
     def retranslateUi(self, Concentrate_Advance):
@@ -952,26 +942,21 @@ class Ui_Concentrate_Advance(object):
 
 
 # Function for Search/Edit
-    def lock_the_ID_Column(self):
-        rows = self.Display_table.rowCount()
-        for i in range(rows):
-            item = self.Display_table.item(i, 1)
-            item.setFlags(QtCore.Qt.ItemIsEnabled)
 
     def show_all_user(self):
         data = f.get_all_data_from_user_info()
         self.insert_data_into_table_Search_Edit(data)
-        self.lock_the_ID_Column()      
+        f.lock_the_Column(self.Display_table, 1)   
         
     def show_user_by_id(self, userid):
         data = f.get_data_from_user_info_contains_id(userid)
         self.insert_data_into_table_Search_Edit(data)
-        self.lock_the_ID_Column()
+        f.lock_the_Column(self.Display_table, 1)
 
     def show_user_by_name(self, name):
         data = f.get_data_from_user_info_contains_name(name)        
         self.insert_data_into_table_Search_Edit(data)
-        self.lock_the_ID_Column()
+        f.lock_the_Column(self.Display_table, 1)
 
     def show_user_by_permission(self):
         if(self.User_button.isChecked()):
@@ -981,7 +966,7 @@ class Ui_Concentrate_Advance(object):
         else:
             data = f.get_data_from_user_info_by_permission(None)
         self.insert_data_into_table_Search_Edit(data)
-        self.lock_the_ID_Column()     
+        f.lock_the_Column(self.Display_table, 1)  
 
     def show_user_by_gender(self):
         if(self.Male_button.isChecked()):
@@ -993,7 +978,7 @@ class Ui_Concentrate_Advance(object):
         else:
             data = f.get_data_from_user_info_by_gender(None)
         self.insert_data_into_table_Search_Edit(data) 
-        self.lock_the_ID_Column()       
+        f.lock_the_Column(self.Display_table, 1)      
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
@@ -1029,7 +1014,7 @@ class Ui_Concentrate_Advance(object):
                 if(data[2] == "USER" or data[2] == "ADMIN"):
                     if(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS"):
                         # update name, gender, and permission
-                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4])
+                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
                         self.Edit_error_message.setHidden(True)
                 else:
                     self.Edit_error_message.setHidden(False)
@@ -1039,11 +1024,12 @@ class Ui_Concentrate_Advance(object):
                 if(data[1] != "************"):
                     # check if edited password fit format
                     if(f.check_password_availability(data[1])):
-                        f.update_data_to_user_info(data[0], f.encode_password(data[1]), data[2], data[3], data[4])
+                        f.update_data_to_user_info(data[0], f.encode_password(data[1]), data[2], data[3], data[4], data[5])
                         self.Edit_error_message.setHidden(True)
                     else:
                         self.Edit_error_message.setHidden(False)
                         return
+                self.show_all_user()
 
     def open_Register_window(self):
         self.Register = QtWidgets.QWidget()
@@ -1068,6 +1054,7 @@ class Ui_Concentrate_Advance(object):
         confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         confirm.setDefaultButton(QMessageBox.Cancel)
         confirm.accepted.connect(lambda: self.delete_users())
+        confirm.accepted.connect(lambda: self.show_all_user())
         x = confirm.exec_()
 
 
@@ -1120,59 +1107,50 @@ class Ui_Concentrate_Advance(object):
             row = row+1  
 
 # Function for Plate Scan
-    def show_all_plate_info(self):
-        data = f.get_all_data_from_plate_info()
-        self.insert_data_into_table_plate_info(data)
-        self.lock_the_ID_Column_plate_info()
 
-    def show_plate_info_by_plate_id(self, plateid):
-        data = f.get_data_from_plate_info_by_plate_id(plateid)
-        self.lock_the_ID_Column_plate_info()
+    def show_plate_info(self, type, value):
+        if(type == "all"):
+            data = f.get_all_data_from_plate_info()
+        elif(type == "plate_id"):
+            data = f.get_data_from_plate_info_by_plate_id(value)
+        elif(type == "user_id"):
+            data = f.get_data_from_plate_info_by_user_id(value)
+        elif(type == "availability"):
+            data = f.get_data_from_plate_info_by_availability(None)
+            if(self.Available_FALSE.isChecked()):
+                data = f.get_data_from_plate_info_by_availability("FALSE")
+            if(self.Available_TRUE.isChecked()):
+                data = f.get_data_from_plate_info_by_availability("TRUE")
         self.insert_data_into_table_plate_info(data)
-
-    def show_plate_info_by_user_id(self, userid):
-        data = f.get_data_from_plate_info_by_user_id(userid)
-        self.lock_the_ID_Column_plate_info()
-        self.insert_data_into_table_plate_info(data)
-
-    def show_plate_info_by_availability(self):
-        data = f.get_data_from_plate_info_by_availability(None)
-        if(self.Available_FALSE.isChecked()):
-            data = f.get_data_from_plate_info_by_availability("FALSE")
-        if(self.Available_TRUE.isChecked()):
-            data = f.get_data_from_plate_info_by_availability("TRUE")
-        self.lock_the_ID_Column_plate_info()        
-        self.insert_data_into_table_plate_info(data)   
+        f.lock_the_Column(self.Display_Plate_Info, 1)
 
     def insert_data_into_table_plate_info(self, data):
+
         # initialize the table
         self.Display_Plate_Info.setRowCount(0) 
         row = 0
         self.check_button_array_plate_info = []
+
+        # goes through every row
         for plate_info in data:
             self.Display_Plate_Info.insertRow(row)
-            self.Display_Plate_Info.setItem(row, 1, QtWidgets.QTableWidgetItem(plate_info[0]))
-            self.Display_Plate_Info.setItem(row, 2, QtWidgets.QTableWidgetItem(plate_info[1]))
-            self.Display_Plate_Info.setItem(row, 3, QtWidgets.QTableWidgetItem(plate_info[2]))
-            self.Display_Plate_Info.setItem(row, 4, QtWidgets.QTableWidgetItem(plate_info[3]))
-            self.Display_Plate_Info.setItem(row, 5, QtWidgets.QTableWidgetItem(plate_info[4]))     
-             
+
+            # put item into row's column1 ~ column 5
+            for i in range(5):
+                self.Display_Plate_Info.setItem(row, i+1, QtWidgets.QTableWidgetItem(plate_info[i]))
+
             # set a button to table
             check_box = QtWidgets.QCheckBox()
             self.Display_Plate_Info.setCellWidget(row, 0, check_box)
             self.check_button_array_plate_info.append(check_box)
+
             row = row+1      
-
-    def lock_the_ID_Column_plate_info(self):
-        rows = self.Display_Plate_Info.rowCount()
-        for i in range(rows):
-            Plate_ID_column = self.Display_Plate_Info.item(i, 1)
-            Plate_ID_column.setFlags(QtCore.Qt.ItemIsEnabled)          
-
+         
     def show_add_new_plate_window(self):
         plateid, read_next_plate = QtWidgets.QInputDialog().getText(self.Plate_Scan_Tab, '', 'Please scan the bar code on the plate.')
         if(read_next_plate is True and plateid != ''):
-            f.add_new_plate(plateid)            
+            f.add_new_plate(plateid)        
+            self.show_plate_info("all", None)
             self.show_add_new_plate_window()
     
     def show_delete_plate_confirm(self):
@@ -1202,7 +1180,7 @@ class Ui_Concentrate_Advance(object):
         else:
             self.Assign_success_label.setHidden(True)
             self.Assign_fail_label.setHidden(False)
-
+        self.show_plate_info("all", None)   
 
     def show_deassign_plate_to_user_window(self):
         confirm = QMessageBox()
@@ -1220,7 +1198,8 @@ class Ui_Concentrate_Advance(object):
                 if(self.Display_Plate_Info.item(row, column) != None):
                     data.append(self.Display_Plate_Info.item(row, column).text())
             if(self.check_button_array_plate_info[row].isChecked()):
-                f.remove_plate(data[0])     
+                f.remove_plate(data[0])   
+        self.show_plate_info("all", None)               
 
     def deassign_plate(self):
         for row in range(self.Display_Plate_Info.rowCount()):
@@ -1231,6 +1210,7 @@ class Ui_Concentrate_Advance(object):
             if(self.check_button_array_plate_info[row].isChecked()):
                 if(data[2] == "FALSE"):
                     f.deassign_plate_from_user(data[0], "TRUE", f.get_time())
+        self.show_plate_info("all", None)             
 
 
 # main

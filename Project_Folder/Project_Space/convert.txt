@@ -38,6 +38,11 @@ Tab pages for Assigning the board       (V)
 
 編輯後需要馬上刷新頁面
 
+Logout button
+
+
+
+
 
 SELECT * FROM User_Information WHERE ID LIKE '%?%'
 
