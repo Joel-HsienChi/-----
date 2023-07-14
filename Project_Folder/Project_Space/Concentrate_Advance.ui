@@ -14,7 +14,7 @@
    <string>Concentrate_Advance</string>
   </property>
   <property name="currentIndex">
-   <number>0</number>
+   <number>1</number>
   </property>
   <widget class="QWidget" name="Search_Edit_Tab">
    <attribute name="title">
@@ -146,6 +146,9 @@
     <property name="text">
      <string>Female</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_gender</string>
+    </attribute>
    </widget>
    <widget class="Line" name="line_2">
     <property name="geometry">
@@ -248,6 +251,9 @@
     <property name="text">
      <string>Others</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_gender</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="ID_search_button">
     <property name="geometry">
@@ -299,6 +305,9 @@
     <property name="text">
      <string>Admin</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_permission</string>
+    </attribute>
    </widget>
    <widget class="QLabel" name="Edit_error_message">
     <property name="geometry">
@@ -357,7 +366,7 @@
      <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
+     <bool>false</bool>
     </attribute>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
@@ -447,6 +456,9 @@
     <property name="text">
      <string>Male</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_gender</string>
+    </attribute>
    </widget>
    <widget class="QLabel" name="Permission_label">
     <property name="geometry">
@@ -485,6 +497,9 @@
     <property name="text">
      <string>User</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_permission</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="Save_change_button">
     <property name="geometry">
@@ -547,6 +562,9 @@
     <property name="text">
      <string>Password doesn't match ID</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_fail_type</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="Success_button">
     <property name="geometry">
@@ -604,6 +622,9 @@
     <property name="text">
      <string>ID doesn't exist</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_fail_type</string>
+    </attribute>
    </widget>
    <widget class="QLineEdit" name="ID_input_login_history">
     <property name="geometry">
@@ -815,6 +836,9 @@
     <property name="text">
      <string>Normal user entered Advance mode</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_fail_type</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="Success_type_button">
     <property name="geometry">
@@ -853,6 +877,9 @@
     <property name="text">
      <string>Normal login</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_success_type</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="Advance_login_button">
     <property name="geometry">
@@ -872,6 +899,9 @@
     <property name="text">
      <string>Advance login</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttongroup_success_type</string>
+    </attribute>
    </widget>
    <widget class="Line" name="line_8">
     <property name="geometry">
@@ -1293,4 +1323,10 @@
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttongroup_permission"/>
+  <buttongroup name="buttongroup_gender"/>
+  <buttongroup name="buttongroup_success_type"/>
+  <buttongroup name="buttongroup_fail_type"/>
+ </buttongroups>
 </ui>

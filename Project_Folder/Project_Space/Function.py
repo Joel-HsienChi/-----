@@ -4,6 +4,8 @@ import hashlib
 import re
 from PyQt5 import QtCore
 
+
+
 class function_class:
 
     # helper function
@@ -176,7 +178,6 @@ class function_class:
     
         return
 
-
     # login record function
     def add_login_record(self, userid, login_state, fail_type):
         # Open database
@@ -234,7 +235,7 @@ class function_class:
             WHERE ID=?
             ''', (userid,))
         except:
-            print("get_all_data_from_login_history Encountered error!")
+            print("get_data_from_login_history_by_id Encountered error!")
             return -1   
                  
         # Apply changes
@@ -306,7 +307,7 @@ class function_class:
             WHERE SPECIFIC_TYPE=?
             ''', (successtype,))
         except:
-            print("get_data_from_login_history_by_fail_type Encountered error!")
+            print("get_data_from_login_history_by_success_type Encountered error!")
             return -1   
                  
         # Apply changes
@@ -352,7 +353,7 @@ class function_class:
             ORDER BY ID ASC                                      
             ''', (userid, ))
         except:
-            print("get_data_from_user_info_contains_id Encountered error!")
+            print("get_data_from_user_info_by_id Encountered error!")
             return -1   
                  
         # Apply changes
@@ -429,7 +430,7 @@ class function_class:
             ORDER BY ID ASC
             ''', (permission,))
         except:
-            print("get_data_from_login_history_by_fail_type Encountered error!")
+            print("get_data_from_user_info_by_permission Encountered error!")
             return -1   
                  
         # Apply changes
@@ -454,7 +455,7 @@ class function_class:
             ORDER BY ID ASC    
             ''', (gender,))
         except:
-            print("get_data_from_login_history_by_fail_type Encountered error!")
+            print("get_data_from_user_info_by_gender Encountered error!")
             return -1   
                  
         # Apply changes
@@ -493,7 +494,7 @@ class function_class:
             WHERE ID=?
             ''', (password, permission, real_name, gender, plate_amount, userid))
         except:
-            print("update_password Encountered error!")
+            print("update_all Encountered error!")
             return -1   
         return data
 
@@ -507,7 +508,7 @@ class function_class:
             WHERE ID=?
             ''', (permission, real_name, gender, plate_amount, userid))
         except:
-            print("update_password Encountered error!")
+            print("update_all_but_password Encountered error!")
             return -1   
         return data  
 
@@ -556,7 +557,7 @@ class function_class:
             ORDER BY PLATE_ID ASC                                                                                                 
             ''', ('%'+plateid+'%',))
         except:
-            print("get_data_from_user_info_by_id Encountered error!")
+            print("get_data_from_plate_info_by_plate_id Encountered error!")
             return -1   
                  
         # Apply changes
@@ -582,7 +583,7 @@ class function_class:
             ORDER BY LAST_ASSIGNED_USER_ID ASC                                                                                                 
             ''', ('%'+userid+'%',))
         except:
-            print("get_data_from_user_info_by_id Encountered error!")
+            print("get_data_from_plate_info_by_user_id Encountered error!")
             return -1   
                  
         # Apply changes
@@ -607,7 +608,7 @@ class function_class:
             ORDER BY PLATE_ID ASC  
             ''', (availability,))
         except:
-            print("get_data_from_login_history_by_availability Encountered error!")
+            print("get_data_from_plate_info_by_availability Encountered error!")
             return -1   
                  
         # Apply changes
@@ -623,7 +624,7 @@ class function_class:
         project_db = sqlite3.connect('Project.db')
         try:
             self.create_User_information_table(project_db)
-        
+      
             # go through the entire database
             project_db.execute('''INSERT INTO Plate_Information(PLATE_ID, LAST_ASSIGNED_USER_ID, AVAILABLE_FOR_ASSIGN, LAST_ASSIGN_TIME, LAST_DEASSIGN_TIME)
                 VALUES(?, ?, ?, ?, ?)
@@ -676,7 +677,7 @@ class function_class:
             WHERE PLATE_ID=?
             ''', (availability, last_deassign_time, plateid))
         except:
-            print("assign_plate_to_user Encountered error!")
+            print("deassign_plate_from_user Encountered error!")
             return -1   
 
         # Apply changes
@@ -720,7 +721,7 @@ class function_class:
             WHERE ID=?
             ''', (userid, userid))        
         except:
-            print("get_amount_of_plate_user_have Encountered error!")
+            print("update_plate_user_have Encountered error!")
             return -1  
 
 

@@ -36,9 +36,11 @@ Tab pages for Assigning the board       (V)
     plate status: can be assigned
     assign and expire time
 
-編輯後需要馬上刷新頁面
+編輯後需要馬上刷新頁面              (V)
 
-Logout button
+
+Logout button       (optional)
+Sorting button      (optional)  place a group of radio button above the table.
 
 
 

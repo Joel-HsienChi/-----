@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-from Function import function_class
+from Function_MySQL import function_class_MySQL
 import sys
 
 # done
@@ -1203,7 +1203,9 @@ class Ui_Concentrate_Advance(object):
                     data.append(self.Display_Plate_Info.item(row, column).text())
             if(self.check_button_array_plate_info[row].isChecked()):
                 f.remove_plate(data[0])   
-        self.show_plate_info("all", None)               
+
+        self.show_plate_info("all", None)
+        self.show_user("all", None)
 
     def deassign_plate(self):
         for row in range(self.Display_Plate_Info.rowCount()):
@@ -1229,7 +1231,7 @@ class Ui_Concentrate_Advance(object):
                             
 # main
 if __name__ == "__main__":
-    f = function_class()
+    f = function_class_MySQL()
     app = QtWidgets.QApplication(sys.argv)
     Login = QtWidgets.QMainWindow()
     Loginui = Ui_Login()
