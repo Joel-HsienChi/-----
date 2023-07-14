@@ -123,11 +123,12 @@ class Ui_Login(object):
             # Normal user mode
             else:
                 self.show_normal_welcome_message()
-                self.Info_Editor_ui.show_user_info_into_table()
                 f.add_login_record(userid, "SUCCESS", "Login with normal user mode")
                 Login.close()
         # Fail: ID doesn't exist        
         elif(ID_exist is False):
+            f.add_login_record(userid, "FAIL", "ID doesn't exist")
+            # display the error message
             self.Error_Message_for_permission.setHidden(True) 
             self.Error_Message_for_password.setHidden(True)
             self.Error_Message_for_ID.setHidden(False)
@@ -148,6 +149,7 @@ class Ui_Login(object):
         confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         confirm.setDefaultButton(QMessageBox.Cancel)
         confirm.accepted.connect(lambda: self.open_Info_Editor_window())
+        confirm.accepted.connect(lambda: self.Info_Editor_ui.show_user_info_into_table())
         x = confirm.exec_()
 
 # done        
@@ -309,7 +311,7 @@ class Ui_Register(object):
 
         # add the user
         f.add_user(userid, f.encode_password(password), permission, real_name, gender)
-        Loginui.Concentrate_Advance_ui.show_all_user()
+        Loginui.Concentrate_Advance_ui.show_user("all", None)
         self.Register_error_message.setHidden(True)
         self.Register_success_message.setHidden(False)
 
@@ -385,9 +387,11 @@ class Ui_Info_Editor(object):
         self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
 
     def show_user_info_into_table(self):
-        data = f.get_data_from_user_info_contains_id(self.current_user_ID)
+        data = f.get_data_from_user_info_by_id(self.current_user_ID)
         self.insert_data_into_table_Search_Edit(data)
         f.lock_the_Column(self.Display_table, 1)
+        f.lock_the_Column(self.Display_table, 3)   
+
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
@@ -423,7 +427,7 @@ class Ui_Info_Editor(object):
                 if(data[2] == "USER" or data[2] == "ADMIN"):
                     if(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS"):
                         # update name, gender, and permission
-                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4])
+                        f.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
                         self.Input_Invalid.setHidden(True)
 
                 else:
@@ -434,12 +438,13 @@ class Ui_Info_Editor(object):
                 if(data[1] != "************"):
                     # check if edited password fit format
                     if(f.check_password_availability(data[1])):
-                        f.update_data_to_user_info(data[0], f.encode_password(data[1]), data[2], data[3], data[4])
+                        f.update_data_to_user_info(data[0], f.encode_password(data[1]), data[2], data[3], data[4], data[5])
                         self.Input_Invalid.setHidden(True)
                     else:
                         self.Input_Invalid.setHidden(False)
                         return
-
+        self.show_user_info_into_table()
+                    
 # done
 class Ui_Concentrate_Advance(object):
     current_user_ID = ''
@@ -794,17 +799,17 @@ class Ui_Concentrate_Advance(object):
         self.Edit_error_message.setHidden(True)
 
         # connect button to function
-        self.Show_all_button.clicked.connect(lambda: self.show_all_user())
-        self.ID_search_button.clicked.connect(lambda: self.show_user_by_id(self.ID_input.text()))
-        self.Name_search_button.clicked.connect(lambda: self.show_user_by_name(self.Name_input.text()))
-        self.Gender_button.clicked.connect(lambda: self.show_user_by_gender())
-        self.Permission_button.clicked.connect(lambda: self.show_user_by_permission())
+        self.Show_all_button.clicked.connect(lambda: self.show_user("all", None))
+        self.ID_search_button.clicked.connect(lambda: self.show_user("id",self.ID_input.text()))
+        self.Name_search_button.clicked.connect(lambda: self.show_user("name",self.Name_input.text()))
+        self.Gender_button.clicked.connect(lambda: self.show_user("gender", None))
+        self.Permission_button.clicked.connect(lambda: self.show_user("permission", None))
         self.Save_change_button.clicked.connect(lambda: self.get_data_from_table())
         self.Delete_User_button.clicked.connect(lambda: self.show_delete_confirm())
         self.Add_User_button.clicked.connect(lambda: self.open_Register_window())
 
         # show all info initially 
-        self.show_all_user()
+        self.show_user("all", None)
 
 
 # Modding for Login History
@@ -813,12 +818,12 @@ class Ui_Concentrate_Advance(object):
         for i in range(3):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)    
    
-        # connect button to function
-        self.Show_all_button_login_history.clicked.connect(lambda: self.show_all_login_history())
-        self.ID_search_button_login_history.clicked.connect(lambda: self.show_login_history_by_id(self.ID_input_login_history.text()))
-        self.Status_show_button.clicked.connect(lambda: self.show_login_history_by_status())
-        self.Fail_type_button.clicked.connect(lambda: self.show_login_history_by_fail_type())
-        self.Success_type_button.clicked.connect(lambda: self.show_login_history_by_success_type())
+        # connect button to function                                    def show_login_history(self, type, value):
+        self.Show_all_button_login_history.clicked.connect(lambda: self.show_login_history("all", None))
+        self.ID_search_button_login_history.clicked.connect(lambda: self.show_login_history("id", self.ID_input_login_history.text()))
+        self.Status_show_button.clicked.connect(lambda: self.show_login_history("status", None))
+        self.Fail_type_button.clicked.connect(lambda: self.show_login_history("fail_type", None))
+        self.Success_type_button.clicked.connect(lambda: self.show_login_history("success_type", None))
 
         # let table be read only
         self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
@@ -852,7 +857,6 @@ class Ui_Concentrate_Advance(object):
 
         # show all info initially 
         self.show_plate_info("all", None)
-
 
     def retranslateUi(self, Concentrate_Advance):
         _translate = QtCore.QCoreApplication.translate
@@ -942,43 +946,32 @@ class Ui_Concentrate_Advance(object):
 
 
 # Function for Search/Edit
-
-    def show_all_user(self):
-        data = f.get_all_data_from_user_info()
-        self.insert_data_into_table_Search_Edit(data)
-        f.lock_the_Column(self.Display_table, 1)   
-        
-    def show_user_by_id(self, userid):
-        data = f.get_data_from_user_info_contains_id(userid)
+    def show_user(self, type, value):
+        if(type == "all"):
+            data = f.get_all_data_from_user_info()
+        if(type == "id"):
+            data = f.get_data_from_user_info_contains_id(value)
+        if(type == "name"):
+            data = f.get_data_from_user_info_contains_name(value)        
+        if(type == "permission"):
+            if(self.User_button.isChecked()):
+                data = f.get_data_from_user_info_by_permission("USER")
+            elif(self.Admin_button.isChecked()):  
+                data = f.get_data_from_user_info_by_permission("ADMIN")
+            else:
+                data = f.get_data_from_user_info_by_permission(None)
+        if(type == "gender"):
+            if(self.Male_button.isChecked()):
+                data = f.get_data_from_user_info_by_gender("MALE")
+            elif(self.Female_button.isChecked()):  
+                data = f.get_data_from_user_info_by_gender("FEMALE")
+            elif(self.Others_button.isChecked()):
+                data = f.get_data_from_user_info_by_gender("OTHERS")            
+            else:
+                data = f.get_data_from_user_info_by_gender(None)
         self.insert_data_into_table_Search_Edit(data)
         f.lock_the_Column(self.Display_table, 1)
-
-    def show_user_by_name(self, name):
-        data = f.get_data_from_user_info_contains_name(name)        
-        self.insert_data_into_table_Search_Edit(data)
-        f.lock_the_Column(self.Display_table, 1)
-
-    def show_user_by_permission(self):
-        if(self.User_button.isChecked()):
-            data = f.get_data_from_user_info_by_permission("USER")
-        elif(self.Admin_button.isChecked()):  
-            data = f.get_data_from_user_info_by_permission("ADMIN")
-        else:
-            data = f.get_data_from_user_info_by_permission(None)
-        self.insert_data_into_table_Search_Edit(data)
-        f.lock_the_Column(self.Display_table, 1)  
-
-    def show_user_by_gender(self):
-        if(self.Male_button.isChecked()):
-            data = f.get_data_from_user_info_by_gender("MALE")
-        elif(self.Female_button.isChecked()):  
-            data = f.get_data_from_user_info_by_gender("FEMALE")
-        elif(self.Others_button.isChecked()):
-            data = f.get_data_from_user_info_by_gender("OTHERS")            
-        else:
-            data = f.get_data_from_user_info_by_gender(None)
-        self.insert_data_into_table_Search_Edit(data) 
-        f.lock_the_Column(self.Display_table, 1)      
+        f.lock_the_Column(self.Display_table, 6)
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
@@ -1008,6 +1001,8 @@ class Ui_Concentrate_Advance(object):
                 if(self.Display_table.item(row, column) != None):
                     data.append(self.Display_table.item(row, column).text())
 
+            # update plate_number_nomatter_what
+            f.update_plate_user_have(data[0])
             # check if check box is checked (防呆機制)
             if(self.check_button_array_search_edit[row].isChecked()):
                 # check if input permission and gender fit format
@@ -1029,7 +1024,7 @@ class Ui_Concentrate_Advance(object):
                     else:
                         self.Edit_error_message.setHidden(False)
                         return
-                self.show_all_user()
+                self.show_user("all", None)
 
     def open_Register_window(self):
         self.Register = QtWidgets.QWidget()
@@ -1054,11 +1049,39 @@ class Ui_Concentrate_Advance(object):
         confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         confirm.setDefaultButton(QMessageBox.Cancel)
         confirm.accepted.connect(lambda: self.delete_users())
-        confirm.accepted.connect(lambda: self.show_all_user())
+        confirm.accepted.connect(lambda: self.show_user("all", None))
         x = confirm.exec_()
 
 
 # Function for Login History
+
+    def show_login_history(self, type, value):
+        if(type == "all"):
+            data = f.get_all_data_from_login_history()
+        elif(type == "id"):
+            data = f.get_data_from_login_history_by_id(value)
+        elif(type == "status"):
+            data = f.get_data_from_login_history_by_status(None)
+            if(self.Success_button.isChecked()):
+                data = f.get_data_from_login_history_by_status("SUCCESS")
+            if(self.Fail_button.isChecked()):  
+                data = f.get_data_from_login_history_by_status("FAIL")
+        elif(type == "fail_type"):
+            data = f.get_data_from_login_history_by_fail_type(None)
+            if(self.ID_doesnt_exist_button.isChecked()):
+                data = f.get_data_from_login_history_by_fail_type("ID doesn't exist")
+            if(self.Password_doesnt_match_ID_button.isChecked()):
+                data = f.get_data_from_login_history_by_fail_type("ID and Password doesn't match")
+            if(self.User_enter_advance_button.isChecked()):
+                data = f.get_data_from_login_history_by_fail_type("A normal user tries to enter Advance mode")            
+        elif(type == "success_type"):
+            data = f.get_data_from_login_history_by_success_type(None)
+            if(self.Normal_login_button.isChecked()):
+                data = f.get_data_from_login_history_by_success_type("Login with normal user mode")
+            if(self.Advance_login_button.isChecked()):
+                data = f.get_data_from_login_history_by_success_type("Login with Advance mode")
+        self.insert_data_into_table(data)
+
     def show_all_login_history(self):
         data = f.get_all_data_from_login_history()
         self.insert_data_into_table(data)
@@ -1107,8 +1130,7 @@ class Ui_Concentrate_Advance(object):
             row = row+1  
 
 # Function for Plate Scan
-
-    def show_plate_info(self, type, value):
+    def show_plate_info(self, type, value):        
         if(type == "all"):
             data = f.get_all_data_from_plate_info()
         elif(type == "plate_id"):
@@ -1180,7 +1202,9 @@ class Ui_Concentrate_Advance(object):
         else:
             self.Assign_success_label.setHidden(True)
             self.Assign_fail_label.setHidden(False)
-        self.show_plate_info("all", None)   
+        self.show_plate_info("all", None)          
+        self.update_whole_table()
+        self.show_user("all", None)
 
     def show_deassign_plate_to_user_window(self):
         confirm = QMessageBox()
@@ -1207,11 +1231,22 @@ class Ui_Concentrate_Advance(object):
             for column in range(self.Display_Plate_Info.columnCount()):
                 if(self.Display_Plate_Info.item(row, column) != None):
                     data.append(self.Display_Plate_Info.item(row, column).text())        
+
             if(self.check_button_array_plate_info[row].isChecked()):
                 if(data[2] == "FALSE"):
                     f.deassign_plate_from_user(data[0], "TRUE", f.get_time())
-        self.show_plate_info("all", None)             
+        self.show_plate_info("all", None)
+        self.update_whole_table()
+        self.show_user("all", None)
 
+    def update_whole_table(self):
+        for row in range(self.Display_Plate_Info.rowCount()):
+            data = []
+            for column in range(self.Display_Plate_Info.columnCount()):
+                if(self.Display_Plate_Info.item(row, column) != None):
+                    data.append(self.Display_Plate_Info.item(row, column).text())        
+            f.update_plate_user_have(data[1])
+                            
 
 # main
 if __name__ == "__main__":

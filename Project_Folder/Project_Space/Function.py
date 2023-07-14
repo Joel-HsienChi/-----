@@ -341,6 +341,31 @@ class function_class:
     
         return data        
 
+    def get_data_from_user_info_by_id(self, userid):
+        # Open database
+        project_db = sqlite3.connect('Project.db')
+
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            data = project_db.execute('''
+            SELECT * 
+            FROM User_Information
+            WHERE ID=?
+            ORDER BY ID ASC                                      
+            ''', (userid, ))
+        except:
+            print("get_data_from_user_info_contains_id Encountered error!")
+            return -1   
+                 
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+    
+        return data   
+    
     def get_data_from_user_info_contains_id(self, userid):
         # Open database
         project_db = sqlite3.connect('Project.db')
@@ -686,6 +711,8 @@ class function_class:
         # Close the data base
         project_db.close 
     
+        self.update_plate_user_have(userid)
+
         return        
 
     def deassign_plate_from_user(self, plateid, availability, last_deassign_time):
@@ -727,4 +754,30 @@ class function_class:
         # Close the data base
         project_db.close         
 
+    def update_plate_user_have(self, userid):
+        # Open the database
+        project_db = sqlite3.connect('Project.db')        
 
+        # get the number of plate user have
+        try:
+            self.create_User_information_table(project_db)
+            # go through the entire database
+            project_db.execute('''
+            UPDATE User_Information
+            SET PLATE_NUM = (
+                SELECT count(*) 
+                FROM Plate_Information 
+                WHERE LAST_ASSIGNED_USER_ID=? AND AVAILABLE_FOR_ASSIGN='FALSE')
+            WHERE ID=?
+            ''', (userid, userid))        
+        except:
+            print("get_amount_of_plate_user_have Encountered error!")
+            return -1  
+
+
+        # Apply changes
+        project_db.commit()        
+        
+        # Close the data base
+        project_db.close 
+        return
