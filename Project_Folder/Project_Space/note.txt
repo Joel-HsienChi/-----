@@ -41,6 +41,7 @@ Tab pages for Assigning the board       (V)
 
 Logout button       (optional)
 Sorting button      (optional)  place a group of radio button above the table.
+fixed size for plateid, password, etc.
 
 
 

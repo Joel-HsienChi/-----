@@ -14,7 +14,7 @@
    <string>Concentrate_Advance</string>
   </property>
   <property name="currentIndex">
-   <number>1</number>
+   <number>0</number>
   </property>
   <widget class="QWidget" name="Search_Edit_Tab">
    <attribute name="title">
@@ -351,9 +351,9 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>10</y>
+      <y>50</y>
       <width>1000</width>
-      <height>730</height>
+      <height>700</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -366,7 +366,7 @@
      <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <attribute name="horizontalHeaderVisible">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <attribute name="horizontalHeaderCascadingSectionResizes">
      <bool>false</bool>
@@ -563,7 +563,7 @@
      <string>Password doesn't match ID</string>
     </property>
     <attribute name="buttonGroup">
-     <string notr="true">buttonGroup_2</string>
+     <string notr="true">buttonGroup_fail_type</string>
     </attribute>
    </widget>
    <widget class="QRadioButton" name="Success_button">
@@ -623,7 +623,7 @@
      <string>ID doesn't exist</string>
     </property>
     <attribute name="buttonGroup">
-     <string notr="true">buttonGroup_2</string>
+     <string notr="true">buttonGroup_fail_type</string>
     </attribute>
    </widget>
    <widget class="QLineEdit" name="ID_input_login_history">
@@ -699,7 +699,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Fail_Type</string>
+      <string>Specific_Type</string>
      </property>
     </column>
    </widget>
@@ -837,7 +837,7 @@
      <string>Normal user entered Advance mode</string>
     </property>
     <attribute name="buttonGroup">
-     <string notr="true">buttonGroup_2</string>
+     <string notr="true">buttonGroup_fail_type</string>
     </attribute>
    </widget>
    <widget class="QPushButton" name="Success_type_button">
@@ -928,6 +928,9 @@
     <property name="text">
      <string>Sort by ID</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_sorting_Login_History</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="Sort_by_login_time">
     <property name="geometry">
@@ -941,32 +944,41 @@
     <property name="text">
      <string>Sort by ID</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_sorting_Login_History</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="Sort_by_Login_Status">
     <property name="geometry">
      <rect>
       <x>650</x>
       <y>10</y>
-      <width>100</width>
+      <width>171</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>RadioButton</string>
+     <string>Sort by Login Status</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_sorting_Login_History</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="Sort_by_Fail_Type">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>830</x>
       <y>10</y>
-      <width>100</width>
+      <width>171</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>RadioButton</string>
+     <string>Sort by Specific Type</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup_sorting_Login_History</string>
+    </attribute>
    </widget>
   </widget>
   <widget class="QWidget" name="Plate_Scan_Tab">
@@ -977,9 +989,9 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>10</y>
+      <y>50</y>
       <width>1000</width>
-      <height>730</height>
+      <height>700</height>
      </rect>
     </property>
     <attribute name="horizontalHeaderCascadingSectionResizes">
@@ -1379,6 +1391,7 @@
   <buttongroup name="buttongroup_permission"/>
   <buttongroup name="buttongroup_gender"/>
   <buttongroup name="buttongroup_success_type"/>
-  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_fail_type"/>
+  <buttongroup name="buttonGroup_sorting_Login_History"/>
  </buttongroups>
 </ui>
