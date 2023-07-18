@@ -30,10 +30,25 @@ Info_Editor_file_handler = logging.FileHandler("Info_editor.log")
 Info_Editor_file_handler.setFormatter(formatter)
 Info_Editor_logger.addHandler(Info_Editor_file_handler)
 
+# logger for login history
+Login_history_logger = logging.getLogger("Login_history_log")
+Login_history_logger.setLevel(logging.INFO)
+Login_history_file_handler = logging.FileHandler("Login_history.log")
+Login_history_file_handler.setFormatter(formatter)
+Login_history_logger.addHandler(Login_history_file_handler)
 
-Login_logger.info("test1")
-Info_Editor_logger.info("test2")
-Register_logger.info("test3")
+# logger for plate info
+Plate_Info_logger = logging.getLogger("Plate_Info_log")
+Plate_Info_logger.setLevel(logging.INFO)
+Plate_Info_file_handler = logging.FileHandler("Plate_Info.log")
+Plate_Info_file_handler.setFormatter(formatter)
+Plate_Info_logger.addHandler(Plate_Info_file_handler)
+
+Login_logger.info("test login logger")
+Info_Editor_logger.info("test info editor logger")
+Register_logger.info("test tegister logger")
+Login_history_logger.info("test login history logger")
+Plate_Info_logger.info("test plate info logger")
 
 # UI class
 class Ui_Login(object):
