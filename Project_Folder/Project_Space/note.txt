@@ -89,6 +89,9 @@ class Ui_Advance(object):
 
 
 
+
+
+
     def retranslateUi(self, Advance):
         _translate = QtCore.QCoreApplication.translate
         Advance.setWindowTitle(_translate("Advance", "Advance"))
@@ -125,7 +128,6 @@ class Ui_Advance(object):
         self.Delete_ui = Ui_Delete()
         self.Delete_ui.setupUi(self.Delete)
         self.Delete.show()
-
 
 
 # done
@@ -188,8 +190,6 @@ class Ui_Delete(object):
         else:
             self.ID_Doesnt_Exist_message.setHidden(False)
             self.Delete_success_message.setHidden(True)
-
-
 
 # yet
 class Ui_Search(object):
@@ -498,8 +498,6 @@ class Ui_Search(object):
         self.Register_ui.setupUi(self.Register)
         self.Register.show()
 
-
-
 # done
 class Ui_Search_Login_history(object):
     def setupUi(self, Search_Login_history):
@@ -642,8 +640,6 @@ class Ui_Search_Login_history(object):
             self.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
             row = row+1       
 
-
-
 # done
 class Ui_Remove_confirm(object):
     def setupUi(self, Remove_confirm):
@@ -676,3 +672,26 @@ class Ui_Remove_confirm(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'.AppleSystemUIFont\'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:18pt;\">Remove the user?</span></p></body></html>"))
+
+
+
+
+unit test python
+
+class diverse
+
+test plan
+
+panda for sorting
+
+login history pages
+
+log 檔案 (儲存使用者新增編輯之類的資料)
+
+空白form 
+
+ui only pass the values
+
+
+# need to mod
+        confirm.accepted.connect(lambda: self.Info_Editor_ui.show_user_info_into_table())
