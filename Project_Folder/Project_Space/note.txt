@@ -678,7 +678,7 @@ class Ui_Remove_confirm(object):
 
 unit test python
 
-class diverse
+class and function diverse   (V)
 
 test plan
 
@@ -690,8 +690,10 @@ log 檔案 (儲存使用者新增編輯之類的資料)
 
 空白form 
 
-ui only pass the values
+ui only pass the values        (V)
+
+one more column in front of the database including all three table
+
+logout button
 
 
-# need to mod
-        confirm.accepted.connect(lambda: self.Info_Editor_ui.show_user_info_into_table())

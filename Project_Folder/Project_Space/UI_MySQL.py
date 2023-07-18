@@ -7,17 +7,34 @@ import hashlib
 import re
 import mysql.connector
 
+formatter = logging.Formatter("%(asctime)s - %(levelname)s %(message)s")
 
-logging.basicConfig(filename="test.log", level=logging.INFO,  filemode="w")
-logging.debug("debug")
-logging.info("info")
-logging.warning("warning")
-logging.error("error")
-logging.critical("critical")
+# logger for login ui
+Login_logger = logging.getLogger("Login_log")
+Login_logger.setLevel(logging.INFO)
+Login_logger_file_handler = logging.FileHandler("Login.log")
+Login_logger_file_handler.setFormatter(formatter)
+Login_logger.addHandler(Login_logger_file_handler)
+
+# logger for Register ui
+Register_logger = logging.getLogger("Register_log")
+Register_logger.setLevel(logging.INFO)
+Register_file_handler = logging.FileHandler("Register.log")
+Register_file_handler.setFormatter(formatter)
+Register_logger.addHandler(Register_file_handler)
+
+# logger for normal user info editor ui
+Info_Editor_logger = logging.getLogger("Info_editor_log")
+Info_Editor_logger.setLevel(logging.INFO)
+Info_Editor_file_handler = logging.FileHandler("Info_editor.log")
+Info_Editor_file_handler.setFormatter(formatter)
+Info_Editor_logger.addHandler(Info_Editor_file_handler)
 
 
+Login_logger.info("test1")
+Info_Editor_logger.info("test2")
+Register_logger.info("test3")
 
-# yet
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
@@ -82,7 +99,6 @@ class Ui_Login(object):
         self.Error_Message_for_permission.setText(_translate("Login", "You are not an Admin!"))
         self.Error_Message_for_ID.setText(_translate("Login", "ID doesn\'t exist!"))
 
-# yet        
 class Ui_Register(object):
     # global variable
     default_password = "Point1"
@@ -196,7 +212,6 @@ class Ui_Register(object):
         self.Register_success_message.setText(_translate("Register", "Successfully added the user!"))
         self.Other_button.setText(_translate("Register", "Others"))
 
-# done
 class Ui_Info_Editor(object):
     current_user_ID = ''
     def setupUi(self, Info_Editor):
@@ -267,7 +282,6 @@ class Ui_Info_Editor(object):
         item.setText(_translate("Info_Editor", "Plate amount"))
         self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
 
-# yet
 class Ui_Concentrate_Advance(object):
     current_user_ID = ''
     def setupUi(self, Concentrate_Advance):
@@ -796,8 +810,6 @@ class Ui_Concentrate_Advance(object):
 
 
 
-
-# done
 class UI_Login_function:
     def check_ID_password_function (self, userid, password):
 
@@ -805,8 +817,6 @@ class UI_Login_function:
         ID_password_match = False
         ID_is_admin = False
         ID_exist = SQL_function.check_ID_exist(userid)
-        
-        logging.info(f"the value of userid is {userid}") 
 
         # encrypt the password
         encrypted_password = helper.encode_password(password)
@@ -881,8 +891,7 @@ class UI_Login_function:
         confirm.accepted.connect(lambda: self.open_Info_Editor_window())
         confirm.accepted.connect(lambda: Info_Editor_function.show_user_info_into_table())
         x = confirm.exec_()
-
-# done
+        
 class UI_Info_Editor_function:
     def show_user_info_into_table(self):
         data = SQL_function.get_data_from_user_info("id_strict", Login_function.Info_Editor_ui.current_user_ID)
@@ -941,8 +950,7 @@ class UI_Info_Editor_function:
                         Login_function.Info_Editor_ui.Input_Invalid.setHidden(False)
                         return
         self.show_user_info_into_table()
-
-# yet        
+  
 class UI_Search_Edit_function:
 # Function for Search/Edit
     def show_user(self, type, value):       
@@ -1050,7 +1058,6 @@ class UI_Search_Edit_function:
         confirm.accepted.connect(lambda: self.show_user("all", None))
         x = confirm.exec_()
 
-# yet
 class UI_Register_function:
 
     def press_register(self, userid, password, real_name):
@@ -1097,7 +1104,6 @@ class UI_Register_function:
         Search_Edit_function.Register_ui.Register_error_message.setHidden(True)
         Search_Edit_function.Register_ui.Register_success_message.setHidden(False)
 
-# yet
 class UI_Login_History_function:
 # Function for Login History
 
@@ -1138,7 +1144,6 @@ class UI_Login_History_function:
             Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
             row = row+1  
 
-# yet
 class UI_Plate_info_function:
 # Function for Plate Scan
     def show_plate_info(self, type, value):        
@@ -1256,8 +1261,6 @@ class UI_Plate_info_function:
                     data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())        
             SQL_function.update_plate_user_have(data[1])
 
-
-# done
 class helper_function:
     # helper function
     # change info in connect_to_database() to connect to different database
@@ -1315,7 +1318,6 @@ class helper_function:
             return True
         return False
 
-# yet
 class MySQL_function:
     def connect_to_database(self):
         mydb = mysql.connector.connect(
@@ -1332,7 +1334,6 @@ class MySQL_function:
         cursor.execute("CREATE TABLE if not exists Login_record (ID VARCHAR(500), LOGIN_TIME VARCHAR(500), LOGIN_STATE VARCHAR(500), SPECIFIC_TYPE VARCHAR(500))")
         cursor.execute("CREATE TABLE if not exists Plate_Information (PLATE_ID VARCHAR(500) PRIMARY KEY, LAST_ASSIGNED_USER_ID VARCHAR(500), AVAILABLE_FOR_ASSIGN VARCHAR(20), LAST_ASSIGN_TIME VARCHAR(500), LAST_DEASSIGN_TIME VARCHAR(500))")
 
-    # OKAY
     def check_ID_password(self, userid, password):
         Match = False
         try:
@@ -1351,11 +1352,10 @@ class MySQL_function:
                     if(User_record[1] == password):
                         Match = True            
         except:
-            print("Check_ID_password Encountered error!")
+            logging.error("Check_ID_password Encountered error!")
             return -1
         return Match
     
-    # OKAY
     def check_ID_is_admin(self, userid):
         is_admin = False
         try:
@@ -1372,11 +1372,10 @@ class MySQL_function:
                     if(User_record[2] == "ADMIN"):
                         is_admin = True
         except:
-            print("check_ID_is_admin Encountered error")
+            logging.error("check_ID_is_admin Encountered error")
             return -1
         return is_admin   
      
-    # OKAY
     def check_ID_exist(self, userid):
         Exist = False
         try:
@@ -1392,11 +1391,10 @@ class MySQL_function:
                     # ID exists in the database
                     Exist = True
         except:
-            print("check_ID_exist Encountered error!")
+            logging.error("check_ID_exist Encountered error!")
             return -1
         return Exist             
-
-    # MySQL C        
+      
     def remove_user(self, userid):
         try:
             # Connect to database
@@ -1409,10 +1407,9 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("remove_user Encountered error!")
+            logging.error("remove_user Encountered error!")
             return -1
 
-    # MySQL C
     def add_user(self, userid, password, permission, real_name, gender):
         try:
             # Connect to database
@@ -1425,11 +1422,10 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("add_user Encountered error!")
+            logging.error("add_user Encountered error!")
             return -1
 
     # login record function
-    # MySQL C
     def add_login_record(self, userid, login_state, type):
         try:
             # Connect to database
@@ -1443,10 +1439,9 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("add_login_record Encountered error!")
+            logging.error("add_login_record Encountered error!")
             return -1
     
-    # MySQL C
     def get_data_from_login_history(self, type, value):
         # Open database
         try:
@@ -1472,12 +1467,11 @@ class MySQL_function:
 
             data = mycursor.fetchall()            
         except:
-            print("get_data_from_login_history Encountered error!")
+            logging.error("get_data_from_login_history Encountered error!")
             return -1
         return data
 
     # user info function
-    # MySQL C
     def get_data_from_user_info(self, type, value):
         try:
             # Connect to database
@@ -1509,12 +1503,11 @@ class MySQL_function:
                 mycursor.execute(sql, val)                   
             data = mycursor.fetchall()            
         except:
-            print("get_data_from_user_info Encountered error!")
+            logging.error("get_data_from_user_info Encountered error!")
             return -1
         return data                     
   
     # update user info function
-    # MySQL C
     def update_data_to_user_info(self, userid, password, permission, real_name, gender, plate_amount):
         try:
             # Connect to database
@@ -1534,12 +1527,11 @@ class MySQL_function:
             data = mycursor.fetchall()      
             
         except:
-            print("update_data_to_user_info Encountered error!")
+            logging.error("update_data_to_user_info Encountered error!")
             return -1
         return data      
             
     # plate info function
-    # MySQL C
     def get_data_from_plate_info(self, type , value):
         # Open database
         try:
@@ -1564,11 +1556,10 @@ class MySQL_function:
                 mycursor.execute(sql, val)
             data = mycursor.fetchall()         
         except:
-            print("get_data_from_plate_info Encountered error!")
+            logging.error("get_data_from_plate_info Encountered error!")
             return -1
         return data   
-    
-    # MySQL C
+
     def add_new_plate(self, plateid):
         try:
             # Connect to databaseb
@@ -1582,12 +1573,11 @@ class MySQL_function:
             val = (plateid, "NONE", "TRUE", "NONE", "NONE")
             mycursor.execute(sql, val)
             mydb.commit()
-            logging.debug("the plate: '" + plateid +"' is added")
+            logging.info("the plate: '" + plateid +"' is added")
         except:
             logging.error("add_new_plate Encountered error!")
         return        
-    
-    # MySQL C
+
     def assign_plate_to_user(self, plateid, userid, availability, last_assign_time):
         try:
             # Connect to database
@@ -1602,10 +1592,9 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("assign_plate_to_user Encountered error!")
+            logging.error("assign_plate_to_user Encountered error!")
         self.update_plate_user_have(userid)     
-    
-    # MySQL C
+
     def deassign_plate_from_user(self, plateid, availability, last_deassign_time):
         try:    
             # Connect to database
@@ -1619,10 +1608,9 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("deassign_plate_from_user Encountered error!")
+            logging.error("deassign_plate_from_user Encountered error!")
             return -1     
-    
-    # MySQL C
+
     def remove_plate(self, plateid):
         try:
             # Connect to database
@@ -1636,10 +1624,9 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("remove_plate Encountered error!")
+            logging.error("remove_plate Encountered error!")
             return -1 
 
-    # MySQL C
     def update_plate_user_have(self, userid):
         try:    
             # Connect to database
@@ -1653,7 +1640,7 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            print("update_plate_user_have Encountered error!")
+            logging.error("update_plate_user_have Encountered error!")
             return -1  
 
 
