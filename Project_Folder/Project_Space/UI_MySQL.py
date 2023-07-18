@@ -142,7 +142,7 @@ class Ui_Login(object):
     def show_normal_welcome_message(self):
         confirm = QMessageBox()
         confirm.setWindowTitle("Welcome window")
-        confirm.setText("Welcome! " + self.UserID_Input.text() + " Display edit window?")
+        confirm.setText("Welcome! " + self.UserID_Input.text() + "! Display edit window?")
         confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         confirm.setDefaultButton(QMessageBox.Cancel)
         confirm.accepted.connect(lambda: self.open_Info_Editor_window())
