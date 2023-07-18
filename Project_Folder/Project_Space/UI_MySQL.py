@@ -35,6 +35,7 @@ Login_logger.info("test1")
 Info_Editor_logger.info("test2")
 Register_logger.info("test3")
 
+# UI class
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
@@ -809,7 +810,7 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.setTabText(Concentrate_Advance.indexOf(self.Plate_Scan_Tab), _translate("Concentrate_Advance", "Plate Scan"))
 
 
-
+# Function class
 class UI_Login_function:
     def check_ID_password_function (self, userid, password):
 
@@ -891,7 +892,7 @@ class UI_Login_function:
         confirm.accepted.connect(lambda: self.open_Info_Editor_window())
         confirm.accepted.connect(lambda: Info_Editor_function.show_user_info_into_table())
         x = confirm.exec_()
-        
+
 class UI_Info_Editor_function:
     def show_user_info_into_table(self):
         data = SQL_function.get_data_from_user_info("id_strict", Login_function.Info_Editor_ui.current_user_ID)
