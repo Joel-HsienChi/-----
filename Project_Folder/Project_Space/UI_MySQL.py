@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QLineEdit
 import sys
 import logging
 import datetime
@@ -7,6 +7,7 @@ import hashlib
 import re
 import mysql.connector
 
+# universal formatter for logger
 formatter = logging.Formatter("%(asctime)s - %(levelname)s %(message)s")
 
 # logger for login ui
@@ -31,6 +32,13 @@ Info_Editor_file_handler.setFormatter(formatter)
 Info_Editor_logger.addHandler(Info_Editor_file_handler)
 
 # logger for login history
+Admin_editor_logger = logging.getLogger("Admin_editor_log")
+Admin_editor_logger.setLevel(logging.INFO)
+Admin_editor_file_handler = logging.FileHandler("Admin_editor.log")
+Admin_editor_file_handler.setFormatter(formatter)
+Admin_editor_logger.addHandler(Admin_editor_file_handler)
+
+# logger for login history
 Login_history_logger = logging.getLogger("Login_history_log")
 Login_history_logger.setLevel(logging.INFO)
 Login_history_file_handler = logging.FileHandler("Login_history.log")
@@ -44,11 +52,10 @@ Plate_Info_file_handler = logging.FileHandler("Plate_Info.log")
 Plate_Info_file_handler.setFormatter(formatter)
 Plate_Info_logger.addHandler(Plate_Info_file_handler)
 
-Login_logger.info("test login logger")
-Info_Editor_logger.info("test info editor logger")
-Register_logger.info("test tegister logger")
-Login_history_logger.info("test login history logger")
-Plate_Info_logger.info("test plate info logger")
+
+
+
+
 
 # UI class
 class Ui_Login(object):
@@ -91,18 +98,11 @@ class Ui_Login(object):
         self.statusbar.setObjectName("statusbar")
         Login.setStatusBar(self.statusbar)
 
-
         self.retranslateUi(Login)
         QtCore.QMetaObject.connectSlotsByName(Login)
 
-        # hide the error message
-        self.Error_Message_for_password.setHidden(True) 
-        self.Error_Message_for_permission.setHidden(True) 
-        self.Error_Message_for_ID.setHidden(True)
+        self.modding()
 
-        # connect button to function 
-        self.Login_Button.clicked.connect(lambda: Login_function.check_ID_password_function(self.UserID_Input.text(), self.Password_Input.text()))
-    
     def retranslateUi(self, Login):
         _translate = QtCore.QCoreApplication.translate
         Login.setWindowTitle(_translate("Login", "Login"))
@@ -115,10 +115,21 @@ class Ui_Login(object):
         self.Error_Message_for_permission.setText(_translate("Login", "You are not an Admin!"))
         self.Error_Message_for_ID.setText(_translate("Login", "ID doesn\'t exist!"))
 
+    def modding(self):
+        # hide the error message
+        self.Error_Message_for_password.setHidden(True) 
+        self.Error_Message_for_permission.setHidden(True) 
+        self.Error_Message_for_ID.setHidden(True)
+
+        # connect button to function 
+        self.Login_Button.clicked.connect(lambda: Login_function.check_ID_password_function(self.UserID_Input.text(), self.Password_Input.text()))
+
+        # mask the password
+        self.Password_Input.setEchoMode(QLineEdit.Password)
+            
 class Ui_Register(object):
     # global variable
     default_password = "Point1"
-
     def setupUi(self, Register):
         Register.setObjectName("Register")
         Register.resize(294, 402)
@@ -203,14 +214,11 @@ class Ui_Register(object):
         self.Register_error_message.setHidden(True) 
         self.Register_success_message.setHidden(True)
         
-
         self.retranslateUi(Register)
         QtCore.QMetaObject.connectSlotsByName(Register)
+        
+        self.modding()
 
-
-        # connect button to function
-        self.Add_a_user_button.clicked.connect(lambda: Register_function.press_register(self.ID_input.text(), self.default_password, self.Name_input.text()))            
-    
     def retranslateUi(self, Register):
         _translate = QtCore.QCoreApplication.translate
         Register.setWindowTitle(_translate("Register", "Register"))
@@ -228,6 +236,10 @@ class Ui_Register(object):
         self.Register_success_message.setText(_translate("Register", "Successfully added the user!"))
         self.Other_button.setText(_translate("Register", "Others"))
 
+    def modding(self):
+        # connect button to function
+        self.Add_a_user_button.clicked.connect(lambda: Register_function.press_register(self.ID_input.text(), self.default_password, self.Name_input.text()))    
+
 class Ui_Info_Editor(object):
     current_user_ID = ''
     def setupUi(self, Info_Editor):
@@ -238,7 +250,7 @@ class Ui_Info_Editor(object):
         self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
         self.Save_change_button.setObjectName("Save_change_button")
         self.Display_table = QtWidgets.QTableWidget(Info_Editor)
-        self.Display_table.setGeometry(QtCore.QRect(40, 30, 741, 71))
+        self.Display_table.setGeometry(QtCore.QRect(40, 30, 740, 53))
         self.Display_table.setMinimumSize(QtCore.QSize(0, 0))
         self.Display_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.Display_table.setObjectName("Display_table")
@@ -268,16 +280,11 @@ class Ui_Info_Editor(object):
         self.Input_Invalid.setGeometry(QtCore.QRect(510, 110, 81, 31))
         self.Input_Invalid.setObjectName("Input_Invalid")
 
-
         self.retranslateUi(Info_Editor)
         QtCore.QMetaObject.connectSlotsByName(Info_Editor)
         
-        # hide the error message
-        self.Input_Invalid.setHidden(True)
+        self.modding()
 
-        # connect button to function 
-        self.Save_change_button.clicked.connect(lambda: Info_Editor_function.get_data_from_table())
-    
     def retranslateUi(self, Info_Editor):
         _translate = QtCore.QCoreApplication.translate
         Info_Editor.setWindowTitle(_translate("Info_Editor", "Info_Editor"))
@@ -298,11 +305,23 @@ class Ui_Info_Editor(object):
         item.setText(_translate("Info_Editor", "Plate amount"))
         self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
 
+    def modding(self):
+        # hide the error message
+        self.Input_Invalid.setHidden(True)
+
+        # connect button to function 
+        self.Save_change_button.clicked.connect(lambda: Info_Editor_function.get_data_from_table())
+    
 class Ui_Concentrate_Advance(object):
     current_user_ID = ''
     def setupUi(self, Concentrate_Advance):
         Concentrate_Advance.setObjectName("Concentrate_Advance")
-        Concentrate_Advance.resize(1350, 800)
+        Concentrate_Advance.resize(1350, 750)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Concentrate_Advance.sizePolicy().hasHeightForWidth())
+        Concentrate_Advance.setSizePolicy(sizePolicy)
         self.Search_Edit_Tab = QtWidgets.QWidget()
         self.Search_Edit_Tab.setObjectName("Search_Edit_Tab")
         self.Delete_User_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
@@ -334,9 +353,9 @@ class Ui_Concentrate_Advance(object):
         self.Female_button.setGeometry(QtCore.QRect(140, 410, 100, 20))
         self.Female_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Female_button.setObjectName("Female_button")
-        self.buttonGroup = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttonGroup.setObjectName("buttonGroup")
-        self.buttonGroup.addButton(self.Female_button)
+        self.buttongroup_gender = QtWidgets.QButtonGroup(Concentrate_Advance)
+        self.buttongroup_gender.setObjectName("buttongroup_gender")
+        self.buttongroup_gender.addButton(self.Female_button)
         self.line_2 = QtWidgets.QFrame(self.Search_Edit_Tab)
         self.line_2.setGeometry(QtCore.QRect(60, 220, 201, 20))
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
@@ -364,7 +383,7 @@ class Ui_Concentrate_Advance(object):
         self.Others_button.setGeometry(QtCore.QRect(140, 440, 100, 20))
         self.Others_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Others_button.setObjectName("Others_button")
-        self.buttonGroup.addButton(self.Others_button)
+        self.buttongroup_gender.addButton(self.Others_button)
         self.ID_search_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
         self.ID_search_button.setGeometry(QtCore.QRect(120, 60, 140, 30))
         self.ID_search_button.setMinimumSize(QtCore.QSize(0, 0))
@@ -378,20 +397,52 @@ class Ui_Concentrate_Advance(object):
         self.Admin_button.setGeometry(QtCore.QRect(140, 280, 100, 20))
         self.Admin_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Admin_button.setObjectName("Admin_button")
-        self.buttonGroup_2 = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttonGroup_2.setObjectName("buttonGroup_2")
-        self.buttonGroup_2.addButton(self.Admin_button)
+        self.buttongroup_permission = QtWidgets.QButtonGroup(Concentrate_Advance)
+        self.buttongroup_permission.setObjectName("buttongroup_permission")
+        self.buttongroup_permission.addButton(self.Admin_button)
         self.Edit_error_message = QtWidgets.QLabel(self.Search_Edit_Tab)
-        self.Edit_error_message.setGeometry(QtCore.QRect(200, 670, 81, 16))
+        self.Edit_error_message.setGeometry(QtCore.QRect(200, 665, 81, 21))
         self.Edit_error_message.setMinimumSize(QtCore.QSize(71, 16))
         self.Edit_error_message.setObjectName("Edit_error_message")
         self.ID_label = QtWidgets.QLabel(self.Search_Edit_Tab)
         self.ID_label.setGeometry(QtCore.QRect(50, 20, 61, 16))
         self.ID_label.setMinimumSize(QtCore.QSize(61, 16))
         self.ID_label.setObjectName("ID_label")
+        self.Gender_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
+        self.Gender_button.setGeometry(QtCore.QRect(100, 460, 160, 30))
+        self.Gender_button.setMinimumSize(QtCore.QSize(160, 30))
+        self.Gender_button.setObjectName("Gender_button")
+        self.Male_button = QtWidgets.QRadioButton(self.Search_Edit_Tab)
+        self.Male_button.setGeometry(QtCore.QRect(140, 380, 100, 20))
+        self.Male_button.setMinimumSize(QtCore.QSize(100, 20))
+        self.Male_button.setObjectName("Male_button")
+        self.buttongroup_gender.addButton(self.Male_button)
+        self.Permission_label = QtWidgets.QLabel(self.Search_Edit_Tab)
+        self.Permission_label.setGeometry(QtCore.QRect(50, 250, 81, 20))
+        self.Permission_label.setMinimumSize(QtCore.QSize(81, 20))
+        self.Permission_label.setObjectName("Permission_label")
+        self.User_button = QtWidgets.QRadioButton(self.Search_Edit_Tab)
+        self.User_button.setGeometry(QtCore.QRect(140, 250, 100, 20))
+        self.User_button.setMinimumSize(QtCore.QSize(100, 20))
+        self.User_button.setObjectName("User_button")
+        self.buttongroup_permission.addButton(self.User_button)
+        self.Save_change_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
+        self.Save_change_button.setGeometry(QtCore.QRect(20, 660, 161, 32))
+        self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
+        self.Save_change_button.setObjectName("Save_change_button")
+        self.Name_input = QtWidgets.QLineEdit(self.Search_Edit_Tab)
+        self.Name_input.setGeometry(QtCore.QRect(120, 140, 141, 21))
+        self.Name_input.setMinimumSize(QtCore.QSize(141, 21))
+        self.Name_input.setText("")
+        self.Name_input.setObjectName("Name_input")
         self.Display_table = QtWidgets.QTableWidget(self.Search_Edit_Tab)
-        self.Display_table.setGeometry(QtCore.QRect(320, 10, 1000, 730))
-        self.Display_table.setMinimumSize(QtCore.QSize(800, 361))
+        self.Display_table.setGeometry(QtCore.QRect(320, 10, 1000, 623))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Display_table.sizePolicy().hasHeightForWidth())
+        self.Display_table.setSizePolicy(sizePolicy)
+        self.Display_table.setMinimumSize(QtCore.QSize(800, 350))
         self.Display_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.Display_table.setObjectName("Display_table")
         self.Display_table.setColumnCount(7)
@@ -416,45 +467,46 @@ class Ui_Concentrate_Advance(object):
         self.Display_table.horizontalHeader().setMinimumSectionSize(20)
         self.Display_table.horizontalHeader().setSortIndicatorShown(False)
         self.Display_table.horizontalHeader().setStretchLastSection(True)
-        self.Gender_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
-        self.Gender_button.setGeometry(QtCore.QRect(100, 460, 160, 30))
-        self.Gender_button.setMinimumSize(QtCore.QSize(160, 30))
-        self.Gender_button.setObjectName("Gender_button")
-        self.Male_button = QtWidgets.QRadioButton(self.Search_Edit_Tab)
-        self.Male_button.setGeometry(QtCore.QRect(140, 380, 100, 20))
-        self.Male_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.Male_button.setObjectName("Male_button")
-        self.buttonGroup.addButton(self.Male_button)
-        self.Permission_label = QtWidgets.QLabel(self.Search_Edit_Tab)
-        self.Permission_label.setGeometry(QtCore.QRect(50, 250, 81, 20))
-        self.Permission_label.setMinimumSize(QtCore.QSize(81, 20))
-        self.Permission_label.setObjectName("Permission_label")
-        self.User_button = QtWidgets.QRadioButton(self.Search_Edit_Tab)
-        self.User_button.setGeometry(QtCore.QRect(140, 250, 100, 20))
-        self.User_button.setMinimumSize(QtCore.QSize(100, 20))
-        self.User_button.setObjectName("User_button")
-        self.buttonGroup_2.addButton(self.User_button)
-        self.Save_change_button = QtWidgets.QPushButton(self.Search_Edit_Tab)
-        self.Save_change_button.setGeometry(QtCore.QRect(20, 660, 161, 32))
-        self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
-        self.Save_change_button.setObjectName("Save_change_button")
-        self.Name_input = QtWidgets.QLineEdit(self.Search_Edit_Tab)
-        self.Name_input.setGeometry(QtCore.QRect(120, 140, 141, 21))
-        self.Name_input.setMinimumSize(QtCore.QSize(141, 21))
-        self.Name_input.setText("")
-        self.Name_input.setObjectName("Name_input")
+        self.User_info_pages = QtWidgets.QSpinBox(self.Search_Edit_Tab)
+        self.User_info_pages.setGeometry(QtCore.QRect(700, 660, 81, 24))
+        self.User_info_pages.setKeyboardTracking(False)
+        self.User_info_pages.setObjectName("User_info_pages")
+        self.ID_input.raise_()
+        self.Delete_User_button.raise_()
+        self.Gender_label.raise_()
+        self.Show_all_button.raise_()
+        self.Add_User_button.raise_()
+        self.line_3.raise_()
+        self.Name_label.raise_()
+        self.Female_button.raise_()
+        self.line_2.raise_()
+        self.Permission_button.raise_()
+        self.line_4.raise_()
+        self.Name_search_button.raise_()
+        self.Others_button.raise_()
+        self.ID_search_button.raise_()
+        self.line.raise_()
+        self.Admin_button.raise_()
+        self.Edit_error_message.raise_()
+        self.ID_label.raise_()
+        self.Gender_button.raise_()
+        self.Male_button.raise_()
+        self.Permission_label.raise_()
+        self.User_button.raise_()
+        self.Save_change_button.raise_()
+        self.Name_input.raise_()
+        self.User_info_pages.raise_()
+        self.Display_table.raise_()
         Concentrate_Advance.addTab(self.Search_Edit_Tab, "")
         self.Login_History_Tab = QtWidgets.QWidget()
         self.Login_History_Tab.setObjectName("Login_History_Tab")
-        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
-        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
-        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input_login_history.setText("")
-        self.ID_input_login_history.setObjectName("ID_input_login_history")        
         self.Password_doesnt_match_ID_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Password_doesnt_match_ID_button.setGeometry(QtCore.QRect(50, 290, 211, 20))
         self.Password_doesnt_match_ID_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Password_doesnt_match_ID_button.setObjectName("Password_doesnt_match_ID_button")
+        self.buttonGroup_fail_type = QtWidgets.QButtonGroup(Concentrate_Advance)
+        self.buttonGroup_fail_type.setObjectName("buttonGroup_fail_type")
+        self.buttonGroup_fail_type.addButton(self.Password_doesnt_match_ID_button)
         self.Success_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Success_button.setGeometry(QtCore.QRect(50, 140, 100, 20))
         self.Success_button.setMinimumSize(QtCore.QSize(100, 20))
@@ -467,12 +519,24 @@ class Ui_Concentrate_Advance(object):
         self.ID_doesnt_exist_button.setGeometry(QtCore.QRect(50, 260, 121, 20))
         self.ID_doesnt_exist_button.setMinimumSize(QtCore.QSize(100, 20))
         self.ID_doesnt_exist_button.setObjectName("ID_doesnt_exist_button")
+        self.buttonGroup_fail_type.addButton(self.ID_doesnt_exist_button)
+        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
+        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
+        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
+        self.ID_input_login_history.setText("")
+        self.ID_input_login_history.setObjectName("ID_input_login_history")
         self.ID_search_button_login_history = QtWidgets.QPushButton(self.Login_History_Tab)
         self.ID_search_button_login_history.setGeometry(QtCore.QRect(120, 60, 140, 30))
         self.ID_search_button_login_history.setMinimumSize(QtCore.QSize(0, 0))
         self.ID_search_button_login_history.setObjectName("ID_search_button_login_history")
         self.Display_Login_info = QtWidgets.QTableWidget(self.Login_History_Tab)
-        self.Display_Login_info.setGeometry(QtCore.QRect(320, 10, 1000, 730))
+        self.Display_Login_info.setGeometry(QtCore.QRect(320, 10, 1000, 623))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Display_Login_info.sizePolicy().hasHeightForWidth())
+        self.Display_Login_info.setSizePolicy(sizePolicy)
+        self.Display_Login_info.setMinimumSize(QtCore.QSize(800, 360))
         self.Display_Login_info.setObjectName("Display_Login_info")
         self.Display_Login_info.setColumnCount(4)
         self.Display_Login_info.setRowCount(0)
@@ -522,6 +586,7 @@ class Ui_Concentrate_Advance(object):
         self.User_enter_advance_button.setGeometry(QtCore.QRect(50, 320, 241, 20))
         self.User_enter_advance_button.setMinimumSize(QtCore.QSize(100, 20))
         self.User_enter_advance_button.setObjectName("User_enter_advance_button")
+        self.buttonGroup_fail_type.addButton(self.User_enter_advance_button)
         self.Success_type_button = QtWidgets.QPushButton(self.Login_History_Tab)
         self.Success_type_button.setGeometry(QtCore.QRect(120, 470, 161, 32))
         self.Success_type_button.setMinimumSize(QtCore.QSize(141, 32))
@@ -530,20 +595,54 @@ class Ui_Concentrate_Advance(object):
         self.Normal_login_button.setGeometry(QtCore.QRect(50, 410, 121, 20))
         self.Normal_login_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Normal_login_button.setObjectName("Normal_login_button")
+        self.buttongroup_success_type = QtWidgets.QButtonGroup(Concentrate_Advance)
+        self.buttongroup_success_type.setObjectName("buttongroup_success_type")
+        self.buttongroup_success_type.addButton(self.Normal_login_button)
         self.Advance_login_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Advance_login_button.setGeometry(QtCore.QRect(50, 440, 121, 20))
         self.Advance_login_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Advance_login_button.setObjectName("Advance_login_button")
+        self.buttongroup_success_type.addButton(self.Advance_login_button)
         self.line_8 = QtWidgets.QFrame(self.Login_History_Tab)
         self.line_8.setGeometry(QtCore.QRect(60, 500, 200, 20))
         self.line_8.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_8.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_8.setObjectName("line_8")
+        self.Login_History_Pages = QtWidgets.QSpinBox(self.Login_History_Tab)
+        self.Login_History_Pages.setGeometry(QtCore.QRect(700, 660, 81, 24))
+        self.Login_History_Pages.setKeyboardTracking(False)
+        self.Login_History_Pages.setObjectName("Login_History_Pages")
+        self.ID_input_login_history.raise_()
+        self.Password_doesnt_match_ID_button.raise_()
+        self.Success_button.raise_()
+        self.ID_label_login_history.raise_()
+        self.ID_doesnt_exist_button.raise_()
+        self.ID_search_button_login_history.raise_()
+        self.Fail_button.raise_()
+        self.Fail_type_button.raise_()
+        self.Status_show_button.raise_()
+        self.Show_all_button_login_history.raise_()
+        self.line_5.raise_()
+        self.line_6.raise_()
+        self.line_7.raise_()
+        self.User_enter_advance_button.raise_()
+        self.Success_type_button.raise_()
+        self.Normal_login_button.raise_()
+        self.Advance_login_button.raise_()
+        self.line_8.raise_()
+        self.Login_History_Pages.raise_()
+        self.Display_Login_info.raise_()
         Concentrate_Advance.addTab(self.Login_History_Tab, "")
         self.Plate_Scan_Tab = QtWidgets.QWidget()
         self.Plate_Scan_Tab.setObjectName("Plate_Scan_Tab")
         self.Display_Plate_Info = QtWidgets.QTableWidget(self.Plate_Scan_Tab)
-        self.Display_Plate_Info.setGeometry(QtCore.QRect(320, 10, 1000, 730))
+        self.Display_Plate_Info.setGeometry(QtCore.QRect(320, 10, 1000, 623))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Display_Plate_Info.sizePolicy().hasHeightForWidth())
+        self.Display_Plate_Info.setSizePolicy(sizePolicy)
+        self.Display_Plate_Info.setMinimumSize(QtCore.QSize(800, 360))
         self.Display_Plate_Info.setObjectName("Display_Plate_Info")
         self.Display_Plate_Info.setColumnCount(6)
         self.Display_Plate_Info.setRowCount(0)
@@ -644,99 +743,37 @@ class Ui_Concentrate_Advance(object):
         self.Assign_success_label.setGeometry(QtCore.QRect(220, 450, 91, 31))
         self.Assign_success_label.setMinimumSize(QtCore.QSize(61, 16))
         self.Assign_success_label.setObjectName("Assign_success_label")
+        self.Plate_info_pages = QtWidgets.QSpinBox(self.Plate_Scan_Tab)
+        self.Plate_info_pages.setGeometry(QtCore.QRect(700, 660, 81, 24))
+        self.Plate_info_pages.setKeyboardTracking(False)
+        self.Plate_info_pages.setObjectName("Plate_info_pages")
+        self.ID_input_Plate_Info.raise_()
+        self.Show_all_button_Plate_Info.raise_()
+        self.Plate_ID_label_Plate_Info.raise_()
+        self.ID_search_button_Plate_Info.raise_()
+        self.Plate_ID_search_button_Plate_Info.raise_()
+        self.ID_label_Plate_Info.raise_()
+        self.line_9.raise_()
+        self.line_10.raise_()
+        self.Plate_ID_input_Plate_Info.raise_()
+        self.Availability_button.raise_()
+        self.Available_FALSE.raise_()
+        self.Available_TRUE.raise_()
+        self.line_11.raise_()
+        self.Assign_plate_to_user.raise_()
+        self.Deassign_plate_from_user.raise_()
+        self.Add_new_plate.raise_()
+        self.Remove_plate.raise_()
+        self.Assign_fail_label.raise_()
+        self.Assign_success_label.raise_()
+        self.Plate_info_pages.raise_()
+        self.Display_Plate_Info.raise_()
         Concentrate_Advance.addTab(self.Plate_Scan_Tab, "")
-        self.buttongroup_permission = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttongroup_permission.setObjectName("buttongroup_permission")
-        self.buttongroup_permission.addButton(self.Admin_button)
-        self.buttongroup_permission.addButton(self.User_button)
-        self.buttongroup_gender = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttongroup_gender.setObjectName("buttongroup_gender")
-        self.buttongroup_gender.addButton(self.Female_button)
-        self.buttongroup_gender.addButton(self.Male_button)
-        self.buttongroup_gender.addButton(self.Others_button)
-        self.buttongroup_success_type = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttongroup_success_type.setObjectName("buttongroup_success_type")
-        self.buttongroup_success_type.addButton(self.Normal_login_button)
-        self.buttongroup_success_type.addButton(self.Advance_login_button)
-        self.buttongroup_fail_type = QtWidgets.QButtonGroup(Concentrate_Advance)
-        self.buttongroup_fail_type.setObjectName("buttongroup_fail_type")
-        self.buttongroup_fail_type.addButton(self.Password_doesnt_match_ID_button)
-        self.buttongroup_fail_type.addButton(self.User_enter_advance_button)
-        self.buttongroup_fail_type.addButton(self.ID_doesnt_exist_button)
-
 
         self.retranslateUi(Concentrate_Advance)
         Concentrate_Advance.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Concentrate_Advance)
-
-# Modding for Search/Edit
-        # adjust column size
-        header = self.Display_table.horizontalHeader()
-        for i in range(5):
-            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
-
-        # hide the error message
-        self.Edit_error_message.setHidden(True)
-
-        # connect button to function
-        self.Show_all_button.clicked.connect(lambda: Search_Edit_function.show_user("all", None))
-        self.ID_search_button.clicked.connect(lambda: Search_Edit_function.show_user("id",self.ID_input.text()))
-        self.Name_search_button.clicked.connect(lambda: Search_Edit_function.show_user("name",self.Name_input.text()))
-        self.Gender_button.clicked.connect(lambda: Search_Edit_function.show_user("gender", None))
-        self.Permission_button.clicked.connect(lambda: Search_Edit_function.show_user("permission", None))
-        self.Save_change_button.clicked.connect(lambda: Search_Edit_function.get_data_from_table())
-        self.Delete_User_button.clicked.connect(lambda: Search_Edit_function.show_delete_confirm())
-        self.Add_User_button.clicked.connect(lambda: Search_Edit_function.open_Register_window())
-
-        # show all info initially 
-        Search_Edit_function.show_user("all", None)
-
-
-# Modding for Login History
-        # adjust column size
-        header = self.Display_Login_info.horizontalHeader() 
-        for i in range(3):
-            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)    
-   
-        # connect button to function
-        self.Show_all_button_login_history.clicked.connect(lambda: Login_History_function.show_login_history("all", None))
-        self.ID_search_button_login_history.clicked.connect(lambda: Login_History_function.show_login_history("id", self.ID_input_login_history.text()))
-        self.Status_show_button.clicked.connect(lambda: Login_History_function.show_login_history("status", None))
-        self.Fail_type_button.clicked.connect(lambda: Login_History_function.show_login_history("specific_type", None))
-        self.Success_type_button.clicked.connect(lambda: Login_History_function.show_login_history("specific_type", None))
-
-        # let table be read only
-        self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-
-        # show all info initially 
-        Login_History_function.show_login_history("all", None)
-
-# Modding for plate info
-        # adjust column size
-        header = self.Display_Plate_Info.horizontalHeader() 
-        for i in range(5):
-            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
-
-        # connect button to function
-        self.Show_all_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info("all", None))
-        self.ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info("user_id", self.ID_input_Plate_Info.text()))
-        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info("plate_id", self.Plate_ID_input_Plate_Info.text()))
-        self.Availability_button.clicked.connect(lambda: Plate_Info_function.show_plate_info("availability", None))
-        self.Add_new_plate.clicked.connect(lambda: Plate_Info_function.show_add_new_plate_window())
-        self.Assign_plate_to_user.clicked.connect(lambda: Plate_Info_function.show_assign_plate_to_user_window())
-        self.Deassign_plate_from_user.clicked.connect(lambda: Plate_Info_function.show_deassign_plate_to_user_window())
-        self.Remove_plate.clicked.connect(lambda: Plate_Info_function.show_delete_plate_confirm())
-
-        # let table be read only
-        self.Display_Plate_Info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        
-
-        # hide the message
-        self.Assign_fail_label.setHidden(True)
-        self.Assign_success_label.setHidden(True)
-
-        # show all info initially 
-        Plate_Info_function.show_plate_info("all", None)
+        self.modding()
 
     def retranslateUi(self, Concentrate_Advance):
         _translate = QtCore.QCoreApplication.translate
@@ -754,6 +791,11 @@ class Ui_Concentrate_Advance(object):
         self.Admin_button.setText(_translate("Concentrate_Advance", "Admin"))
         self.Edit_error_message.setText(_translate("Concentrate_Advance", "Invalid input!"))
         self.ID_label.setText(_translate("Concentrate_Advance", "ID"))
+        self.Gender_button.setText(_translate("Concentrate_Advance", "Search by Gender"))
+        self.Male_button.setText(_translate("Concentrate_Advance", "Male"))
+        self.Permission_label.setText(_translate("Concentrate_Advance", "Permission"))
+        self.User_button.setText(_translate("Concentrate_Advance", "User"))
+        self.Save_change_button.setText(_translate("Concentrate_Advance", "Save change"))
         item = self.Display_table.horizontalHeaderItem(0)
         item.setText(_translate("Concentrate_Advance", "Checkbox"))
         item = self.Display_table.horizontalHeaderItem(1)
@@ -768,11 +810,6 @@ class Ui_Concentrate_Advance(object):
         item.setText(_translate("Concentrate_Advance", "Gender"))
         item = self.Display_table.horizontalHeaderItem(6)
         item.setText(_translate("Concentrate_Advance", "Plate amount"))
-        self.Gender_button.setText(_translate("Concentrate_Advance", "Search by Gender"))
-        self.Male_button.setText(_translate("Concentrate_Advance", "Male"))
-        self.Permission_label.setText(_translate("Concentrate_Advance", "Permission"))
-        self.User_button.setText(_translate("Concentrate_Advance", "User"))
-        self.Save_change_button.setText(_translate("Concentrate_Advance", "Save change"))
         Concentrate_Advance.setTabText(Concentrate_Advance.indexOf(self.Search_Edit_Tab), _translate("Concentrate_Advance", "User info"))
         self.Password_doesnt_match_ID_button.setText(_translate("Concentrate_Advance", "Password doesn\'t match ID"))
         self.Success_button.setText(_translate("Concentrate_Advance", "Success"))
@@ -824,6 +861,116 @@ class Ui_Concentrate_Advance(object):
         self.Assign_success_label.setText(_translate("Concentrate_Advance", "Success"))
         Concentrate_Advance.setTabText(Concentrate_Advance.indexOf(self.Plate_Scan_Tab), _translate("Concentrate_Advance", "Plate Scan"))
 
+    def modding(self):
+
+    # Modding for Search/Edit
+
+        # adjust column size
+        header = self.Display_table.horizontalHeader()
+        for i in range(5):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
+
+        # hide the error message
+        self.Edit_error_message.setHidden(True)
+
+        # connect button to function
+        self.Show_all_button.clicked.connect(lambda: Search_Edit_function.set_current_search_type("all"))
+        self.Show_all_button.clicked.connect(lambda: Search_Edit_function.show_user(0))
+        self.ID_search_button.clicked.connect(lambda: Search_Edit_function.set_current_search_type("id"))
+        self.ID_search_button.clicked.connect(lambda: Search_Edit_function.show_user(0))
+        self.Name_search_button.clicked.connect(lambda: Search_Edit_function.set_current_search_type("name"))
+        self.Name_search_button.clicked.connect(lambda: Search_Edit_function.show_user( 0))
+        self.Gender_button.clicked.connect(lambda: Search_Edit_function.set_current_search_type("gender"))
+        self.Gender_button.clicked.connect(lambda: Search_Edit_function.show_user(0))        
+        self.Permission_button.clicked.connect(lambda: Search_Edit_function.set_current_search_type("permission"))
+        self.Permission_button.clicked.connect(lambda: Search_Edit_function.show_user(0))
+        self.Save_change_button.clicked.connect(lambda: Search_Edit_function.get_data_from_table())
+        self.Delete_User_button.clicked.connect(lambda: Search_Edit_function.show_delete_confirm())
+        self.Add_User_button.clicked.connect(lambda: Search_Edit_function.open_Register_window())
+
+        self.User_info_pages.valueChanged.connect(lambda: Search_Edit_function.show_user(self.User_info_pages.value()))
+
+        
+        # get the maximum page number 
+        Search_Edit_function.set_user_info_pages_maximum(None)
+        
+        # set the maximum number for spinbox
+        self.User_info_pages.setMaximum(2147483647)
+
+        # show all info initially 
+        Search_Edit_function.show_user(0)
+
+
+    # Modding for Login History
+        # adjust column size
+        header = self.Display_Login_info.horizontalHeader() 
+        for i in range(3):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)    
+   
+        # connect button to function
+        self.Show_all_button_login_history.clicked.connect(lambda: Login_History_function.set_current_search_type("all"))
+        self.Show_all_button_login_history.clicked.connect(lambda: Login_History_function.show_login_history(0))
+        self.ID_search_button_login_history.clicked.connect(lambda: Login_History_function.set_current_search_type("id"))
+        self.ID_search_button_login_history.clicked.connect(lambda: Login_History_function.show_login_history(0))        
+        self.Status_show_button.clicked.connect(lambda: Login_History_function.set_current_search_type("status"))
+        self.Status_show_button.clicked.connect(lambda: Login_History_function.show_login_history(0))
+        self.Fail_type_button.clicked.connect(lambda: Login_History_function.set_current_search_type("specific_type_fail"))
+        self.Fail_type_button.clicked.connect(lambda: Login_History_function.show_login_history(0))
+        self.Success_type_button.clicked.connect(lambda: Login_History_function.set_current_search_type("specific_type_success"))
+        self.Success_type_button.clicked.connect(lambda: Login_History_function.show_login_history(0))
+
+        self.Login_History_Pages.valueChanged.connect(lambda: Login_History_function.show_login_history(self.Login_History_Pages.value()))
+
+        # get the maximum page number
+        Login_History_function.set_login_history_pages_maximum(None)
+        
+        # set the maximum number for spinbox
+        self.Login_History_Pages.setMaximum(2147483647)
+
+        # show all info initially 
+        Login_History_function.show_login_history(0)
+
+        # let table be read only
+        self.Display_Login_info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+
+    # Modding for plate info
+        # adjust column size
+        header = self.Display_Plate_Info.horizontalHeader() 
+        for i in range(5):
+            header.setSectionResizeMode(i, QtWidgets.QHeaderView.ResizeToContents)
+
+        # connect button to function
+
+        self.Show_all_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.set_current_search_type("all"))
+        self.Show_all_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info(0))
+        self.ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.set_current_search_type("user_id"))
+        self.ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info(0))
+        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.set_current_search_type("plate_id"))
+        self.Plate_ID_search_button_Plate_Info.clicked.connect(lambda: Plate_Info_function.show_plate_info(0))
+        self.Availability_button.clicked.connect(lambda: Plate_Info_function.set_current_search_type("availability"))
+        self.Availability_button.clicked.connect(lambda: Plate_Info_function.show_plate_info(0))
+
+        self.Add_new_plate.clicked.connect(lambda: Plate_Info_function.show_add_new_plate_window())
+        self.Assign_plate_to_user.clicked.connect(lambda: Plate_Info_function.show_assign_plate_to_user_window())
+        self.Deassign_plate_from_user.clicked.connect(lambda: Plate_Info_function.show_deassign_plate_to_user_window())
+        self.Remove_plate.clicked.connect(lambda: Plate_Info_function.show_delete_plate_confirm())
+
+        self.Plate_info_pages.valueChanged.connect(lambda: Plate_Info_function.show_plate_info(self.Plate_info_pages.value()))
+        
+
+        # let table be read only
+        self.Display_Plate_Info.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        
+        # hide the message
+        self.Assign_fail_label.setHidden(True)
+        self.Assign_success_label.setHidden(True)
+
+        # set the maximum number for spinbox
+        self.Plate_info_pages.setMaximum(2147483647)
+
+        # show all info initially 
+        Plate_Info_function.show_plate_info(0)
+
 
 # Function class
 class UI_Login_function:
@@ -841,13 +988,13 @@ class UI_Login_function:
         ID_password_match = SQL_function.check_ID_password(userid, encrypted_password)
         # error handler
         if(ID_password_match == -1):
-            return
+            return -1
 
         # check if user is admin
         ID_is_admin = SQL_function.check_ID_is_admin(userid)
         # error handler
         if(ID_is_admin == -1):
-            return
+            return -1
         
         if(ID_password_match is True):
             # enter Advance mode
@@ -861,7 +1008,7 @@ class UI_Login_function:
                 Loginui.Error_Message_for_permission.setHidden(False) 
                 Loginui.Error_Message_for_password.setHidden(True)
                 Loginui.Error_Message_for_ID.setHidden(True)
-                return
+                return 1
             # Normal user mode
             else:
                 self.show_normal_welcome_message()
@@ -874,7 +1021,7 @@ class UI_Login_function:
             Loginui.Error_Message_for_permission.setHidden(True) 
             Loginui.Error_Message_for_password.setHidden(True)
             Loginui.Error_Message_for_ID.setHidden(False)
-            return
+            return 1
         # Fail: ID doesn't match password
         elif(ID_password_match is False):
             SQL_function.add_login_record(userid, "FAIL", "ID and Password doesn't match")
@@ -882,7 +1029,7 @@ class UI_Login_function:
             Loginui.Error_Message_for_password.setHidden(False) 
             Loginui.Error_Message_for_permission.setHidden(True)
             Loginui.Error_Message_for_ID.setHidden(True)
-            return
+            return 1
     
     def open_Concentrate_Advance_window(self):
         self.Concentrate_Advance = QtWidgets.QTabWidget()
@@ -909,144 +1056,197 @@ class UI_Login_function:
         x = confirm.exec_()
 
 class UI_Info_Editor_function:
+    initial_data = []
+    edited_data = []    
     def show_user_info_into_table(self):
-        data = SQL_function.get_data_from_user_info("id_strict", Login_function.Info_Editor_ui.current_user_ID)
+        data = SQL_function.get_data_from_user_info("id_strict", Login_function.Info_Editor_ui.current_user_ID, 0)
         self.insert_data_into_table_normal_edit(data)
         helper.lock_the_Column(Login_function.Info_Editor_ui.Display_table, 1)
         helper.lock_the_Column(Login_function.Info_Editor_ui.Display_table, 3)   
+        helper.lock_the_Column(Login_function.Info_Editor_ui.Display_table, 6)
 
     def insert_data_into_table_normal_edit(self, data):
+        # this function will reset the initial_data
         # initialize the table
         Login_function.Info_Editor_ui.Display_table.setRowCount(0) 
         row = 0
         self.check_button_array_normal_edit = []
+        self.initial_data = [] 
         for login_record in data:
             Login_function.Info_Editor_ui.Display_table.insertRow(row)
-            Login_function.Info_Editor_ui.Display_table.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[0]))
+            Login_function.Info_Editor_ui.Display_table.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[1]))
             Login_function.Info_Editor_ui.Display_table.setItem(row, 2, QtWidgets.QTableWidgetItem("************"))
-            Login_function.Info_Editor_ui.Display_table.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[2]))
-            Login_function.Info_Editor_ui.Display_table.setItem(row, 4, QtWidgets.QTableWidgetItem(login_record[3]))
-            Login_function.Info_Editor_ui.Display_table.setItem(row, 5, QtWidgets.QTableWidgetItem(login_record[4]))     
-            Login_function.Info_Editor_ui.Display_table.setItem(row, 6, QtWidgets.QTableWidgetItem(str(login_record[5]))) 
+            Login_function.Info_Editor_ui.Display_table.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
+            Login_function.Info_Editor_ui.Display_table.setItem(row, 4, QtWidgets.QTableWidgetItem(login_record[4]))
+            Login_function.Info_Editor_ui.Display_table.setItem(row, 5, QtWidgets.QTableWidgetItem(login_record[5]))     
+            Login_function.Info_Editor_ui.Display_table.setItem(row, 6, QtWidgets.QTableWidgetItem(str(login_record[6]))) 
             
             # set a button to table
             check_box = QtWidgets.QCheckBox()
             Login_function.Info_Editor_ui.Display_table.setCellWidget(row, 0, check_box)
             self.check_button_array_normal_edit.append(check_box)
             row = row+1
+            SQL_function.update_plate_user_have(login_record[1])
+            self.initial_data.append((login_record[1], login_record[2], login_record[3], login_record[4], login_record[5], login_record[6]))
 
     def get_data_from_table(self):
+        # this function will reset edited_data
+        self.edited_data = []
         # go through entire table row by row
         for row in range(Login_function.Info_Editor_ui.Display_table.rowCount()):
-            data = []
+            edited_row = []
             for column in range(Login_function.Info_Editor_ui.Display_table.columnCount()):
                 if(Login_function.Info_Editor_ui.Display_table.item(row, column) != None):
-                    data.append(Login_function.Info_Editor_ui.Display_table.item(row, column).text())
+                    edited_row.append(Login_function.Info_Editor_ui.Display_table.item(row, column).text())
 
+            self.edited_data.append(edited_row)
             # check if check box is checked (防呆機制)
             if(self.check_button_array_normal_edit[row].isChecked()):
                 # check if input permission and gender fit format
-                if(data[2] == "USER" or data[2] == "ADMIN"):
-                    if(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS"):
-                        # update name, gender, and permission
-                        SQL_function.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
-                        Login_function.Info_Editor_ui.Input_Invalid.setHidden(True)
-
+                if((edited_row[2] == "USER" or edited_row[2] == "ADMIN") and ((edited_row[4] == "MALE" or edited_row[4] == "FEMALE" or edited_row[4] == "OTHERS"))):
+                    # update name, gender, and permission
+                    SQL_function.update_data_to_user_info(edited_row[0], None, edited_row[2], edited_row[3], edited_row[4], edited_row[5])
+                    Login_function.Info_Editor_ui.Input_Invalid.setHidden(True)
                 else:
                     Login_function.Info_Editor_ui.Input_Invalid.setHidden(False)
                     return
-
                 # check if password had been changed
-                if(data[1] != "************"):
+                if(edited_row[1] != "************"):
                     # check if edited password fit format
-                    if(helper.check_password_availability( data[1])):
-                        SQL_function.update_data_to_user_info(data[0], helper.encode_password(data[1]), data[2], data[3], data[4], data[5])
+                    if(helper.check_password_availability(edited_row[1])):
+                        Info_Editor_logger.info(str(helper.check_password_availability(edited_row[1])))
+                        Info_Editor_logger.info("password available: =" + edited_row[1])
+                        SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
                         Login_function.Info_Editor_ui.Input_Invalid.setHidden(True)
                     else:
                         Login_function.Info_Editor_ui.Input_Invalid.setHidden(False)
                         return
+        self.data_comparison()
         self.show_user_info_into_table()
-  
+
+    def data_comparison(self):
+        for row in zip(self.edited_data , self.initial_data):    
+            Info_Editor_logger.info("edited_data = :" + str(self.edited_data) )
+            Info_Editor_logger.info("initial_data = :" + str(self.initial_data) )
+            if(row[0][1] != "************"):
+                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s password has been edited.")
+            if(row[0][2] != row[1][2]):
+                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s permission has been edited from " + row[1][2] + " to " + row[0][2] + " .")
+            if(row[0][3] != row[1][3]):
+                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s name has been edited from " + row[1][3] + " to " + row[0][3] + " .")
+            if(row[0][4] != row[1][4]):
+                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s gender has been edited from " + row[1][4] + " to " + row[0][4] + " .")                
+            
 class UI_Search_Edit_function:
-# Function for Search/Edit
-    def show_user(self, type, value):       
-        if(type == "permission"):
+    initial_data = []
+    edited_data = []
+    user_info_pages_maximum = 0    
+    current_search_type = "all"
+    check_button_array_search_edit = []    
+    # Function for Search/Edit
+    def show_user(self, pages): 
+        if(self.current_search_type == "id"):
+            if(Login_function.Concentrate_Advance_ui.ID_input.text() == None):
+                value = ""
+            value = Login_function.Concentrate_Advance_ui.ID_input.text()
+        elif(self.current_search_type == "name"):
+            if(Login_function.Concentrate_Advance_ui.Name_input.text() == None):
+                value = ""
+            value = Login_function.Concentrate_Advance_ui.Name_input.text()
+        elif(self.current_search_type == "all"):
+            value = None
+        elif(self.current_search_type == "permission"):
             if(Login_function.Concentrate_Advance_ui.User_button.isChecked()):
-                data = SQL_function.get_data_from_user_info( type, "USER")
+                value = "USER"   
             elif(Login_function.Concentrate_Advance_ui.Admin_button.isChecked()):  
-                data = SQL_function.get_data_from_user_info( type, "ADMIN")
+                value = "ADMIN"   
             else:
-                data = SQL_function.get_data_from_user_info(type, None)
-        elif(type == "gender"):
+                value = ""   
+        elif(self.current_search_type == "gender"):
             if(Login_function.Concentrate_Advance_ui.Male_button.isChecked()):
-                data = SQL_function.get_data_from_user_info(type, "MALE")
+                value = "MALE"
             elif(Login_function.Concentrate_Advance_ui.Female_button.isChecked()):  
-                data = SQL_function.get_data_from_user_info(type, "FEMALE")
+                value = "FEMALE"                
             elif(Login_function.Concentrate_Advance_ui.Others_button.isChecked()):
-                data = SQL_function.get_data_from_user_info(type, "OTHERS")
+                value = "OTHERS"
             else:
-                data = SQL_function.get_data_from_user_info(type, None)
-        else:
-            data = SQL_function.get_data_from_user_info(type, value)
-        
+                value = ""
+
+        self.set_user_info_pages_maximum(value)
+        if(self.user_info_pages_maximum <= pages):
+            Login_function.Concentrate_Advance_ui.User_info_pages.setValue(self.user_info_pages_maximum)
+            pages = self.user_info_pages_maximum
+
+        data = SQL_function.get_data_from_user_info(self.current_search_type, value, pages)
+
         self.insert_data_into_table_Search_Edit(data)
+        self.insert_checkbox_search_edit(data)
         helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_table, 1)
         helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_table, 6)
-
-# Login_function.Concentrate_Advance_ui
 
     def insert_data_into_table_Search_Edit(self, data):
         # initialize the table
         Login_function.Concentrate_Advance_ui.Display_table.setRowCount(0) 
         row = 0
         self.check_button_array_search_edit = []
+        self.initial_data = []
         for login_record in data:
             Login_function.Concentrate_Advance_ui.Display_table.insertRow(row)
-            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[0]))
+            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[1]))
             Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 2, QtWidgets.QTableWidgetItem("************"))
-            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[2]))
-            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 4, QtWidgets.QTableWidgetItem(login_record[3]))
-            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 5, QtWidgets.QTableWidgetItem(login_record[4]))     
-            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 6, QtWidgets.QTableWidgetItem(str(login_record[5]))) 
+            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
+            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 4, QtWidgets.QTableWidgetItem(login_record[4]))
+            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 5, QtWidgets.QTableWidgetItem(login_record[5]))     
+            Login_function.Concentrate_Advance_ui.Display_table.setItem(row, 6, QtWidgets.QTableWidgetItem(str(login_record[6]))) 
             
+            SQL_function.update_plate_user_have(login_record[1])
+            self.initial_data.append((login_record[1], login_record[2], login_record[3], login_record[4], login_record[5], login_record[6]))
+            row = row + 1
+
+    def insert_checkbox_search_edit(self, data):
+        for check_box_row in range(len(data)):
             # set a button to table
             check_box = QtWidgets.QCheckBox()
-            Login_function.Concentrate_Advance_ui.Display_table.setCellWidget(row, 0, check_box)
+            Login_function.Concentrate_Advance_ui.Display_table.setCellWidget(check_box_row, 0, check_box)
             self.check_button_array_search_edit.append(check_box)
-            row = row+1
-            SQL_function.update_plate_user_have(login_record[0])
 
     def get_data_from_table(self):
+        self.edited_data = []
         # go through entire table row by row
         for row in range(Login_function.Concentrate_Advance_ui.Display_table.rowCount()):
-            data = []
+            edited_row = []
             for column in range(Login_function.Concentrate_Advance_ui.Display_table.columnCount()):
                 if(Login_function.Concentrate_Advance_ui.Display_table.item(row, column) != None):
-                    data.append(Login_function.Concentrate_Advance_ui.Display_table.item(row, column).text())
-
+                    edited_row.append(Login_function.Concentrate_Advance_ui.Display_table.item(row, column).text())
             # update plate_number_nomatter_what
-            SQL_function.update_plate_user_have(data[0])
+            SQL_function.update_plate_user_have(edited_row[1])
+            self.edited_data.append(edited_row)
+
             # check if check box is checked (防呆機制)
             if(self.check_button_array_search_edit[row].isChecked()):
                 # check if input permission and gender fit format
-                if((data[2] == "USER" or data[2] == "ADMIN")and(data[4] == "MALE" or data[4] == "FEMALE" or data[4] == "OTHERS")):
+                if((edited_row[2] == "USER" or edited_row[2] == "ADMIN")and(edited_row[4] == "MALE" or edited_row[4] == "FEMALE" or edited_row[4] == "OTHERS")):
                     # update name, gender, and permission
-                    SQL_function.update_data_to_user_info(data[0], None, data[2], data[3], data[4], data[5])
+                    SQL_function.update_data_to_user_info(edited_row[0], None, edited_row[2], edited_row[3], edited_row[4], edited_row[5])
                     Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(True)
                 else:
                     Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(False)
                     return
                 # check if password had been changed
-                if(data[1] != "************"):
+                if(edited_row[1] != "************"):
+                    Admin_editor_logger.info("1237edited_data = :" + str(self.edited_data) )
+                    Admin_editor_logger.info("1238initial_data = :" + str(self.initial_data) )                    
                     # check if edited password fit format
-                    if(SQL_function.check_password_availability(data[1])):
-                        SQL_function.update_data_to_user_info(data[0], helper.encode_password(data[1]), data[2], data[3], data[4], data[5])
+                    if(helper.check_password_availability(edited_row[1])):
+                        Admin_editor_logger.info("1238initial_data = :" + str(self.initial_data) )
+                        SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
                         Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(True)
                     else:
+                        Admin_editor_logger.info("1245helper.check_password_availability(edited_row[1]" + str(helper.check_password_availability(edited_row[1])))
                         Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(False)
                         return
-            
-        self.show_user("all", None)
+        self.data_comparison()
+        self.show_user(0)
 
     def open_Register_window(self):
         self.Register = QtWidgets.QWidget()
@@ -1063,6 +1263,8 @@ class UI_Search_Edit_function:
                     data.append(Login_function.Concentrate_Advance_ui.Display_table.item(row, column).text())
             if(self.check_button_array_search_edit[row].isChecked()):
                 SQL_function.remove_user(data[0])
+        Search_Edit_function.set_current_search_type("all")
+        Search_Edit_function.show_user(0)
 
     def show_delete_confirm(self):
         confirm = QMessageBox()
@@ -1071,11 +1273,33 @@ class UI_Search_Edit_function:
         confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         confirm.setDefaultButton(QMessageBox.Cancel)
         confirm.accepted.connect(lambda: self.delete_users())
-        confirm.accepted.connect(lambda: self.show_user("all", None))
         x = confirm.exec_()
 
-class UI_Register_function:
+    def data_comparison(self):
+        # initial_data[5] is int
+        # compare password with "************"
+        Admin_editor_logger.info("self.edited_data = " + str(self.edited_data))
+        Admin_editor_logger.info("self.initial_data = " + str(self.initial_data))
+        for row in zip(self.edited_data , self.initial_data):    
+            if(row[0][1] != "************"):
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s password has been edited.")
+            if(row[0][2] != row[1][2]):
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s permission has been edited from " + row[1][2] + " to " + row[0][2] + " .")
+            if(row[0][3] != row[1][3]):
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s name has been edited from " + row[1][3] + " to " + row[0][3] + " .")
+            if(row[0][4] != row[1][4]):
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s gender has been edited from " + row[1][4] + " to " + row[0][4] + " .")                
 
+    def set_user_info_pages_maximum(self, value):
+        self.user_info_pages_maximum = SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) // 20  
+        if(SQL_function.get_page_number_from_database_user_info(self.current_search_type, value)%20 == 0):
+            self.user_info_pages_maximum = (SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) // 20) - 1 
+
+
+    def set_current_search_type(self, type):
+        self.current_search_type = type
+
+class UI_Register_function:
     def press_register(self, userid, password, real_name):
         return_flag = False
         gender_flag = False
@@ -1083,10 +1307,10 @@ class UI_Register_function:
         name_flag = False
 
         # handle invalid input
-        if(SQL_function.check_ID_exist(userid) is True or userid == "" or len(userid) < 4 or helper.has_invalid_character(userid)):
+        if(SQL_function.check_ID_exist(userid) is True or userid == "" or len(userid) < 4 or (helper.has_invalid_character(userid))):
             Search_Edit_function.Register_ui.ID_error_message.setHidden(False)
             return_flag = True
-        elif(SQL_function.check_ID_exist(userid) is False):
+        else:
             Search_Edit_function.Register_ui.ID_error_message.setHidden(True)
 
         if(Search_Edit_function.Register_ui.Male_button.isChecked() or Search_Edit_function.Register_ui.Female_button.isChecked() or Search_Edit_function.Register_ui.Other_button.isChecked()):
@@ -1116,37 +1340,57 @@ class UI_Register_function:
 
         # add the user
         SQL_function.add_user(userid, helper.encode_password(password), permission, real_name, gender)
-        Search_Edit_function.show_user("all", None)
+        Register_logger.info("User registered with Id: " + userid + " , permission: " + permission + " , name: " + real_name + " , gender: " + gender + ". ")
+        Search_Edit_function.set_current_search_type("all")
+        Search_Edit_function.show_user(0)
         Search_Edit_function.Register_ui.Register_error_message.setHidden(True)
         Search_Edit_function.Register_ui.Register_success_message.setHidden(False)
 
 class UI_Login_History_function:
-# Function for Login History
-
-    def show_login_history(self, type, value):
-        if(type == "all"):
-            data = SQL_function.get_data_from_login_history(type, value)
-        elif(type == "id"):
-            data = SQL_function.get_data_from_login_history(type, value)
-        elif(type == "status"):
-            data = SQL_function.get_data_from_login_history(type, value)
+    login_history_pages_maximum = 0    
+    current_search_type = "all"  
+    # Function for Login History
+    def show_login_history(self, pages):
+        if(self.current_search_type == "id"):
+            if(Login_function.Concentrate_Advance_ui.ID_input_login_history.text() == None):
+                value = ""
+            value = Login_function.Concentrate_Advance_ui.ID_input_login_history.text()
+        elif(self.current_search_type == "all"):
+            value = None
+        elif(self.current_search_type == "status"):
             if(Login_function.Concentrate_Advance_ui.Success_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("status", "SUCCESS")
-            if(Login_function.Concentrate_Advance_ui.Fail_button.isChecked()):  
-                data = SQL_function.get_data_from_login_history("status", "FAIL")
-        elif(type == "specific_type"):
-            data = SQL_function.get_data_from_login_history("specific_type", None)
+                value = "SUCCESS"   
+            elif(Login_function.Concentrate_Advance_ui.Fail_button.isChecked()):  
+                value = "FAIL"   
+            else:
+                value = ""   
+        elif(self.current_search_type == "specific_type_fail"):
             if(Login_function.Concentrate_Advance_ui.ID_doesnt_exist_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("specific_type", "ID doesn't exist")
-            if(Login_function.Concentrate_Advance_ui.Password_doesnt_match_ID_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("specific_type", "ID and Password doesn't match")
-            if(Login_function.Concentrate_Advance_ui.User_enter_advance_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("specific_type", "A normal user tries to enter Advance mode")            
+                value = "ID doesn't exist"
+            elif(Login_function.Concentrate_Advance_ui.Password_doesnt_match_ID_button.isChecked()):
+                value = "ID and Password doesn't match"
+            elif(Login_function.Concentrate_Advance_ui.User_enter_advance_button.isChecked()):
+                value = "A normal user tries to enter Advance mode"
+            else:
+                value = ""    
+        elif(self.current_search_type == "specific_type_success"):        
             if(Login_function.Concentrate_Advance_ui.Normal_login_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("specific_type", "Login with normal user mode")
-            if(Login_function.Concentrate_Advance_ui.Advance_login_button.isChecked()):
-                data = SQL_function.get_data_from_login_history("specific_type", "Login with Advance mode")
+                value = "Login with normal user mode"
+            elif(Login_function.Concentrate_Advance_ui.Advance_login_button.isChecked()):
+                value = "Login with Advance mode"
+            else:
+                value = ""
+
+        self.set_login_history_pages_maximum(value)
+        if(self.login_history_pages_maximum <= pages):
+            Login_function.Concentrate_Advance_ui.Login_History_Pages.setValue(self.login_history_pages_maximum)
+            pages = self.login_history_pages_maximum
+        Login_history_logger.info("maximum pages = :" + str(self.login_history_pages_maximum) + " current pages = " + str(pages))
+        data = SQL_function.get_data_from_login_history(self.current_search_type, value, pages)
+
         self.insert_data_into_table(data)
+        helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_table, 1)
+        helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_table, 6)
 
     def insert_data_into_table(self, data):
         # initialize the table
@@ -1154,25 +1398,52 @@ class UI_Login_History_function:
         row = 0
         for login_record in data:
             Login_function.Concentrate_Advance_ui.Display_Login_info.insertRow(row)
-            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 0, QtWidgets.QTableWidgetItem(login_record[0]))
-            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[1]))
-            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 2, QtWidgets.QTableWidgetItem(login_record[2]))
-            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[3]))
+            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 0, QtWidgets.QTableWidgetItem(login_record[1]))
+            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 1, QtWidgets.QTableWidgetItem(login_record[2]))
+            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 2, QtWidgets.QTableWidgetItem(login_record[3]))
+            Login_function.Concentrate_Advance_ui.Display_Login_info.setItem(row, 3, QtWidgets.QTableWidgetItem(login_record[4]))
             row = row+1  
 
+    def set_login_history_pages_maximum(self, value):
+        self.login_history_pages_maximum = SQL_function.get_page_number_from_database_login_history(self.current_search_type, value) // 20  
+        if(SQL_function.get_page_number_from_database_login_history(self.current_search_type, value)%20 == 0):
+            self.login_history_pages_maximum = (SQL_function.get_page_number_from_database_login_history(self.current_search_type, value) // 20) - 1
+    def set_current_search_type(self, type):
+        self.current_search_type = type
+
 class UI_Plate_info_function:
-# Function for Plate Scan
-    def show_plate_info(self, type, value):        
-        if(type == "availability"):
+    plate_info_pages_maximum = 0    
+    current_search_type = "all"    
+    # Function for Plate Scan
+    
+    def show_plate_info(self, pages):   
+        if(self.current_search_type == "all"):
+            value = None     
+        elif(self.current_search_type == "user_id"):
+            if(Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text() == None):
+                value = ""
+            value = Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text()
+        elif(self.current_search_type == "plate_id"):
+            if(Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text() == None):
+                value = ""
+            value = Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text()
+        elif(self.current_search_type == "availability"):
             if(Login_function.Concentrate_Advance_ui.Available_FALSE.isChecked()):
-                data = SQL_function.get_data_from_plate_info(type,"FALSE")
+                value = "FALSE"
             elif(Login_function.Concentrate_Advance_ui.Available_TRUE.isChecked()):
-                data = SQL_function.get_data_from_plate_info(type,"TRUE")
+                value = "TRUE"
             else:
-                data = SQL_function.get_data_from_plate_info(type, None)
-        else:
-            data = SQL_function.get_data_from_plate_info(type, value)                
+                value = ""
+        
+        self.set_plate_info_pages_maximum(value)
+        if(self.plate_info_pages_maximum <= pages):
+            Login_function.Concentrate_Advance_ui.Plate_info_pages.setValue(self.plate_info_pages_maximum)
+            pages = self.plate_info_pages_maximum
+
+        data = SQL_function.get_data_from_plate_info(self.current_search_type, value, pages)
+        Plate_Info_logger.info(data)
         self.insert_data_into_table_plate_info(data)
+        self.insert_checkbox_plate_info(data)
         helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_Plate_Info, 1)
 
     def insert_data_into_table_plate_info(self, data):
@@ -1185,23 +1456,27 @@ class UI_Plate_info_function:
         # goes through every row
         for plate_info in data:
             Login_function.Concentrate_Advance_ui.Display_Plate_Info.insertRow(row)
-
             # put item into row's column1 ~ column 5
-            for i in range(5):
-                Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, i+1, QtWidgets.QTableWidgetItem(plate_info[i]))
-
-            # set a button to table
-            check_box = QtWidgets.QCheckBox()
-            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setCellWidget(row, 0, check_box)
-            self.check_button_array_plate_info.append(check_box)
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, 1, QtWidgets.QTableWidgetItem(plate_info[1]))
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, 2, QtWidgets.QTableWidgetItem(plate_info[2]))
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, 3, QtWidgets.QTableWidgetItem(plate_info[3]))
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, 4, QtWidgets.QTableWidgetItem(plate_info[4]))
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setItem(row, 5, QtWidgets.QTableWidgetItem(plate_info[5]))            
 
             row = row+1      
-         
+
+    def insert_checkbox_plate_info(self, data):
+        for check_box_row in range(len(data)):
+            # set a button to table
+            check_box = QtWidgets.QCheckBox()
+            Login_function.Concentrate_Advance_ui.Display_Plate_Info.setCellWidget(check_box_row, 0, check_box)
+            self.check_button_array_plate_info.append(check_box)
+
     def show_add_new_plate_window(self):
         plateid, read_next_plate = QtWidgets.QInputDialog().getText(Login_function.Concentrate_Advance_ui.Plate_Scan_Tab, '', 'Please scan the bar code on the plate.')
         if(read_next_plate is True and plateid != ''):
             SQL_function.add_new_plate(plateid)        
-            self.show_plate_info("all", None)
+            self.show_plate_info(0)
             self.show_add_new_plate_window()
     
     def show_delete_plate_confirm(self):
@@ -1214,25 +1489,28 @@ class UI_Plate_info_function:
         x = confirm.exec_()        
 
     def show_assign_plate_to_user_window(self):
-        userid, OK = QtWidgets.QInputDialog().getText(Login_function.Concentrate_Advance_ui.Plate_Scan_Tab, '', 'Please enter the user id that you like to assign to.')
-        if(SQL_function.check_ID_exist(userid) is True):
-            # go through entire table row by row
-            for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
-                data = []
-                for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
-                        data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())
-                if(self.check_button_array_plate_info[row].isChecked()):
-                    if(data[2] == "TRUE"):
-                        SQL_function.assign_plate_to_user(data[0], userid, "FALSE", helper.get_time())
-                        Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(False)
-                        Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(True)
-        else:
-            Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(True)
-            Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(False)
-        self.show_plate_info("all", None)          
+        userid, ok = QtWidgets.QInputDialog().getText(Login_function.Concentrate_Advance_ui.Plate_Scan_Tab, '', 'Please enter the user id that you like to assign to.')
+        if(ok):
+
+            if(SQL_function.check_ID_exist(userid) is True):
+                # go through entire table row by row
+                for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
+                    data = []
+                    for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
+                        if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
+                            data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())
+                    if(self.check_button_array_plate_info[row].isChecked()):
+                        print(data[0], userid, "FALSE", helper.get_time())
+                        if(data[2] == "TRUE"):
+                            SQL_function.assign_plate_to_user(data[0], userid, "FALSE", helper.get_time())
+                            Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(False)
+                            Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(True)
+            else:
+                Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(True)
+                Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(False)
+        self.show_plate_info(0)          
         self.update_whole_table()
-        Search_Edit_function.show_user("all", None)
+        Search_Edit_function.show_user(0)
 
     def show_deassign_plate_to_user_window(self):
         confirm = QMessageBox()
@@ -1252,8 +1530,8 @@ class UI_Plate_info_function:
             if(self.check_button_array_plate_info[row].isChecked()):
                 SQL_function.remove_plate(data[0])   
 
-        self.show_plate_info("all", None)
-        Search_Edit_function.show_user("all", None)
+        self.show_plate_info(0)
+        Search_Edit_function.show_user(0)
 
     def deassign_plate(self):
         for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
@@ -1263,19 +1541,29 @@ class UI_Plate_info_function:
                     data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())        
 
             if(self.check_button_array_plate_info[row].isChecked()):
+                
                 if(data[2] == "FALSE"):
                     SQL_function.deassign_plate_from_user(data[0], "TRUE", helper.get_time())
-        self.show_plate_info("all", None)
+        self.show_plate_info(0)
         self.update_whole_table()
-        Search_Edit_function.show_user("all", None)
+        Search_Edit_function.show_user(0)
 
     def update_whole_table(self):
         for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
             data = []
             for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
                 if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
-                    data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())        
+                    data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())       
             SQL_function.update_plate_user_have(data[1])
+    
+    def set_plate_info_pages_maximum(self, value):
+        self.plate_info_pages_maximum = SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value) // 20 
+        if(SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value)%20 == 0):
+            self.plate_info_pages_maximum = (SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value) // 20) - 1
+         
+
+    def set_current_search_type(self, type):
+        self.current_search_type = type
 
 class helper_function:
     # helper function
@@ -1321,16 +1609,15 @@ class helper_function:
         # Make own character set and pass
         # this as argument in compile method
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
-     
         # Pass the string in search
         # method of regex object.   
-        if(regex.search(password) == None):
-            return False
-        else:
+        if(re.search("[^a-zA-Z0-9s]", password) or (' ' in password) is True):
             return True
+        else:
+            return False
     
     def check_password_availability(self, password):
-        if(len(password) >= 6 and self.has_capital_letters(password) is True and self.has_numbers(password) and self.has_lower_letters(password) is True and self.has_invalid_character(password) is False):
+        if(len(password) >= 6 and self.has_capital_letters(password) is True and self.has_numbers(password) and self.has_lower_letters(password) is True and (self.has_invalid_character(password) is False)):
             return True
         return False
 
@@ -1346,9 +1633,9 @@ class MySQL_function:
 
     def create_table_first(self, cursor):
         # CREATE TABLE just in case
-        cursor.execute("CREATE TABLE if not exists User_Information (ID VARCHAR(500) PRIMARY KEY, PASSWORD VARCHAR(500), PERMISSION VARCHAR(20), REAL_NAME VARCHAR(50), GENDER VARCHAR(20), PLATE_NUM INT)")
-        cursor.execute("CREATE TABLE if not exists Login_record (ID VARCHAR(500), LOGIN_TIME VARCHAR(500), LOGIN_STATE VARCHAR(500), SPECIFIC_TYPE VARCHAR(500))")
-        cursor.execute("CREATE TABLE if not exists Plate_Information (PLATE_ID VARCHAR(500) PRIMARY KEY, LAST_ASSIGNED_USER_ID VARCHAR(500), AVAILABLE_FOR_ASSIGN VARCHAR(20), LAST_ASSIGN_TIME VARCHAR(500), LAST_DEASSIGN_TIME VARCHAR(500))")
+        cursor.execute("CREATE TABLE if not exists User_Information (USER_INFORMATION_KEY INT PRIMARY KEY AUTO_INCREMENT, ID VARCHAR(500) UNIQUE, PASSWORD VARCHAR(500), PERMISSION VARCHAR(20), REAL_NAME VARCHAR(50), GENDER VARCHAR(20), PLATE_NUM INT)")
+        cursor.execute("CREATE TABLE if not exists Login_record (LOGIN_RECORD_KEY INT PRIMARY KEY AUTO_INCREMENT, ID VARCHAR(500), LOGIN_TIME VARCHAR(500), LOGIN_STATE VARCHAR(500), SPECIFIC_TYPE VARCHAR(500))")
+        cursor.execute("CREATE TABLE if not exists Plate_Information (PLATE_INFORMATION_KEY INT PRIMARY KEY AUTO_INCREMENT, PLATE_ID VARCHAR(500) UNIQUE, LAST_ASSIGNED_USER_ID VARCHAR(500), AVAILABLE_FOR_ASSIGN VARCHAR(20), LAST_ASSIGN_TIME VARCHAR(500), LAST_DEASSIGN_TIME VARCHAR(500))")
 
     def check_ID_password(self, userid, password):
         Match = False
@@ -1363,12 +1650,12 @@ class MySQL_function:
             mycursor.execute("SELECT * FROM User_Information")
             for User_record in mycursor:
                 # compare the id
-                if(User_record[0] == userid):
+                if(User_record[1] == userid):
                     # compare the password
-                    if(User_record[1] == password):
+                    if(User_record[2] == password):
                         Match = True            
         except:
-            logging.error("Check_ID_password Encountered error!")
+            Login_logger.error("Check_ID_password Encountered error!")
             return -1
         return Match
     
@@ -1383,9 +1670,9 @@ class MySQL_function:
             mycursor.execute('''SELECT * FROM User_Information''')
             for User_record in mycursor:
                 #compare the id
-                if(User_record[0] == userid):
+                if(User_record[1] == userid):
                     # check the permission
-                    if(User_record[2] == "ADMIN"):
+                    if(User_record[3] == "ADMIN"):
                         is_admin = True
         except:
             logging.error("check_ID_is_admin Encountered error")
@@ -1399,17 +1686,17 @@ class MySQL_function:
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
-            self.create_table_first( mycursor)  
+            self.create_table_first(mycursor)  
             mycursor.execute('''SELECT * FROM User_Information''')
             for User_record in mycursor:
                 # compare the id
-                if(User_record[0] == userid):
+                if(User_record[1] == userid):
                     # ID exists in the database
                     Exist = True
+                    return Exist
         except:
             logging.error("check_ID_exist Encountered error!")
-            return -1
-        return Exist             
+            return -1        
       
     def remove_user(self, userid):
         try:
@@ -1423,7 +1710,7 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            logging.error("remove_user Encountered error!")
+            Admin_editor_logger.error("remove_user Encountered error!")
             return -1
 
     def add_user(self, userid, password, permission, real_name, gender):
@@ -1441,7 +1728,6 @@ class MySQL_function:
             logging.error("add_user Encountered error!")
             return -1
 
-    # login record function
     def add_login_record(self, userid, login_state, type):
         try:
             # Connect to database
@@ -1458,7 +1744,7 @@ class MySQL_function:
             logging.error("add_login_record Encountered error!")
             return -1
     
-    def get_data_from_login_history(self, type, value):
+    def get_data_from_login_history(self, type, value, pages):
         # Open database
         try:
             # Connect to database
@@ -1467,63 +1753,66 @@ class MySQL_function:
             # Create table if not exist
             self.create_table_first(mycursor)
             if(type == "all"):
-                mycursor.execute("SELECT * FROM Login_record")
+                Login_history_logger.info("pages = " + str(pages))
+                sql = ("SELECT * FROM Login_record LIMIT %s OFFSET %s")
+                val = (20, 20*pages)
+                mycursor.execute(sql, val)
             if(type == "id"):
-                sql = ("SELECT * FROM Login_record WHERE ID=%s")
-                val = (value, )
+                sql = ("SELECT * FROM Login_record WHERE ID=%s LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val)
             if(type == "status"):
-                sql = ("SELECT * FROM Login_record WHERE LOGIN_STATE=%s")
-                val = (value, )
+                sql = ("SELECT * FROM Login_record WHERE LOGIN_STATE=%s LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val)
-            if(type == "specific_type"):
-                sql = ("SELECT * FROM Login_record WHERE SPECIFIC_TYPE=%s")
-                val = (value, )
+            if(type == "specific_type_fail" or type == "specific_type_success"):
+                sql = ("SELECT * FROM Login_record WHERE SPECIFIC_TYPE=%s LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val)
-
             data = mycursor.fetchall()            
         except:
-            logging.error("get_data_from_login_history Encountered error!")
+            Login_history_logger.error("get_data_from_login_history Encountered error!")
             return -1
         return data
 
-    # user info function
-    def get_data_from_user_info(self, type, value):
+    def get_data_from_user_info(self, type, value, pages):
         try:
             # Connect to database
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
+            Admin_editor_logger.info("pages = :" + str(pages))
             self.create_table_first(mycursor)
             if(type == "all"):
-                mycursor.execute("SELECT * FROM User_Information")
+                sql = ("SELECT * FROM User_Information LIMIT %s OFFSET %s")
+                val = (20, 20*pages)
+                mycursor.execute(sql, val)
             if(type == "id_strict"):
                 sql = ("SELECT * FROM User_Information WHERE ID=%s ORDER BY ID ASC")
-                val = (value, )
+                val = (value,)
                 mycursor.execute(sql, val)
             if(type == "id"):
-                sql = ("SELECT * FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC")
-                val = ('%'+value+'%', )
+                sql = ("SELECT * FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                val = ('%'+value+'%',20, 20*pages)
                 mycursor.execute(sql, val)                
             if(type == "name"):
-                sql = ("SELECT * FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC")
-                val = ('%'+value+'%', )
+                sql = ("SELECT * FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC LIMIT %s OFFSET %s")
+                val = ('%'+value+'%', 20, 20*pages)
                 mycursor.execute(sql, val)
             if(type == "permission"):
-                sql = ("SELECT * FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC")
-                val = (value, )
+                sql = ("SELECT * FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val) 
             if(type == "gender"):
-                sql = ("SELECT * FROM User_Information WHERE GENDER=%s ORDER BY ID ASC")
-                val = (value, )
+                sql = ("SELECT * FROM User_Information WHERE GENDER=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val)                   
-            data = mycursor.fetchall()            
+            data = mycursor.fetchall() 
         except:
             logging.error("get_data_from_user_info Encountered error!")
             return -1
         return data                     
   
-    # update user info function
     def update_data_to_user_info(self, userid, password, permission, real_name, gender, plate_amount):
         try:
             # Connect to database
@@ -1547,28 +1836,29 @@ class MySQL_function:
             return -1
         return data      
             
-    # plate info function
-    def get_data_from_plate_info(self, type , value):
-        # Open database
+    def get_data_from_plate_info(self, type , value, pages):
         try:
+            Plate_Info_logger.info("1820: type = " + str(type) + " value = " + str(value) + " pages =  " + str(pages) )
             # Connect to database
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
             if(type == "all"):
-                mycursor.execute("SELECT * FROM Plate_Information")
+                sql = ("SELECT * FROM Plate_Information LIMIT %s OFFSET %s")
+                val = (20, 20*pages)
+                mycursor.execute(sql, val)
             if(type == "plate_id"):
-                sql = ("SELECT * FROM Plate_Information WHERE PLATE_ID LIKE %s ORDER BY PLATE_ID ASC")
-                val = ('%'+value+'%', )
+                sql = ("SELECT * FROM Plate_Information WHERE PLATE_ID LIKE %s ORDER BY PLATE_ID ASC LIMIT %s OFFSET %s")
+                val = ('%'+value+'%',20, 20*pages)
                 mycursor.execute(sql, val)                   
             if(type == "user_id"):
-                sql = ("SELECT * FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID LIKE %s ORDER BY LAST_ASSIGNED_USER_ID ASC")
-                val = ('%'+value+'%', )
+                sql = ("SELECT * FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID LIKE %s ORDER BY LAST_ASSIGNED_USER_ID ASC LIMIT %s OFFSET %s")
+                val = ('%'+value+'%', 20, 20*pages)
                 mycursor.execute(sql, val)
             if(type == "availability"):
-                sql = ("SELECT * FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s")
-                val = (value, )
+                sql = ("SELECT * FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s LIMIT %s OFFSET %s")
+                val = (value, 20, 20*pages)
                 mycursor.execute(sql, val)
             data = mycursor.fetchall()         
         except:
@@ -1608,7 +1898,7 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            logging.error("assign_plate_to_user Encountered error!")
+            Plate_Info_logger.error("assign_plate_to_user Encountered error!")
         self.update_plate_user_have(userid)     
 
     def deassign_plate_from_user(self, plateid, availability, last_deassign_time):
@@ -1659,21 +1949,123 @@ class MySQL_function:
             logging.error("update_plate_user_have Encountered error!")
             return -1  
 
+    def get_page_number_from_database_user_info(self, type, value):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+            Admin_editor_logger.info("value = :" + str(value))
+            if(type == "all"):
+                sql = ("SELECT count(*) FROM User_Information")
+                mycursor.execute(sql)
+            if(type == "id_strict"):
+                sql = ("SELECT count(*) FROM User_Information WHERE ID=%s ORDER BY ID ASC")
+                val = (value,)
+                mycursor.execute(sql, val)
+            if(type == "id"):
+                sql = ("SELECT count(*) FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC ")
+                val = ('%'+value+'%',)
+                mycursor.execute(sql, val)                
+            if(type == "name"):
+                sql = ("SELECT count(*) FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC ")
+                val = ('%'+value+'%',)
+                mycursor.execute(sql, val)
+            if(type == "permission"):
+                sql = ("SELECT count(*) FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val) 
+            if(type == "gender"):
+                sql = ("SELECT count(*) FROM User_Information WHERE GENDER=%s ORDER BY ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val)     
+            
+     
+            data = mycursor.fetchone()     
+            page_number = data[0]
+        except:
+            Admin_editor_logger.error("get_page_number_from_database_user_info Encountered error!")
+            return -1
+        return page_number
+
+    def get_page_number_from_database_login_history(self, type, value):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+
+            Admin_editor_logger.info("value = :" + str(value))
+            if(type == "all"):
+                sql = ("SELECT count(*) FROM Login_record")
+                mycursor.execute(sql)
+            if(type == "id"):
+                sql = ("SELECT count(*) FROM Login_record WHERE ID=%s ORDER BY ID ASC")
+                val = (value,)
+                mycursor.execute(sql, val)
+            if(type == "status"):
+                sql = ("SELECT count(*) FROM Login_record WHERE LOGIN_STATE=%s ORDER BY ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val) 
+            if(type == "specific_type_fail" or type == "specific_type_success"):
+                sql = ("SELECT count(*) FROM Login_record WHERE SPECIFIC_TYPE=%s ORDER BY ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val)     
+
+            data = mycursor.fetchone()     
+            page_number = data[0]
+        except:
+            Login_history_logger.error("get_page_number_from_database_login_history Encountered error!")
+            return -1
+
+        return page_number
+
+    def get_page_number_from_database_plate_info(self, type, value):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+            Plate_Info_logger.info(" type " + str(type) + " value " + str(value))
+            if(type == "all"):
+                sql = ("SELECT count(*) FROM Plate_Information")
+                mycursor.execute(sql)
+            if(type == "user_id"):
+                sql = ("SELECT count(*) FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID=%s ORDER BY LAST_ASSIGNED_USER_ID ASC")
+                val = (value,)
+                mycursor.execute(sql, val)
+            if(type == "plate_id"):
+                sql = ("SELECT count(*) FROM Plate_Information WHERE PLATE_ID=%s ORDER BY LAST_ASSIGNED_USER_ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val) 
+            if(type == "availability"):
+                sql = ("SELECT count(*) FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s ORDER BY LAST_ASSIGNED_USER_ID ASC ")
+                val = (value,)
+                mycursor.execute(sql, val)               
+            data = mycursor.fetchone()     
+            page_number = data[0]
+        except:
+            logging.error("get_page_number_from_database_plate_info Encountered error!")
+            return -1
+        return page_number
+
 
 # main
 if __name__ == "__main__":
     Login_function = UI_Login_function()
     Info_Editor_function = UI_Info_Editor_function()
     Search_Edit_function = UI_Search_Edit_function()
+    Register_function = UI_Register_function()
     Login_History_function = UI_Login_History_function()
     Plate_Info_function = UI_Plate_info_function()
-    Register_function = UI_Register_function()
-    SQL_function = MySQL_function()
     helper = helper_function()
+    SQL_function = MySQL_function()
     app = QtWidgets.QApplication(sys.argv)
     Login = QtWidgets.QMainWindow()
     Loginui = Ui_Login()
     Loginui.setupUi(Login)
     Login.show()
     sys.exit(app.exec_())
-

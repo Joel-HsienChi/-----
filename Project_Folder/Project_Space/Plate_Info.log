@@ -1,1 +1,669 @@
 2023-07-18 17:35:07,202 - INFO test plate info logger
+2023-07-19 09:16:13,164 - INFO test plate info logger
+2023-07-19 09:17:55,646 - INFO test plate info logger
+2023-07-19 09:17:58,828 - INFO test plate info logger
+2023-07-19 09:18:09,023 - INFO test plate info logger
+2023-07-19 09:18:11,483 - INFO test plate info logger
+2023-07-19 09:19:56,510 - INFO test plate info logger
+2023-07-19 09:20:12,674 - INFO test plate info logger
+2023-07-19 09:20:49,036 - INFO test plate info logger
+2023-07-19 09:22:48,837 - INFO test plate info logger
+2023-07-19 09:22:54,789 - INFO test plate info logger
+2023-07-19 09:23:17,840 - INFO test plate info logger
+2023-07-19 09:53:57,156 - INFO test plate info logger
+2023-07-19 09:54:01,367 - INFO test plate info logger
+2023-07-19 10:03:13,969 - INFO test plate info logger
+2023-07-19 10:05:43,937 - INFO test plate info logger
+2023-07-19 10:05:50,007 - INFO test plate info logger
+2023-07-19 10:10:31,186 - INFO test plate info logger
+2023-07-19 10:10:58,135 - INFO test plate info logger
+2023-07-19 10:11:02,154 - INFO test plate info logger
+2023-07-19 10:11:24,859 - INFO test plate info logger
+2023-07-19 10:12:06,651 - INFO test plate info logger
+2023-07-19 10:15:18,625 - INFO test plate info logger
+2023-07-19 10:16:57,297 - INFO test plate info logger
+2023-07-19 10:21:18,537 - INFO test plate info logger
+2023-07-19 10:24:42,305 - INFO test plate info logger
+2023-07-19 10:25:03,587 - INFO test plate info logger
+2023-07-19 10:37:39,077 - INFO test plate info logger
+2023-07-19 10:39:33,640 - INFO test plate info logger
+2023-07-19 10:40:12,027 - INFO test plate info logger
+2023-07-19 10:40:25,626 - INFO test plate info logger
+2023-07-19 10:41:18,405 - INFO test plate info logger
+2023-07-19 10:43:14,520 - INFO test plate info logger
+2023-07-19 10:43:48,806 - INFO test plate info logger
+2023-07-19 10:44:32,620 - INFO test plate info logger
+2023-07-19 10:45:12,325 - INFO test plate info logger
+2023-07-19 10:45:31,063 - INFO test plate info logger
+2023-07-19 10:48:28,828 - INFO test plate info logger
+2023-07-19 10:50:41,128 - INFO test plate info logger
+2023-07-19 10:50:58,007 - INFO test plate info logger
+2023-07-19 17:41:00,948 - INFO  type allvalue None
+2023-07-19 17:41:03,489 - INFO  type user_idvalue 
+2023-07-19 17:41:41,623 - INFO  type all value None
+2023-07-19 17:41:43,717 - INFO  type user_id value 
+2023-07-19 17:41:56,805 - INFO  type user_id value 
+2023-07-19 17:42:00,532 - INFO  type plate_id value 
+2023-07-19 17:42:12,918 - INFO  type all value None
+2023-07-19 17:42:41,849 - INFO  type availability value 
+2023-07-19 17:42:42,947 - INFO  type availability value TRUE
+2023-07-19 17:45:02,695 - INFO  type all value None
+2023-07-19 17:46:55,193 - INFO  type all value None
+2023-07-19 17:46:57,917 - INFO  type user_id value 
+2023-07-19 17:46:58,724 - INFO  type plate_id value 
+2023-07-19 17:46:59,667 - INFO  type availability value FALSE
+2023-07-19 17:47:00,663 - INFO  type availability value TRUE
+2023-07-19 17:47:01,789 - INFO  type user_id value 
+2023-07-19 17:47:02,598 - INFO  type all value None
+2023-07-19 17:47:10,936 - INFO  type user_id value 
+2023-07-19 17:47:13,425 - INFO  type user_id value 
+2023-07-19 17:47:14,048 - INFO  type user_id value 
+2023-07-19 17:47:14,843 - INFO  type plate_id value 
+2023-07-19 17:47:15,315 - INFO  type availability value TRUE
+2023-07-19 17:47:43,039 - INFO  type all value None
+2023-07-19 17:47:49,586 - INFO  type user_id value 
+2023-07-19 17:47:52,116 - INFO  type user_id value 1
+2023-07-19 17:47:53,603 - INFO  type all value None
+2023-07-19 17:47:57,481 - INFO  type plate_id value 1
+2023-07-19 17:50:14,913 - INFO  type all value None
+2023-07-19 17:50:17,183 - INFO  type user_id value 
+2023-07-19 17:51:24,043 - INFO  type all value None
+2023-07-19 17:51:24,080 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:51:26,638 - INFO  type user_id value 
+2023-07-19 17:51:26,672 - INFO []
+2023-07-19 17:51:27,447 - INFO  type all value None
+2023-07-19 17:51:27,487 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:42,506 - INFO  type all value None
+2023-07-19 17:52:42,540 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:44,231 - INFO  type all value None
+2023-07-19 17:52:44,267 - INFO  type all value None
+2023-07-19 17:52:44,299 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:44,330 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:44,972 - INFO  type all value None
+2023-07-19 17:52:45,005 - INFO  type all value None
+2023-07-19 17:52:45,036 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:45,069 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:52:45,984 - INFO  type user_id value 
+2023-07-19 17:52:46,016 - INFO []
+2023-07-19 17:52:47,032 - INFO  type plate_id value 
+2023-07-19 17:52:47,074 - INFO []
+2023-07-19 17:52:48,164 - INFO  type all value None
+2023-07-19 17:52:48,204 - INFO [('1', '2023-07-14 15:42:18.538118', 'SUCCESS', 'Login with Advance mode'), ('', '2023-07-14 15:42:28.607009', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.762838', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:28.902696', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.027640', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:29.160140', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.107108', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.203588', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.369449', 'FAIL', "ID doesn't exist"), ('', '2023-07-14 15:42:30.526320', 'FAIL', "ID doesn't exist"), ('2', '2023-07-14 15:42:33.122926', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.247602', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.381674', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.523523', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.656311', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.779629', 'FAIL', 'A normal user tries to enter Advance mode'), ('2', '2023-07-14 15:42:33.959397', 'FAIL', 'A normal user tries to enter Advance mode'), ('4', '2023-07-14 15:42:36.116163', 'FAIL', "ID doesn't exist"), ('4', '2023-07-14 15:42:36.251213', 'FAIL', "ID doesn't exist"), ('1', '2023-07-14 15:42:38.431536', 'FAIL', "ID and Password doesn't match")]
+2023-07-19 17:54:09,357 - INFO  type all value None
+2023-07-19 17:54:09,392 - INFO -1
+2023-07-19 17:57:39,826 - INFO  type all value None
+2023-07-19 17:57:39,829 - INFO -1
+2023-07-19 17:58:27,266 - INFO  type all value None
+2023-07-19 17:58:27,270 - INFO 1820: value = None pages =  0
+2023-07-19 17:58:27,303 - INFO -1
+2023-07-19 17:59:16,212 - INFO  type all value None
+2023-07-19 17:59:16,214 - INFO 1820: type = all value = None pages =  0
+2023-07-19 17:59:16,247 - INFO -1
+2023-07-19 18:00:20,064 - INFO  type all value None
+2023-07-19 18:00:20,066 - INFO 1820: type = all value = None pages =  0
+2023-07-19 18:00:20,101 - INFO [('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE')]
+2023-07-19 18:00:22,581 - INFO  type user_id value 
+2023-07-19 18:00:22,584 - INFO 1820: type = user_id value =  pages =  0
+2023-07-19 18:00:22,615 - INFO [('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE'), ('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-19 18:00:23,766 - INFO  type plate_id value 
+2023-07-19 18:00:23,768 - INFO 1820: type = plate_id value =  pages =  0
+2023-07-19 18:00:23,801 - INFO [('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE')]
+2023-07-19 18:00:25,400 - INFO  type availability value FALSE
+2023-07-19 18:00:25,402 - INFO 1820: type = availability value = FALSE pages =  0
+2023-07-19 18:00:25,432 - INFO [('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE')]
+2023-07-19 18:00:26,232 - INFO  type availability value TRUE
+2023-07-19 18:00:26,236 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-19 18:00:26,269 - INFO [('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188')]
+2023-07-19 18:00:27,405 - INFO  type availability value TRUE
+2023-07-19 18:00:27,442 - INFO  type availability value TRUE
+2023-07-19 18:00:27,444 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-19 18:00:27,480 - INFO [('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188')]
+2023-07-19 18:00:27,481 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-19 18:00:27,511 - INFO [('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188')]
+2023-07-19 18:00:27,980 - INFO  type availability value TRUE
+2023-07-19 18:00:28,016 - INFO  type availability value TRUE
+2023-07-19 18:00:28,018 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-19 18:00:28,053 - INFO [('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188')]
+2023-07-19 18:00:28,054 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-19 18:00:28,088 - INFO [('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188')]
+2023-07-19 18:00:29,817 - INFO  type user_id value 
+2023-07-19 18:00:29,821 - INFO 1820: type = user_id value =  pages =  0
+2023-07-19 18:00:29,857 - INFO [('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE'), ('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:03:31,326 - INFO  type all value None
+2023-07-20 09:03:31,328 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:03:31,359 - INFO [('Demo1', 'Dummy1', 'FALSE', '2023-07-14 17:41:01.548953', '2023-07-14 17:40:55.031177'), ('Demo10', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo11', '1', 'FALSE', '2023-07-19 11:33:32.092016', 'NONE'), ('Demo12', '1', 'FALSE', '2023-07-19 11:33:32.155293', 'NONE'), ('Demo13', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo14', 'NONE', 'TRUE', 'NONE', 'NONE'), ('Demo2', 'Dummy1', 'TRUE', '2023-07-14 17:41:01.609580', '2023-07-14 18:06:56.875776'), ('Demo3', 'Dummy2', 'TRUE', '2023-07-14 17:57:08.098976', '2023-07-14 18:06:56.912613'), ('Demo4', '1', 'FALSE', '2023-07-18 16:12:35.032603', '2023-07-14 18:06:56.942479'), ('Demo5', 'Dummy3', 'TRUE', '2023-07-14 17:57:20.792383', '2023-07-18 16:14:36.638188'), ('Demo6', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.838813', '2023-07-18 16:14:36.676297'), ('Demo7', 'Dummy5', 'FALSE', '2023-07-18 16:14:49.895138', '2023-07-18 16:14:36.705433'), ('Demo8', '1', 'FALSE', '2023-07-18 16:12:35.089704', 'NONE'), ('Demo9', '1', 'FALSE', '2023-07-18 16:12:35.146099', 'NONE')]
+2023-07-20 09:20:37,005 - INFO  type all value None
+2023-07-20 09:20:37,006 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:20:37,037 - INFO []
+2023-07-20 09:22:16,704 - INFO  type all value None
+2023-07-20 09:22:16,706 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:22:16,743 - INFO []
+2023-07-20 09:27:07,985 - INFO  type all value None
+2023-07-20 09:27:07,987 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:27:08,027 - INFO []
+2023-07-20 09:28:07,339 - INFO  type all value None
+2023-07-20 09:28:07,341 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:28:07,375 - INFO []
+2023-07-20 09:31:25,865 - INFO  type all value None
+2023-07-20 09:31:25,867 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:31:25,900 - INFO []
+2023-07-20 09:32:23,096 - INFO  type all value None
+2023-07-20 09:32:23,101 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:23,143 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:28,458 - INFO  type all value None
+2023-07-20 09:32:28,461 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:28,502 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:30,037 - INFO  type all value None
+2023-07-20 09:32:30,039 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:30,069 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:30,989 - INFO  type all value None
+2023-07-20 09:32:30,991 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:31,022 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:31,822 - INFO  type all value None
+2023-07-20 09:32:31,827 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:31,856 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:33,980 - INFO  type all value None
+2023-07-20 09:32:33,983 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:34,017 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:36,271 - INFO  type all value None
+2023-07-20 09:32:36,273 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:36,304 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:38,201 - INFO  type all value None
+2023-07-20 09:32:38,203 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:38,234 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, 'Demo7', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:40,292 - INFO  type all value None
+2023-07-20 09:32:40,295 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:40,328 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, 'Demo7', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:41,495 - INFO  type all value None
+2023-07-20 09:32:41,498 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:41,529 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, 'Demo7', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:44,001 - INFO  type all value None
+2023-07-20 09:32:44,003 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:44,035 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, 'Demo7', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:32:46,787 - INFO  type all value None
+2023-07-20 09:32:46,792 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:32:46,827 - INFO [(1, 'Demo1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, 'Demo2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, 'Demo3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, 'Demo4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, 'Deom', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, 'Demo5', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, 'Demo6', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, 'Demo7', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, 'Demo8', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, 'Demo9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:13,846 - INFO  type all value None
+2023-07-20 09:34:13,847 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:13,878 - INFO []
+2023-07-20 09:34:23,109 - INFO  type all value None
+2023-07-20 09:34:23,122 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:23,156 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:23,842 - INFO  type all value None
+2023-07-20 09:34:23,844 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:23,878 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:24,444 - INFO  type all value None
+2023-07-20 09:34:24,446 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:24,482 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:25,047 - INFO  type all value None
+2023-07-20 09:34:25,049 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:25,079 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:25,731 - INFO  type all value None
+2023-07-20 09:34:25,733 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:25,761 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:29,002 - INFO  type all value None
+2023-07-20 09:34:29,004 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:29,033 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, '6', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:34:30,211 - INFO  type all value None
+2023-07-20 09:34:30,215 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:34:30,246 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:23,575 - INFO  type all value None
+2023-07-20 09:38:23,578 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:23,611 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (1, '2', '1', '1', '1', '1'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:29,486 - INFO  type all value None
+2023-07-20 09:38:29,500 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:29,530 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (1, '2', '1', '1', '1', '1'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:30,838 - INFO  type all value None
+2023-07-20 09:38:30,840 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:30,870 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (1, '2', '1', '1', '1', '1'), (2, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (3, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (4, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (5, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (6, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:44,375 - INFO  type all value None
+2023-07-20 09:38:44,376 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:44,421 - INFO []
+2023-07-20 09:38:47,957 - INFO  type all value None
+2023-07-20 09:38:47,959 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:47,993 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:48,559 - INFO  type all value None
+2023-07-20 09:38:48,562 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:48,591 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:49,264 - INFO  type all value None
+2023-07-20 09:38:49,267 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:49,298 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:49,776 - INFO  type all value None
+2023-07-20 09:38:49,778 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:49,808 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:50,258 - INFO  type all value None
+2023-07-20 09:38:50,260 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:50,289 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:50,747 - INFO  type all value None
+2023-07-20 09:38:50,750 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:50,778 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:51,902 - INFO  type all value None
+2023-07-20 09:38:51,904 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:51,936 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:52,483 - INFO  type all value None
+2023-07-20 09:38:52,488 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:52,520 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:52,937 - INFO  type all value None
+2023-07-20 09:38:52,942 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:52,975 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:53,350 - INFO  type all value None
+2023-07-20 09:38:53,352 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:53,381 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:53,775 - INFO  type all value None
+2023-07-20 09:38:53,777 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:53,809 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:54,194 - INFO  type all value None
+2023-07-20 09:38:54,195 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:54,226 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:54,634 - INFO  type all value None
+2023-07-20 09:38:54,636 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:54,670 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:38:55,057 - INFO  type all value None
+2023-07-20 09:38:55,059 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:38:55,091 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:39:41,853 - INFO  type all value None
+2023-07-20 09:39:41,855 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:39:41,891 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:41:08,569 - INFO  type all value None
+2023-07-20 09:41:08,572 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:41:08,607 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:42:57,951 - INFO  type all value None
+2023-07-20 09:42:57,953 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:42:57,982 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:45:08,688 - INFO  type all value None
+2023-07-20 09:45:08,690 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:45:08,724 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 09:46:21,635 - INFO  type all value None
+2023-07-20 09:46:21,637 - INFO 1820: type = all value = None pages =  0
+2023-07-20 09:46:21,669 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 10:06:59,361 - INFO  type all value None
+2023-07-20 10:06:59,363 - INFO 1820: type = all value = None pages =  0
+2023-07-20 10:06:59,396 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 10:52:27,538 - INFO  type all value None
+2023-07-20 10:52:27,540 - INFO 1820: type = all value = None pages =  0
+2023-07-20 10:52:27,575 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 10:56:51,363 - INFO  type all value None
+2023-07-20 10:56:51,366 - INFO 1820: type = all value = None pages =  0
+2023-07-20 10:56:51,397 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 10:59:10,408 - INFO  type all value None
+2023-07-20 10:59:10,410 - INFO 1820: type = all value = None pages =  0
+2023-07-20 10:59:10,440 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:05:47,059 - INFO  type all value None
+2023-07-20 11:05:47,064 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:05:47,105 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:14:12,057 - INFO  type all value None
+2023-07-20 11:14:12,059 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:14:12,092 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:17:22,461 - INFO  type all value None
+2023-07-20 11:17:22,463 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:17:22,499 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:18:05,142 - INFO  type all value None
+2023-07-20 11:18:05,144 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:18:05,174 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:22:27,680 - INFO  type all value None
+2023-07-20 11:22:27,682 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:22:27,722 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:25:42,442 - INFO  type all value None
+2023-07-20 11:25:42,445 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:25:42,478 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:28:29,919 - INFO  type all value None
+2023-07-20 11:28:29,923 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:28:29,955 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:31:01,160 - INFO  type all value None
+2023-07-20 11:31:01,163 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:31:01,202 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:31:33,680 - INFO  type all value None
+2023-07-20 11:31:33,682 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:31:33,730 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:32:09,232 - INFO  type all value None
+2023-07-20 11:32:09,235 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:32:09,268 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:32:52,346 - INFO  type all value None
+2023-07-20 11:32:52,349 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:32:52,383 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:33:12,671 - INFO  type all value None
+2023-07-20 11:33:12,674 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:33:12,710 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:33:33,451 - INFO  type all value None
+2023-07-20 11:33:33,453 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:33:33,483 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:34:40,718 - INFO  type all value None
+2023-07-20 11:34:40,720 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:34:40,751 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:35:24,510 - INFO  type all value None
+2023-07-20 11:35:24,513 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:35:24,550 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:38:20,191 - INFO  type all value None
+2023-07-20 11:38:20,194 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:38:20,230 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 11:39:06,144 - INFO  type all value None
+2023-07-20 11:39:06,149 - INFO 1820: type = all value = None pages =  0
+2023-07-20 11:39:06,184 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:01:00,105 - INFO  type all value None
+2023-07-20 12:01:00,107 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:01:00,136 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:09:44,918 - INFO  type all value None
+2023-07-20 12:09:44,921 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:09:44,951 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:10:51,082 - INFO  type all value None
+2023-07-20 12:10:51,085 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:10:51,118 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:11:11,116 - INFO  type all value None
+2023-07-20 12:11:11,118 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:11:11,149 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:13:47,397 - INFO  type all value None
+2023-07-20 12:13:47,399 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:13:47,435 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:13:56,508 - INFO  type all value None
+2023-07-20 12:13:56,511 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:13:56,543 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:15:12,018 - INFO  type all value None
+2023-07-20 12:15:12,020 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:15:12,054 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:15:46,220 - INFO  type all value None
+2023-07-20 12:15:46,223 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:15:46,251 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:15:52,677 - INFO  type all value None
+2023-07-20 12:15:52,685 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:15:52,716 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:17:23,621 - INFO  type all value None
+2023-07-20 12:17:23,623 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:17:23,655 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:17:56,750 - INFO  type all value None
+2023-07-20 12:17:56,753 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:17:56,787 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:18:01,052 - INFO  type all value None
+2023-07-20 12:18:01,055 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:18:01,084 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:19:46,243 - INFO  type all value None
+2023-07-20 12:19:46,246 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:19:46,289 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:19:50,693 - INFO  type all value None
+2023-07-20 12:19:50,694 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:19:50,726 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:20:02,530 - INFO  type all value None
+2023-07-20 12:20:02,533 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:20:02,562 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:46:59,399 - INFO  type all value None
+2023-07-20 12:46:59,401 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:46:59,430 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 12:47:23,549 - INFO  type all value None
+2023-07-20 12:47:23,551 - INFO 1820: type = all value = None pages =  0
+2023-07-20 12:47:23,581 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:23,164 - INFO  type user_id value 1
+2023-07-20 14:14:23,166 - INFO 1820: type = user_id value = 1 pages =  0
+2023-07-20 14:14:23,196 - INFO []
+2023-07-20 14:14:26,228 - INFO  type all value None
+2023-07-20 14:14:26,230 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:14:26,258 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:28,161 - INFO  type user_id value 
+2023-07-20 14:14:28,163 - INFO 1820: type = user_id value =  pages =  0
+2023-07-20 14:14:28,196 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:28,548 - INFO  type user_id value 
+2023-07-20 14:14:28,555 - INFO 1820: type = user_id value =  pages =  0
+2023-07-20 14:14:28,596 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:29,340 - INFO  type plate_id value 
+2023-07-20 14:14:29,343 - INFO 1820: type = plate_id value =  pages =  0
+2023-07-20 14:14:29,376 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:32,239 - INFO  type plate_id value 1
+2023-07-20 14:14:32,242 - INFO 1820: type = plate_id value = 1 pages =  0
+2023-07-20 14:14:32,275 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:14:37,847 - INFO  type user_id value NONE
+2023-07-20 14:14:37,850 - INFO 1820: type = user_id value = NONE pages =  0
+2023-07-20 14:14:37,882 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:19:08,948 - INFO  type user_id value NONE
+2023-07-20 14:19:08,952 - INFO 1820: type = user_id value = NONE pages =  0
+2023-07-20 14:19:08,981 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:19:12,189 - INFO  type all value None
+2023-07-20 14:19:12,192 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:19:12,230 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:29:21,932 - INFO  type all value None
+2023-07-20 14:29:21,935 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:29:21,968 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:29:57,730 - INFO  type all value None
+2023-07-20 14:29:57,743 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:29:57,767 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:30:32,787 - INFO  type all value None
+2023-07-20 14:30:32,789 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:30:32,819 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:33:48,114 - INFO  type all value None
+2023-07-20 14:33:48,116 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:33:48,146 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:35:03,352 - INFO  type availability value FALSE
+2023-07-20 14:35:03,355 - INFO 1820: type = availability value = FALSE pages =  0
+2023-07-20 14:35:03,384 - INFO []
+2023-07-20 14:35:04,132 - INFO  type availability value TRUE
+2023-07-20 14:35:04,134 - INFO 1820: type = availability value = TRUE pages =  0
+2023-07-20 14:35:04,174 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:35:09,297 - INFO  type plate_id value 1
+2023-07-20 14:35:09,299 - INFO 1820: type = plate_id value = 1 pages =  0
+2023-07-20 14:35:09,329 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:35:12,272 - INFO  type user_id value NONE
+2023-07-20 14:35:12,275 - INFO 1820: type = user_id value = NONE pages =  0
+2023-07-20 14:35:12,309 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:48:27,948 - INFO  type user_id value NONE
+2023-07-20 14:48:27,951 - INFO 1820: type = user_id value = NONE pages =  0
+2023-07-20 14:48:27,979 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:51:09,944 - INFO  type all value None
+2023-07-20 14:51:09,951 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:51:09,981 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:52:41,132 - INFO  type all value None
+2023-07-20 14:52:41,134 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:52:41,163 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:53:48,939 - INFO  type all value None
+2023-07-20 14:53:48,961 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:53:48,984 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:53:55,534 - INFO  type all value None
+2023-07-20 14:53:55,536 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:53:55,562 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:56:22,207 - INFO  type all value None
+2023-07-20 14:56:22,211 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:56:22,236 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:56:29,666 - INFO  type all value None
+2023-07-20 14:56:29,668 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:56:29,696 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:57:33,975 - INFO  type all value None
+2023-07-20 14:57:33,977 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:57:34,005 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:57:38,964 - INFO  type all value None
+2023-07-20 14:57:38,966 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:57:38,996 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:58:46,514 - INFO  type all value None
+2023-07-20 14:58:46,516 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:58:46,553 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 14:59:00,651 - INFO  type all value None
+2023-07-20 14:59:00,653 - INFO 1820: type = all value = None pages =  0
+2023-07-20 14:59:00,677 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:06:11,787 - INFO  type all value None
+2023-07-20 15:06:11,791 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:06:11,822 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:06:18,691 - ERROR assign_plate_to_user Encountered error!
+2023-07-20 15:06:18,745 - INFO  type all value None
+2023-07-20 15:06:18,750 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:06:18,775 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:06:23,912 - INFO  type all value None
+2023-07-20 15:06:23,915 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:06:23,946 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:06:32,736 - ERROR assign_plate_to_user Encountered error!
+2023-07-20 15:06:32,765 - ERROR assign_plate_to_user Encountered error!
+2023-07-20 15:06:32,815 - INFO  type all value None
+2023-07-20 15:06:32,817 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:06:32,841 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:07:40,275 - INFO  type all value None
+2023-07-20 15:07:40,279 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:07:40,319 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:07:45,169 - ERROR assign_plate_to_user Encountered error!
+2023-07-20 15:07:45,221 - INFO  type all value None
+2023-07-20 15:07:45,222 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:07:45,247 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:08:03,420 - ERROR assign_plate_to_user Encountered error!
+2023-07-20 15:08:03,509 - INFO  type all value None
+2023-07-20 15:08:03,511 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:08:03,550 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:09:20,613 - INFO  type all value None
+2023-07-20 15:09:20,615 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:09:20,662 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'NONE', 'TRUE', 'NONE', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:09:26,038 - INFO plateid: 2  userid: Dummy1  availability  FALSE last_assign_time 2023-07-20 15:09:26.038496
+2023-07-20 15:09:26,127 - INFO  type all value None
+2023-07-20 15:09:26,135 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:09:26,162 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:10:38,437 - INFO  type all value None
+2023-07-20 15:10:38,439 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:10:38,481 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:10:42,376 - INFO  type all value None
+2023-07-20 15:10:42,378 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:10:42,401 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:10:51,806 - INFO  type all value None
+2023-07-20 15:10:51,808 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:10:51,832 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:11:46,353 - INFO  type all value None
+2023-07-20 15:11:46,356 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:11:46,380 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'NONE', 'TRUE', 'NONE', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:11:52,624 - INFO  type all value None
+2023-07-20 15:11:52,628 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:11:52,656 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd')]
+2023-07-20 15:13:16,325 - INFO  type all value None
+2023-07-20 15:13:16,327 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:13:16,352 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:13:49,303 - INFO  type all value None
+2023-07-20 15:13:49,306 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:13:49,335 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:16:37,565 - INFO  type all value None
+2023-07-20 15:16:37,567 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:16:37,593 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:18:28,020 - INFO  type all value None
+2023-07-20 15:18:28,022 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:18:28,058 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:18:45,851 - INFO  type all value None
+2023-07-20 15:18:45,853 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:18:45,878 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:18:54,457 - INFO ['123', 'fsad', 'afsd', 'afsd', 'afsd']
+2023-07-20 15:18:54,493 - INFO ['10', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:18:54,516 - INFO ['DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:18:54,563 - INFO  type all value None
+2023-07-20 15:18:54,564 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:18:54,587 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:19:31,429 - INFO  type all value None
+2023-07-20 15:19:31,431 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:19:31,460 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE'), (15, '123', 'fsad', 'afsd', 'afsd', 'afsd'), (16, '10', 'NONE', 'TRUE', 'NONE', 'NONE'), (17, 'DS4608-SR7U2100AZW', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:19:39,104 - INFO  type all value None
+2023-07-20 15:19:39,106 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:19:39,133 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:21:23,199 - INFO  type all value None
+2023-07-20 15:21:23,201 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:21:23,245 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:21:27,771 - INFO  type all value None
+2023-07-20 15:21:27,773 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:21:27,801 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:21:33,924 - INFO  type all value None
+2023-07-20 15:21:33,925 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:21:33,949 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:22:29,447 - INFO  type all value None
+2023-07-20 15:22:29,449 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:22:29,482 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:22:54,225 - INFO  type all value None
+2023-07-20 15:22:54,230 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:22:54,270 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:22:58,208 - INFO 1536['3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE']
+2023-07-20 15:22:58,232 - INFO  type all value None
+2023-07-20 15:22:58,233 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:22:58,257 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:23:42,217 - INFO  type all value None
+2023-07-20 15:23:42,220 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:23:42,245 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:23:46,396 - INFO  type all value None
+2023-07-20 15:23:46,398 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:23:46,425 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:24:14,971 - INFO  type all value None
+2023-07-20 15:24:14,973 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:24:14,996 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:24:19,951 - INFO  type all value None
+2023-07-20 15:24:19,953 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:24:19,979 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:24:23,710 - INFO  type all value None
+2023-07-20 15:24:23,712 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:24:23,743 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'FALSE', '2023-07-20 15:11:52.531025', 'NONE'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:24:26,969 - INFO  type all value None
+2023-07-20 15:24:26,978 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:24:27,004 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:25:37,525 - INFO  type all value None
+2023-07-20 15:25:37,527 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:25:37,558 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:25:45,850 - INFO  type all value None
+2023-07-20 15:25:45,853 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:25:45,882 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:25:45,883 - DEBUG 1551['1', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:45,913 - DEBUG 1551['2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE']
+2023-07-20 15:25:45,943 - DEBUG 1551['3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667']
+2023-07-20 15:25:45,968 - DEBUG 1551['4', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:45,991 - DEBUG 1551['5', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:46,015 - DEBUG 1551['6', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:46,040 - DEBUG 1551['7', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:46,068 - DEBUG 1551['8', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:46,099 - DEBUG 1551['9', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,169 - INFO  type all value None
+2023-07-20 15:25:53,171 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:25:53,195 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE'), (8, '3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:25:53,196 - DEBUG 1551['1', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,219 - DEBUG 1551['2', 'Dummy1', 'FALSE', '2023-07-20 15:09:26.038496', 'NONE']
+2023-07-20 15:25:53,242 - DEBUG 1551['3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667']
+2023-07-20 15:25:53,266 - DEBUG 1551['4', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,292 - DEBUG 1551['5', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,317 - DEBUG 1551['6', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,343 - DEBUG 1551['7', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,371 - DEBUG 1551['8', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:53,398 - DEBUG 1551['9', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,472 - INFO  type all value None
+2023-07-20 15:25:56,474 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:25:56,504 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667'), (9, '4', 'NONE', 'TRUE', 'NONE', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:25:56,505 - DEBUG 1551['1', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,530 - DEBUG 1551['2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476']
+2023-07-20 15:25:56,553 - DEBUG 1551['3', 'Dummy1', 'TRUE', '2023-07-20 15:11:52.531025', '2023-07-20 15:24:26.903667']
+2023-07-20 15:25:56,579 - DEBUG 1551['4', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,601 - DEBUG 1551['5', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,624 - DEBUG 1551['6', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,646 - DEBUG 1551['7', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,669 - DEBUG 1551['8', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:25:56,692 - DEBUG 1551['9', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:03,913 - INFO  type all value None
+2023-07-20 15:27:03,915 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:27:03,939 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:27:03,939 - DEBUG 1551['1', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:03,963 - DEBUG 1551['2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476']
+2023-07-20 15:27:03,986 - DEBUG 1551['3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667']
+2023-07-20 15:27:04,009 - DEBUG 1551['4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE']
+2023-07-20 15:27:04,033 - DEBUG 1551['5', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:04,061 - DEBUG 1551['6', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:04,089 - DEBUG 1551['7', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:04,114 - DEBUG 1551['8', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:04,140 - DEBUG 1551['9', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,185 - INFO  type all value None
+2023-07-20 15:27:08,188 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:27:08,212 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:27:08,213 - DEBUG 1551['1', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,236 - DEBUG 1551['2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476']
+2023-07-20 15:27:08,261 - DEBUG 1551['3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667']
+2023-07-20 15:27:08,285 - DEBUG 1551['4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE']
+2023-07-20 15:27:08,308 - DEBUG 1551['5', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,333 - DEBUG 1551['6', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,356 - DEBUG 1551['7', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,379 - DEBUG 1551['8', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:27:08,401 - DEBUG 1551['9', 'NONE', 'TRUE', 'NONE', 'NONE']
+2023-07-20 15:29:10,146 - INFO  type all value None
+2023-07-20 15:29:10,148 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:29:10,178 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:29:14,448 - INFO  type all value None
+2023-07-20 15:29:14,450 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:29:14,474 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:36:02,150 - INFO  type all value None
+2023-07-20 15:36:02,176 - INFO  type all value None
+2023-07-20 15:36:02,178 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:36:02,205 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:38:58,024 - INFO  type all value None
+2023-07-20 15:38:58,053 - INFO  type all value None
+2023-07-20 15:38:58,055 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:38:58,082 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]
+2023-07-20 15:39:30,734 - INFO  type all value None
+2023-07-20 15:39:30,763 - INFO  type all value None
+2023-07-20 15:39:30,765 - INFO 1820: type = all value = None pages =  0
+2023-07-20 15:39:30,796 - INFO [(1, '1', 'NONE', 'TRUE', 'NONE', 'NONE'), (7, '2', 'Dummy1', 'TRUE', '2023-07-20 15:09:26.038496', '2023-07-20 15:25:56.409476'), (8, '3', '1', 'FALSE', '2023-07-20 15:27:03.765592', '2023-07-20 15:24:26.903667'), (9, '4', '1', 'FALSE', '2023-07-20 15:27:03.830192', 'NONE'), (10, '5', 'NONE', 'TRUE', 'NONE', 'NONE'), (11, '6', 'NONE', 'TRUE', 'NONE', 'NONE'), (12, '7', 'NONE', 'TRUE', 'NONE', 'NONE'), (13, '8', 'NONE', 'TRUE', 'NONE', 'NONE'), (14, '9', 'NONE', 'TRUE', 'NONE', 'NONE')]

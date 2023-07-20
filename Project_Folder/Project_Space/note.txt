@@ -678,22 +678,46 @@ class Ui_Remove_confirm(object):
 
 unit test python
 
-class and function diverse   (V)
+class and function diverse                  (V)
 
-test plan
+test plan                                   (V)
 
 panda for sorting
 
-login history pages
+login history pages view                    (V)
 
-log 檔案 (儲存使用者新增編輯之類的資料)
+log 檔案 (儲存使用者新增編輯之類的資料)           (V)
 
-空白form 
+ui only pass the values                     (V)
 
-ui only pass the values        (V)
-
-one more column in front of the database including all three table
+one more column in front of the database including all three table  (V)
 
 logout button
+
+
+logger:
+    Login               (V)
+    user_info_edit      (V)
+    Advance_info_edit   (V)
+    Register            (V)
+    Login_history       (待定)
+    plate_info          ()
+
+    
+
+
+
+
+test case:
+
+    Login:
+            Password doesn't match ID
+            ID doesn't exist
+            normal user try entering Advance mode
+    Register:
+            Password < 6 character
+            Password contains illegal character
+            Password doesn't contains Capital, Lower case, and number
+
 
 
