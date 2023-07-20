@@ -17,20 +17,6 @@ Login_logger_file_handler = logging.FileHandler("Login.log")
 Login_logger_file_handler.setFormatter(formatter)
 Login_logger.addHandler(Login_logger_file_handler)
 
-# logger for Register ui
-Register_logger = logging.getLogger("Register_log")
-Register_logger.setLevel(logging.INFO)
-Register_file_handler = logging.FileHandler("Register.log")
-Register_file_handler.setFormatter(formatter)
-Register_logger.addHandler(Register_file_handler)
-
-# logger for normal user info editor ui
-Info_Editor_logger = logging.getLogger("Info_editor_log")
-Info_Editor_logger.setLevel(logging.INFO)
-Info_Editor_file_handler = logging.FileHandler("Info_editor.log")
-Info_Editor_file_handler.setFormatter(formatter)
-Info_Editor_logger.addHandler(Info_Editor_file_handler)
-
 # logger for login history
 Admin_editor_logger = logging.getLogger("Admin_editor_log")
 Admin_editor_logger.setLevel(logging.INFO)
@@ -51,10 +37,6 @@ Plate_Info_logger.setLevel(logging.INFO)
 Plate_Info_file_handler = logging.FileHandler("Plate_Info.log")
 Plate_Info_file_handler.setFormatter(formatter)
 Plate_Info_logger.addHandler(Plate_Info_file_handler)
-
-
-
-
 
 
 # UI class
@@ -971,7 +953,6 @@ class Ui_Concentrate_Advance(object):
         # show all info initially 
         Plate_Info_function.show_plate_info(0)
 
-
 # Function class
 class UI_Login_function:
     def check_ID_password_function (self, userid, password):
@@ -994,7 +975,7 @@ class UI_Login_function:
         ID_is_admin = SQL_function.check_ID_is_admin(userid)
         # error handler
         if(ID_is_admin == -1):
-            return -1
+            return - 1
         
         if(ID_password_match is True):
             # enter Advance mode
@@ -1002,18 +983,20 @@ class UI_Login_function:
                 SQL_function.add_login_record(userid, "SUCCESS", "Login with Advance mode")
                 self.open_Concentrate_Advance_window()
                 Login.close()
+                return 1
             # Fail: Not admin but try to entering advance mode
             elif(ID_is_admin is False and self.checkBox.isChecked()):
                 SQL_function.add_login_record(userid, "FAIL", "A normal user tries to enter Advance mode")
                 Loginui.Error_Message_for_permission.setHidden(False) 
                 Loginui.Error_Message_for_password.setHidden(True)
                 Loginui.Error_Message_for_ID.setHidden(True)
-                return 1
+                return - 1
             # Normal user mode
             else:
                 self.show_normal_welcome_message()
                 SQL_function.add_login_record(userid, "SUCCESS", "Login with normal user mode")
                 Login.close()
+                return 1
         # Fail: ID doesn't exist        
         elif(ID_exist is False):
             SQL_function.add_login_record(userid, "FAIL", "ID doesn't exist")
@@ -1021,7 +1004,7 @@ class UI_Login_function:
             Loginui.Error_Message_for_permission.setHidden(True) 
             Loginui.Error_Message_for_password.setHidden(True)
             Loginui.Error_Message_for_ID.setHidden(False)
-            return 1
+            return - 1
         # Fail: ID doesn't match password
         elif(ID_password_match is False):
             SQL_function.add_login_record(userid, "FAIL", "ID and Password doesn't match")
@@ -1029,7 +1012,7 @@ class UI_Login_function:
             Loginui.Error_Message_for_password.setHidden(False) 
             Loginui.Error_Message_for_permission.setHidden(True)
             Loginui.Error_Message_for_ID.setHidden(True)
-            return 1
+            return - 1
     
     def open_Concentrate_Advance_window(self):
         self.Concentrate_Advance = QtWidgets.QTabWidget()
@@ -1114,28 +1097,24 @@ class UI_Info_Editor_function:
                 if(edited_row[1] != "************"):
                     # check if edited password fit format
                     if(helper.check_password_availability(edited_row[1])):
-                        Info_Editor_logger.info(str(helper.check_password_availability(edited_row[1])))
-                        Info_Editor_logger.info("password available: =" + edited_row[1])
                         SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
                         Login_function.Info_Editor_ui.Input_Invalid.setHidden(True)
                     else:
                         Login_function.Info_Editor_ui.Input_Invalid.setHidden(False)
                         return
-        self.data_comparison()
+                self.data_comparison()
         self.show_user_info_into_table()
 
     def data_comparison(self):
         for row in zip(self.edited_data , self.initial_data):    
-            Info_Editor_logger.info("edited_data = :" + str(self.edited_data) )
-            Info_Editor_logger.info("initial_data = :" + str(self.initial_data) )
             if(row[0][1] != "************"):
-                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s password has been edited.")
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s password has been edited.")
             if(row[0][2] != row[1][2]):
-                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s permission has been edited from " + row[1][2] + " to " + row[0][2] + " .")
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s permission has been edited from '" + row[1][2] + "' to '" + row[0][2] + "'.")
             if(row[0][3] != row[1][3]):
-                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s name has been edited from " + row[1][3] + " to " + row[0][3] + " .")
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s name has been edited from '" + row[1][3] + "' to '" + row[0][3] + "'.")
             if(row[0][4] != row[1][4]):
-                Info_Editor_logger.info("USER ID: " + row[0][0] + "'s gender has been edited from " + row[1][4] + " to " + row[0][4] + " .")                
+                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s gender has been edited from '" + row[1][4] + "' to '" + row[0][4] + "'.")                
             
 class UI_Search_Edit_function:
     initial_data = []
@@ -1233,19 +1212,15 @@ class UI_Search_Edit_function:
                     Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(False)
                     return
                 # check if password had been changed
-                if(edited_row[1] != "************"):
-                    Admin_editor_logger.info("1237edited_data = :" + str(self.edited_data) )
-                    Admin_editor_logger.info("1238initial_data = :" + str(self.initial_data) )                    
+                if(edited_row[1] != "************"):      
                     # check if edited password fit format
                     if(helper.check_password_availability(edited_row[1])):
-                        Admin_editor_logger.info("1238initial_data = :" + str(self.initial_data) )
                         SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
                         Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(True)
                     else:
-                        Admin_editor_logger.info("1245helper.check_password_availability(edited_row[1]" + str(helper.check_password_availability(edited_row[1])))
                         Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(False)
                         return
-        self.data_comparison()
+                self.data_comparison()  
         self.show_user(0)
 
     def open_Register_window(self):
@@ -1276,19 +1251,15 @@ class UI_Search_Edit_function:
         x = confirm.exec_()
 
     def data_comparison(self):
-        # initial_data[5] is int
-        # compare password with "************"
-        Admin_editor_logger.info("self.edited_data = " + str(self.edited_data))
-        Admin_editor_logger.info("self.initial_data = " + str(self.initial_data))
         for row in zip(self.edited_data , self.initial_data):    
             if(row[0][1] != "************"):
-                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s password has been edited.")
+                Admin_editor_logger.info("USER ID: '" + row[0][0] + "'s password has been edited.")
             if(row[0][2] != row[1][2]):
-                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s permission has been edited from " + row[1][2] + " to " + row[0][2] + " .")
+                Admin_editor_logger.info("USER ID: '" + row[0][0] + "'s permission has been edited from '" + row[1][2] + "' to '" + row[0][2] + "'.")
             if(row[0][3] != row[1][3]):
-                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s name has been edited from " + row[1][3] + " to " + row[0][3] + " .")
+                Admin_editor_logger.info("USER ID: '" + row[0][0] + "'s name has been edited from '" + row[1][3] + "' to '" + row[0][3] + "'.")
             if(row[0][4] != row[1][4]):
-                Admin_editor_logger.info("USER ID: " + row[0][0] + "'s gender has been edited from " + row[1][4] + " to " + row[0][4] + " .")                
+                Admin_editor_logger.info("USER ID: '" + row[0][0] + "'s gender has been edited from '" + row[1][4] + "' to '" + row[0][4] + "'.")              
 
     def set_user_info_pages_maximum(self, value):
         self.user_info_pages_maximum = SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) // 20  
@@ -1340,7 +1311,6 @@ class UI_Register_function:
 
         # add the user
         SQL_function.add_user(userid, helper.encode_password(password), permission, real_name, gender)
-        Register_logger.info("User registered with Id: " + userid + " , permission: " + permission + " , name: " + real_name + " , gender: " + gender + ". ")
         Search_Edit_function.set_current_search_type("all")
         Search_Edit_function.show_user(0)
         Search_Edit_function.Register_ui.Register_error_message.setHidden(True)
@@ -1385,7 +1355,6 @@ class UI_Login_History_function:
         if(self.login_history_pages_maximum <= pages):
             Login_function.Concentrate_Advance_ui.Login_History_Pages.setValue(self.login_history_pages_maximum)
             pages = self.login_history_pages_maximum
-        Login_history_logger.info("maximum pages = :" + str(self.login_history_pages_maximum) + " current pages = " + str(pages))
         data = SQL_function.get_data_from_login_history(self.current_search_type, value, pages)
 
         self.insert_data_into_table(data)
@@ -1441,7 +1410,6 @@ class UI_Plate_info_function:
             pages = self.plate_info_pages_maximum
 
         data = SQL_function.get_data_from_plate_info(self.current_search_type, value, pages)
-        Plate_Info_logger.info(data)
         self.insert_data_into_table_plate_info(data)
         self.insert_checkbox_plate_info(data)
         helper.lock_the_Column(Login_function.Concentrate_Advance_ui.Display_Plate_Info, 1)
@@ -1500,7 +1468,6 @@ class UI_Plate_info_function:
                         if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
                             data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column).text())
                     if(self.check_button_array_plate_info[row].isChecked()):
-                        print(data[0], userid, "FALSE", helper.get_time())
                         if(data[2] == "TRUE"):
                             SQL_function.assign_plate_to_user(data[0], userid, "FALSE", helper.get_time())
                             Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(False)
@@ -1675,7 +1642,7 @@ class MySQL_function:
                     if(User_record[3] == "ADMIN"):
                         is_admin = True
         except:
-            logging.error("check_ID_is_admin Encountered error")
+            Login_logger.error("check_ID_is_admin Encountered error")
             return -1
         return is_admin   
      
@@ -1695,7 +1662,8 @@ class MySQL_function:
                     Exist = True
                     return Exist
         except:
-            logging.error("check_ID_exist Encountered error!")
+            Login_logger.error("check_ID_exist Encountered error!")
+            Plate_Info_logger.error("check_ID_exist Encountered error!")
             return -1        
       
     def remove_user(self, userid):
@@ -1709,6 +1677,7 @@ class MySQL_function:
             val = (userid, )
             mycursor.execute(sql, val)
             mydb.commit()
+            Admin_editor_logger.info("User with ID: '" + userid + "' has been deleted!")
         except:
             Admin_editor_logger.error("remove_user Encountered error!")
             return -1
@@ -1724,8 +1693,9 @@ class MySQL_function:
             val = (userid, password, permission, real_name, gender, 0)
             mycursor.execute(sql, val)
             mydb.commit()
+            Admin_editor_logger.info("User with ID: '" + userid + "' has been added.")
         except:
-            logging.error("add_user Encountered error!")
+            Admin_editor_logger.info("add_user Encountered error!")
             return -1
 
     def add_login_record(self, userid, login_state, type):
@@ -1734,14 +1704,13 @@ class MySQL_function:
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
-            self.create_table_first(mycursor)  
-            
+            self.create_table_first(mycursor)              
             sql = ("INSERT INTO Login_record(ID, LOGIN_TIME, LOGIN_STATE, SPECIFIC_TYPE) VALUES (%s, %s, %s, %s)")
             val = (userid, helper_function.get_time(helper_function), login_state, type)
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            logging.error("add_login_record Encountered error!")
+            Login_history_logger.error("add_login_record Encountered error!")
             return -1
     
     def get_data_from_login_history(self, type, value, pages):
@@ -1753,7 +1722,6 @@ class MySQL_function:
             # Create table if not exist
             self.create_table_first(mycursor)
             if(type == "all"):
-                Login_history_logger.info("pages = " + str(pages))
                 sql = ("SELECT * FROM Login_record LIMIT %s OFFSET %s")
                 val = (20, 20*pages)
                 mycursor.execute(sql, val)
@@ -1781,7 +1749,6 @@ class MySQL_function:
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
-            Admin_editor_logger.info("pages = :" + str(pages))
             self.create_table_first(mycursor)
             if(type == "all"):
                 sql = ("SELECT * FROM User_Information LIMIT %s OFFSET %s")
@@ -1809,7 +1776,7 @@ class MySQL_function:
                 mycursor.execute(sql, val)                   
             data = mycursor.fetchall() 
         except:
-            logging.error("get_data_from_user_info Encountered error!")
+            Admin_editor_logger.error("get_data_from_user_info Encountered error!")
             return -1
         return data                     
   
@@ -1830,15 +1797,13 @@ class MySQL_function:
                 mycursor.execute(sql, val)
             mydb.commit()                      
             data = mycursor.fetchall()      
-            
         except:
-            logging.error("update_data_to_user_info Encountered error!")
+            Admin_editor_logger.error("update_data_to_user_info Encountered error!")
             return -1
         return data      
             
     def get_data_from_plate_info(self, type , value, pages):
         try:
-            Plate_Info_logger.info("1820: type = " + str(type) + " value = " + str(value) + " pages =  " + str(pages) )
             # Connect to database
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
@@ -1862,7 +1827,7 @@ class MySQL_function:
                 mycursor.execute(sql, val)
             data = mycursor.fetchall()         
         except:
-            logging.error("get_data_from_plate_info Encountered error!")
+            Plate_Info_logger.error("get_data_from_plate_info Encountered error!")
             return -1
         return data   
 
@@ -1879,9 +1844,9 @@ class MySQL_function:
             val = (plateid, "NONE", "TRUE", "NONE", "NONE")
             mycursor.execute(sql, val)
             mydb.commit()
-            logging.info("the plate: '" + plateid +"' is added")
+            Plate_Info_logger.info("the plate: '" + plateid +"' has been added")
         except:
-            logging.error("add_new_plate Encountered error!")
+            Plate_Info_logger.error("add_new_plate Encountered error!")
         return        
 
     def assign_plate_to_user(self, plateid, userid, availability, last_assign_time):
@@ -1897,6 +1862,7 @@ class MySQL_function:
             val = (userid, availability, last_assign_time, plateid)
             mycursor.execute(sql, val)
             mydb.commit()
+            Plate_Info_logger.info("the plate: '" + plateid + "' has been assigned to user with userID: " + userid)
         except:
             Plate_Info_logger.error("assign_plate_to_user Encountered error!")
         self.update_plate_user_have(userid)     
@@ -1913,8 +1879,9 @@ class MySQL_function:
             val = (availability, last_deassign_time, plateid)
             mycursor.execute(sql, val)
             mydb.commit()
+            Plate_Info_logger.info("the plate: '" + plateid + "' has been deassigned.")
         except:
-            logging.error("deassign_plate_from_user Encountered error!")
+            Plate_Info_logger.error("deassign_plate_from_user Encountered error!")
             return -1     
 
     def remove_plate(self, plateid):
@@ -1929,8 +1896,9 @@ class MySQL_function:
             val = (plateid,)
             mycursor.execute(sql, val)
             mydb.commit()
+            Plate_Info_logger.info("the plate: '" + plateid + "' has been removed.")
         except:
-            logging.error("remove_plate Encountered error!")
+            Plate_Info_logger.error("remove_plate Encountered error!")
             return -1 
 
     def update_plate_user_have(self, userid):
@@ -1946,7 +1914,8 @@ class MySQL_function:
             mycursor.execute(sql, val)
             mydb.commit()
         except:
-            logging.error("update_plate_user_have Encountered error!")
+            Admin_editor_logger.error("update_plate_user_have Encountered error!")
+            Plate_Info_logger.error("update_plate_user_have Encountered error!")
             return -1  
 
     def get_page_number_from_database_user_info(self, type, value):
@@ -1956,7 +1925,6 @@ class MySQL_function:
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-            Admin_editor_logger.info("value = :" + str(value))
             if(type == "all"):
                 sql = ("SELECT count(*) FROM User_Information")
                 mycursor.execute(sql)
@@ -1996,8 +1964,6 @@ class MySQL_function:
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-
-            Admin_editor_logger.info("value = :" + str(value))
             if(type == "all"):
                 sql = ("SELECT count(*) FROM Login_record")
                 mycursor.execute(sql)
@@ -2029,7 +1995,6 @@ class MySQL_function:
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-            Plate_Info_logger.info(" type " + str(type) + " value " + str(value))
             if(type == "all"):
                 sql = ("SELECT count(*) FROM Plate_Information")
                 mycursor.execute(sql)
@@ -2048,10 +2013,9 @@ class MySQL_function:
             data = mycursor.fetchone()     
             page_number = data[0]
         except:
-            logging.error("get_page_number_from_database_plate_info Encountered error!")
+            Plate_Info_logger.error("get_page_number_from_database_plate_info Encountered error!")
             return -1
         return page_number
-
 
 # main
 if __name__ == "__main__":
@@ -2063,6 +2027,7 @@ if __name__ == "__main__":
     Plate_Info_function = UI_Plate_info_function()
     helper = helper_function()
     SQL_function = MySQL_function()
+    # open login UI
     app = QtWidgets.QApplication(sys.argv)
     Login = QtWidgets.QMainWindow()
     Loginui = Ui_Login()
