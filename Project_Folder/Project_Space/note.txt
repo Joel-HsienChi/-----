@@ -721,3 +721,6 @@ test case:
 
 
 
+code 的說明手冊
+
+sample code

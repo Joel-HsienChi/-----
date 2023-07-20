@@ -482,6 +482,15 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.addTab(self.Search_Edit_Tab, "")
         self.Login_History_Tab = QtWidgets.QWidget()
         self.Login_History_Tab.setObjectName("Login_History_Tab")
+        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
+        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
+        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
+        self.ID_input_login_history.setText("")
+        self.ID_input_login_history.setObjectName("ID_input_login_history")        
+        self.ID_label_login_history = QtWidgets.QLabel(self.Login_History_Tab)
+        self.ID_label_login_history.setGeometry(QtCore.QRect(50, 20, 61, 16))
+        self.ID_label_login_history.setMinimumSize(QtCore.QSize(61, 16))
+        self.ID_label_login_history.setObjectName("ID_label_login_history")
         self.Password_doesnt_match_ID_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.Password_doesnt_match_ID_button.setGeometry(QtCore.QRect(50, 290, 211, 20))
         self.Password_doesnt_match_ID_button.setMinimumSize(QtCore.QSize(100, 20))
@@ -493,20 +502,11 @@ class Ui_Concentrate_Advance(object):
         self.Success_button.setGeometry(QtCore.QRect(50, 140, 100, 20))
         self.Success_button.setMinimumSize(QtCore.QSize(100, 20))
         self.Success_button.setObjectName("Success_button")
-        self.ID_label_login_history = QtWidgets.QLabel(self.Login_History_Tab)
-        self.ID_label_login_history.setGeometry(QtCore.QRect(50, 20, 61, 16))
-        self.ID_label_login_history.setMinimumSize(QtCore.QSize(61, 16))
-        self.ID_label_login_history.setObjectName("ID_label_login_history")
         self.ID_doesnt_exist_button = QtWidgets.QRadioButton(self.Login_History_Tab)
         self.ID_doesnt_exist_button.setGeometry(QtCore.QRect(50, 260, 121, 20))
         self.ID_doesnt_exist_button.setMinimumSize(QtCore.QSize(100, 20))
         self.ID_doesnt_exist_button.setObjectName("ID_doesnt_exist_button")
         self.buttonGroup_fail_type.addButton(self.ID_doesnt_exist_button)
-        self.ID_input_login_history = QtWidgets.QLineEdit(self.Login_History_Tab)
-        self.ID_input_login_history.setGeometry(QtCore.QRect(120, 20, 141, 21))
-        self.ID_input_login_history.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input_login_history.setText("")
-        self.ID_input_login_history.setObjectName("ID_input_login_history")
         self.ID_search_button_login_history = QtWidgets.QPushButton(self.Login_History_Tab)
         self.ID_search_button_login_history.setGeometry(QtCore.QRect(120, 60, 140, 30))
         self.ID_search_button_login_history.setMinimumSize(QtCore.QSize(0, 0))
@@ -617,6 +617,11 @@ class Ui_Concentrate_Advance(object):
         Concentrate_Advance.addTab(self.Login_History_Tab, "")
         self.Plate_Scan_Tab = QtWidgets.QWidget()
         self.Plate_Scan_Tab.setObjectName("Plate_Scan_Tab")
+        self.ID_input_Plate_Info = QtWidgets.QLineEdit(self.Plate_Scan_Tab)
+        self.ID_input_Plate_Info.setGeometry(QtCore.QRect(120, 20, 141, 21))
+        self.ID_input_Plate_Info.setMinimumSize(QtCore.QSize(141, 21))
+        self.ID_input_Plate_Info.setText("")
+        self.ID_input_Plate_Info.setObjectName("ID_input_Plate_Info")
         self.Display_Plate_Info = QtWidgets.QTableWidget(self.Plate_Scan_Tab)
         self.Display_Plate_Info.setGeometry(QtCore.QRect(320, 10, 1000, 623))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
@@ -668,11 +673,6 @@ class Ui_Concentrate_Advance(object):
         self.line_9.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_9.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_9.setObjectName("line_9")
-        self.ID_input_Plate_Info = QtWidgets.QLineEdit(self.Plate_Scan_Tab)
-        self.ID_input_Plate_Info.setGeometry(QtCore.QRect(120, 20, 141, 21))
-        self.ID_input_Plate_Info.setMinimumSize(QtCore.QSize(141, 21))
-        self.ID_input_Plate_Info.setText("")
-        self.ID_input_Plate_Info.setObjectName("ID_input_Plate_Info")
         self.line_10 = QtWidgets.QFrame(self.Plate_Scan_Tab)
         self.line_10.setGeometry(QtCore.QRect(60, 100, 200, 20))
         self.line_10.setFrameShape(QtWidgets.QFrame.HLine)
@@ -805,7 +805,7 @@ class Ui_Concentrate_Advance(object):
         item = self.Display_Login_info.horizontalHeaderItem(2)
         item.setText(_translate("Concentrate_Advance", "Login_Status"))
         item = self.Display_Login_info.horizontalHeaderItem(3)
-        item.setText(_translate("Concentrate_Advance", "Fail_Type"))
+        item.setText(_translate("Concentrate_Advance", "Specific_type"))
         self.Fail_button.setText(_translate("Concentrate_Advance", "Fail "))
         self.Fail_type_button.setText(_translate("Concentrate_Advance", "Show by Fail type"))
         self.Status_show_button.setText(_translate("Concentrate_Advance", "Show by Status"))
@@ -1263,7 +1263,7 @@ class UI_Search_Edit_function:
 
     def set_user_info_pages_maximum(self, value):
         self.user_info_pages_maximum = SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) // 20  
-        if(SQL_function.get_page_number_from_database_user_info(self.current_search_type, value)%20 == 0):
+        if(SQL_function.get_page_number_from_database_user_info(self.current_search_type, value)%20 == 0 and SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) > 20):
             self.user_info_pages_maximum = (SQL_function.get_page_number_from_database_user_info(self.current_search_type, value) // 20) - 1 
 
 
@@ -1375,7 +1375,7 @@ class UI_Login_History_function:
 
     def set_login_history_pages_maximum(self, value):
         self.login_history_pages_maximum = SQL_function.get_page_number_from_database_login_history(self.current_search_type, value) // 20  
-        if(SQL_function.get_page_number_from_database_login_history(self.current_search_type, value)%20 == 0):
+        if(SQL_function.get_page_number_from_database_login_history(self.current_search_type, value)%20 == 0 and SQL_function.get_page_number_from_database_login_history(self.current_search_type, value) > 20):
             self.login_history_pages_maximum = (SQL_function.get_page_number_from_database_login_history(self.current_search_type, value) // 20) - 1
     def set_current_search_type(self, type):
         self.current_search_type = type
@@ -1525,7 +1525,7 @@ class UI_Plate_info_function:
     
     def set_plate_info_pages_maximum(self, value):
         self.plate_info_pages_maximum = SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value) // 20 
-        if(SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value)%20 == 0):
+        if(SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value)%20 == 0 and SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value) > 20):
             self.plate_info_pages_maximum = (SQL_function.get_page_number_from_database_plate_info(self.current_search_type, value) // 20) - 1
          
 
