@@ -1,7 +1,7 @@
 pyuic5 -x Delete.ui -o Delete.py
 pyuic5 -x Login.ui -o Login.py
 pyuic5 -x Register.ui -o Register.py
-pyuic5 -x Advance.ui -o Advance.py
+pyuic5 -x Advance.ui -o Advance.p
 pyuic5 -x Basic.ui -o Basic.py
 pyuic5 -x Search.ui -o Search.py
 pyuic5 -x Show_ID.ui -o Show_ID.py
@@ -15,7 +15,6 @@ c4ca4238a0b923820dcc509a6f75849b
 Default Password = Point1
 
 Password: encoded by md5 format
-
 
 需求：
 
