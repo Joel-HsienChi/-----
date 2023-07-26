@@ -1,0 +1,5 @@
+2023-07-26 15:28:26,671 - ERROR get_row_number_from_database Encountered error!
+2023-07-26 15:28:26,699 - ERROR get_row_number_from_database Encountered error!
+2023-07-26 15:28:26,730 - ERROR get_data_from_database Encountered error!
+2023-07-26 15:28:26,731 - ERROR insert_data_into_table Encountered error
+2023-07-26 15:28:26,731 - ERROR insert_checkbox_plate_info Encountered error

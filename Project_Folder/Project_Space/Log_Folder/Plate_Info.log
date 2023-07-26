@@ -1,0 +1,25 @@
+2023-07-20 17:38:40,530 - INFO the plate: '2' has been assigned to user with userID: 1
+2023-07-20 17:52:35,463 - INFO the plate: '3' has been deassigned.
+2023-07-20 17:52:44,033 - INFO the plate: '10' has been added
+2023-07-20 17:52:54,784 - INFO the plate: '10' has been removed.
+2023-07-26 09:31:34,880 - INFO the plate: '2' has been deassigned.
+2023-07-26 09:31:34,914 - INFO the plate: '4' has been deassigned.
+2023-07-26 09:58:29,950 - INFO the plate: '6' has been deassigned.
+2023-07-26 09:58:29,978 - INFO the plate: '7' has been deassigned.
+2023-07-26 09:58:30,007 - INFO the plate: '11' has been deassigned.
+2023-07-26 09:59:59,408 - INFO the plate: '4' has been assigned to user with userID: Dummy2
+2023-07-26 09:59:59,466 - INFO the plate: '5' has been assigned to user with userID: Dummy2
+2023-07-26 09:59:59,529 - INFO the plate: '6' has been assigned to user with userID: Dummy2
+2023-07-26 09:59:59,594 - INFO the plate: '7' has been assigned to user with userID: Dummy2
+2023-07-26 09:59:59,659 - INFO the plate: '8' has been assigned to user with userID: Dummy2
+2023-07-26 10:00:11,812 - INFO the plate: '4' has been deassigned.
+2023-07-26 10:00:11,844 - INFO the plate: '5' has been deassigned.
+2023-07-26 10:00:11,876 - INFO the plate: '6' has been deassigned.
+2023-07-26 10:00:11,906 - INFO the plate: '7' has been deassigned.
+2023-07-26 10:00:11,939 - INFO the plate: '8' has been deassigned.
+2023-07-26 10:27:57,868 - INFO the plate: '8' has been assigned to user with userID: Dummy1
+2023-07-26 10:27:57,922 - INFO the plate: '9' has been assigned to user with userID: Dummy1
+2023-07-26 10:28:55,916 - INFO the plate: '8' has been deassigned.
+2023-07-26 10:28:55,941 - INFO the plate: '9' has been deassigned.
+2023-07-26 10:29:27,718 - INFO the plate: '10' has been removed.
+2023-07-26 10:29:27,747 - INFO the plate: '11' has been removed.

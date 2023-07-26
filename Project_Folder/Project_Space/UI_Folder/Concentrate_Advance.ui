@@ -762,7 +762,7 @@
     </column>
     <column>
      <property name="text">
-      <string>Specific_type</string>
+      <string>Fail_Type</string>
      </property>
     </column>
    </widget>

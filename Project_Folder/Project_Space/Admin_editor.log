@@ -1,7 +1,0 @@
-2023-07-20 17:54:18,906 - INFO User with ID: 'Dummy31' has been deleted!
-2023-07-20 17:54:24,893 - INFO User with ID: 'Dummy31' has been added.
-2023-07-20 17:54:50,581 - INFO USER ID: 'Dummy31's password has been edited.
-2023-07-20 17:54:50,581 - INFO USER ID: 'Dummy31's permission has been edited from 'ADMIN' to 'USER'.
-2023-07-20 17:54:50,581 - INFO USER ID: 'Dummy31's name has been edited from 'asdf' to 'DMy31'.
-2023-07-20 17:54:50,581 - INFO USER ID: 'Dummy31's gender has been edited from 'MALE' to 'FEMALE'.
-2023-07-25 09:50:13,644 - INFO USER ID: 1's name has been edited from 'Test' to 'Test Account'.
