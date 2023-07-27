@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Info_Editor(object):
     def setupUi(self, Info_Editor):
         Info_Editor.setObjectName("Info_Editor")
-        Info_Editor.resize(820, 150)
+        Info_Editor.resize(820, 180)
         self.Save_change_button = QtWidgets.QPushButton(Info_Editor)
-        self.Save_change_button.setGeometry(QtCore.QRect(320, 110, 161, 32))
+        self.Save_change_button.setGeometry(QtCore.QRect(320, 140, 161, 32))
         self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
         self.Save_change_button.setObjectName("Save_change_button")
         self.Display_table = QtWidgets.QTableWidget(Info_Editor)
@@ -46,9 +46,15 @@ class Ui_Info_Editor(object):
         self.Display_table.horizontalHeader().setMinimumSectionSize(20)
         self.Display_table.horizontalHeader().setSortIndicatorShown(False)
         self.Display_table.horizontalHeader().setStretchLastSection(True)
-        self.Input_Invalid = QtWidgets.QLabel(Info_Editor)
-        self.Input_Invalid.setGeometry(QtCore.QRect(510, 110, 81, 31))
-        self.Input_Invalid.setObjectName("Input_Invalid")
+        self.Password_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Password_Invalid.setGeometry(QtCore.QRect(150, 110, 111, 31))
+        self.Password_Invalid.setObjectName("Password_Invalid")
+        self.Permission_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Permission_Invalid.setGeometry(QtCore.QRect(330, 110, 121, 31))
+        self.Permission_Invalid.setObjectName("Permission_Invalid")
+        self.Gender_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Gender_Invalid.setGeometry(QtCore.QRect(540, 110, 121, 31))
+        self.Gender_Invalid.setObjectName("Gender_Invalid")
 
         self.retranslateUi(Info_Editor)
         QtCore.QMetaObject.connectSlotsByName(Info_Editor)
@@ -71,7 +77,9 @@ class Ui_Info_Editor(object):
         item.setText(_translate("Info_Editor", "Gender"))
         item = self.Display_table.horizontalHeaderItem(6)
         item.setText(_translate("Info_Editor", "Plate amount"))
-        self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
+        self.Password_Invalid.setText(_translate("Info_Editor", "Password_Invalid"))
+        self.Permission_Invalid.setText(_translate("Info_Editor", "Permission_Invalid"))
+        self.Gender_Invalid.setText(_translate("Info_Editor", "Gender_Invalid"))
 
 
 if __name__ == "__main__":

@@ -3,8 +3,8 @@ Critical!! Please read following information before start using this UI program.
         1.      Edit the database information located in: 
                         class MySQL_function() --> def connect_to_database(self)
         
-        2.      Run the program and check the "Admin mode" checkbox, then Login with following id 
-                and password:
+        2.      For the first time running the program, please check the "Admin mode" checkbox, then Login 
+                with following id and password:
                         ID:         "ADMIN"
                         PASSWORD:   "Point1" 
                 

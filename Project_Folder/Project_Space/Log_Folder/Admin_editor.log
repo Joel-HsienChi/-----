@@ -18,3 +18,41 @@
 2023-07-26 15:14:34,784 - INFO User with ID: 'aaaa' has been added.
 2023-07-26 15:14:51,367 - INFO USER ID: 'aaaa's password has been edited.
 2023-07-26 15:14:56,467 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-26 15:57:29,166 - INFO User with ID: 'DDummy' has been added.
+2023-07-26 16:26:14,881 - INFO User with ID: 'Dummy1' has been deleted!
+2023-07-26 16:26:14,942 - INFO User with ID: 'Dummy10' has been deleted!
+2023-07-26 16:26:15,007 - INFO User with ID: 'Dummy2' has been deleted!
+2023-07-26 16:26:15,067 - INFO User with ID: 'Dummy3' has been deleted!
+2023-07-26 16:42:34,532 - INFO USER ID: 'Dummy6's permission has been edited from 'USER' to 'ADMIN'.
+2023-07-26 16:42:34,533 - INFO USER ID: 'Dummy6's name has been edited from 'dmy' to 'sdf'.
+2023-07-26 17:12:34,084 - INFO User with ID: 'Dummy6' has been deleted!
+2023-07-26 17:34:14,016 - INFO User with ID: 'aaav' has been added.
+2023-07-26 17:59:31,840 - INFO USER ID: 'aaaa's name has been edited from 'bbbb' to 'bbbbccc'.
+2023-07-26 18:00:44,945 - INFO USER ID: 'aaaa's name has been edited from 'bbbbccc' to 'vcx'.
+2023-07-26 18:00:49,127 - INFO USER ID: 'aaaa's name has been edited from 'vcx' to 'afsd'.
+2023-07-26 18:00:55,181 - INFO USER ID: 'aaaa's gender has been edited from 'MALE' to 'FEMALE'.
+2023-07-26 18:01:18,436 - INFO USER ID: 'aaaa's name has been edited from 'afsd' to 'rqew'.
+2023-07-26 18:01:29,732 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-26 18:01:33,576 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 13:37:55,250 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 13:38:00,924 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 'd'.
+2023-07-27 13:40:03,677 - INFO USER ID: 'Dummy0's permission has been edited from 'ADMIN' to 'cc'.
+2023-07-27 13:44:14,732 - INFO USER ID: 'Dummy9's password has been edited.
+2023-07-27 13:44:38,174 - INFO USER ID: 'Dummy8's permission has been edited from 'ADMIN' to 'xx'.
+2023-07-27 13:44:38,174 - INFO USER ID: 'Dummy9's permission has been edited from 'USER' to 'ADMIN'.
+2023-07-27 13:44:52,256 - INFO USER ID: 'Dummy8's permission has been edited from 'ADMIN' to 's'.
+2023-07-27 13:44:52,256 - INFO USER ID: 'Dummy8's name has been edited from 'asdf' to 'zvcx'.
+2023-07-27 13:44:52,256 - INFO USER ID: 'Dummy9's gender has been edited from 'FEMALE' to 'MALE'.
+2023-07-27 13:51:28,237 - INFO USER ID: 'aaaa's name has been edited from 'rqew' to 'asdfwqer'.
+2023-07-27 13:51:32,877 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 13:55:03,986 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 13:55:08,412 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 'f'.
+2023-07-27 13:55:46,816 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 'x'.
+2023-07-27 13:57:57,982 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 'User'.
+2023-07-27 13:59:54,623 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 'f'.
+2023-07-27 13:59:58,777 - INFO USER ID: 'aaaa's gender has been edited from 'FEMALE' to 'd'.
+2023-07-27 14:00:02,789 - INFO USER ID: 'aaaa's permission has been edited from 'ADMIN' to 's'.
+2023-07-27 14:00:02,789 - INFO USER ID: 'aaaa's gender has been edited from 'FEMALE' to 's'.
+2023-07-27 14:00:05,933 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 14:06:00,919 - INFO USER ID: 'aaaa's password has been edited.
+2023-07-27 14:06:00,920 - INFO USER ID: 'aaaa's gender has been edited from 'FEMALE' to 'd'.

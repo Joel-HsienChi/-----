@@ -1,5 +1,30 @@
-2023-07-26 15:28:26,671 - ERROR get_row_number_from_database Encountered error!
-2023-07-26 15:28:26,699 - ERROR get_row_number_from_database Encountered error!
-2023-07-26 15:28:26,730 - ERROR get_data_from_database Encountered error!
-2023-07-26 15:28:26,731 - ERROR insert_data_into_table Encountered error
-2023-07-26 15:28:26,731 - ERROR insert_checkbox_plate_info Encountered error
+2023-07-26 16:21:31,463 - ERROR insert_checkbox Encountered error
+2023-07-26 16:23:53,659 - ERROR insert_checkbox Encountered error
+2023-07-26 17:39:08,813 - ERROR get_data_from_table Encountered error
+2023-07-26 17:39:12,985 - ERROR get_data_from_table Encountered error
+2023-07-26 17:50:21,622 - ERROR get_data_from_table Encountered error
+2023-07-26 17:54:48,240 - ERROR get_data_from_table Encountered error
+2023-07-26 17:54:49,445 - ERROR get_data_from_table Encountered error
+2023-07-26 17:54:49,611 - ERROR get_data_from_table Encountered error
+2023-07-26 17:54:49,747 - ERROR get_data_from_table Encountered error
+2023-07-26 17:54:49,884 - ERROR get_data_from_table Encountered error
+2023-07-26 17:55:38,288 - ERROR get_data_from_table Encountered error
+2023-07-26 17:55:40,585 - ERROR get_data_from_table Encountered error
+2023-07-26 17:55:41,886 - ERROR get_data_from_table Encountered error
+2023-07-26 17:55:42,037 - ERROR get_data_from_table Encountered error
+2023-07-26 17:55:42,179 - ERROR get_data_from_table Encountered error
+2023-07-27 10:35:14,885 - ERROR show_user Encountered error
+2023-07-27 12:29:46,531 - ERROR plate_action Encountered error
+2023-07-27 12:29:56,034 - ERROR plate_action Encountered error
+2023-07-27 12:31:34,728 - ERROR plate_action Encountered error
+2023-07-27 13:42:46,433 - ERROR get_data_from_table Encountered error
+2023-07-27 13:43:17,637 - ERROR get_data_from_table Encountered error
+2023-07-27 13:43:21,429 - ERROR get_data_from_table Encountered error
+2023-07-27 13:43:24,392 - ERROR get_data_from_table Encountered error
+2023-07-27 13:43:25,109 - ERROR get_data_from_table Encountered error
+2023-07-27 14:01:58,119 - ERROR Lock_the_column called
+2023-07-27 14:01:58,120 - ERROR Lock_the_column called
+2023-07-27 14:01:58,120 - ERROR Lock_the_column called
+2023-07-27 14:03:47,726 - ERROR Lock_the_column called
+2023-07-27 14:03:47,728 - ERROR Lock_the_column called
+2023-07-27 14:03:47,728 - ERROR Lock_the_column called

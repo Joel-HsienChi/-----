@@ -8,8 +8,9 @@ import re
 import mysql.connector
 from Logger import logger_class
 
-
 # UI class
+
+
 class Ui_Login(object):
     def setupUi(self, Login):
         Login.setObjectName("Login")
@@ -94,16 +95,15 @@ class Ui_Info_Editor(object):
 
     def setupUi(self, Info_Editor):
         Info_Editor.setObjectName("Info_Editor")
-        Info_Editor.resize(820, 150)
+        Info_Editor.resize(820, 180)
         self.Save_change_button = QtWidgets.QPushButton(Info_Editor)
-        self.Save_change_button.setGeometry(QtCore.QRect(320, 110, 161, 32))
+        self.Save_change_button.setGeometry(QtCore.QRect(320, 140, 161, 32))
         self.Save_change_button.setMinimumSize(QtCore.QSize(161, 32))
         self.Save_change_button.setObjectName("Save_change_button")
         self.Display_table = QtWidgets.QTableWidget(Info_Editor)
-        self.Display_table.setGeometry(QtCore.QRect(40, 30, 740, 53))
+        self.Display_table.setGeometry(QtCore.QRect(40, 30, 741, 71))
         self.Display_table.setMinimumSize(QtCore.QSize(0, 0))
-        self.Display_table.setSizeAdjustPolicy(
-            QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.Display_table.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.Display_table.setObjectName("Display_table")
         self.Display_table.setColumnCount(7)
         self.Display_table.setRowCount(0)
@@ -127,9 +127,15 @@ class Ui_Info_Editor(object):
         self.Display_table.horizontalHeader().setMinimumSectionSize(20)
         self.Display_table.horizontalHeader().setSortIndicatorShown(False)
         self.Display_table.horizontalHeader().setStretchLastSection(True)
-        self.Input_Invalid = QtWidgets.QLabel(Info_Editor)
-        self.Input_Invalid.setGeometry(QtCore.QRect(510, 110, 81, 31))
-        self.Input_Invalid.setObjectName("Input_Invalid")
+        self.Password_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Password_Invalid.setGeometry(QtCore.QRect(150, 110, 111, 31))
+        self.Password_Invalid.setObjectName("Password_Invalid")
+        self.Permission_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Permission_Invalid.setGeometry(QtCore.QRect(330, 110, 121, 31))
+        self.Permission_Invalid.setObjectName("Permission_Invalid")
+        self.Gender_Invalid = QtWidgets.QLabel(Info_Editor)
+        self.Gender_Invalid.setGeometry(QtCore.QRect(540, 110, 121, 31))
+        self.Gender_Invalid.setObjectName("Gender_Invalid")
 
         self.retranslateUi(Info_Editor)
         QtCore.QMetaObject.connectSlotsByName(Info_Editor)
@@ -139,8 +145,7 @@ class Ui_Info_Editor(object):
     def retranslateUi(self, Info_Editor):
         _translate = QtCore.QCoreApplication.translate
         Info_Editor.setWindowTitle(_translate("Info_Editor", "Info_Editor"))
-        self.Save_change_button.setText(
-            _translate("Info_Editor", "Save change"))
+        self.Save_change_button.setText(_translate("Info_Editor", "Save change"))
         item = self.Display_table.horizontalHeaderItem(0)
         item.setText(_translate("Info_Editor", "Checkbox"))
         item = self.Display_table.horizontalHeaderItem(1)
@@ -155,15 +160,25 @@ class Ui_Info_Editor(object):
         item.setText(_translate("Info_Editor", "Gender"))
         item = self.Display_table.horizontalHeaderItem(6)
         item.setText(_translate("Info_Editor", "Plate amount"))
-        self.Input_Invalid.setText(_translate("Info_Editor", "Invalid input!"))
+        self.Password_Invalid.setText(_translate("Info_Editor", "Password_Invalid"))
+        self.Permission_Invalid.setText(_translate("Info_Editor", "Permission_Invalid"))
+        self.Gender_Invalid.setText(_translate("Info_Editor", "Gender_Invalid"))
 
     def modding(self):
+
         # hide the error message
-        self.Input_Invalid.setHidden(True)
+        self.Gender_Invalid.setHidden(True)
+        self.Permission_Invalid.setHidden(True)
+        self.Password_Invalid.setHidden(True)
 
         # connect button to function
+        self.Save_change_button.clicked.connect(lambda: Login_function.Info_Editor_ui.Permission_Invalid.setHidden(True))
+        self.Save_change_button.clicked.connect(lambda: Login_function.Info_Editor_ui.Gender_Invalid.setHidden(True))
+        self.Save_change_button.clicked.connect(lambda: Login_function.Info_Editor_ui.Password_Invalid.setHidden(True))
+
         self.Save_change_button.clicked.connect(
-            lambda: Info_Editor_function.get_data_from_table())
+            lambda: helper.get_data_from_table(self.Display_table, Info_Editor_function))
+
 
 
 class Ui_Concentrate_Advance(object):
@@ -807,7 +822,6 @@ class Ui_Concentrate_Advance(object):
             self.Plate_Scan_Tab), _translate("Concentrate_Advance", "Plate Scan"))
 
     def modding(self):
-
         # Modding for Search/Edit
 
         # adjust column size
@@ -821,27 +835,27 @@ class Ui_Concentrate_Advance(object):
 
         # connect button to function
         self.Show_all_button.clicked.connect(
-            lambda: Search_Edit_function.set_current_search_type("all"))
+            lambda: helper.set_current_search_type(Search_Edit_function, "all"))
         self.Show_all_button.clicked.connect(
             lambda: Search_Edit_function.show_user(0))
         self.ID_search_button.clicked.connect(
-            lambda: Search_Edit_function.set_current_search_type("id"))
+            lambda: helper.set_current_search_type(Search_Edit_function, "id"))
         self.ID_search_button.clicked.connect(
             lambda: Search_Edit_function.show_user(0))
         self.Name_search_button.clicked.connect(
-            lambda: Search_Edit_function.set_current_search_type("name"))
+            lambda: helper.set_current_search_type(Search_Edit_function, "name"))
         self.Name_search_button.clicked.connect(
             lambda: Search_Edit_function.show_user(0))
         self.Gender_button.clicked.connect(
-            lambda: Search_Edit_function.set_current_search_type("gender"))
+            lambda: helper.set_current_search_type(Search_Edit_function, "gender"))
         self.Gender_button.clicked.connect(
             lambda: Search_Edit_function.show_user(0))
         self.Permission_button.clicked.connect(
-            lambda: Search_Edit_function.set_current_search_type("permission"))
+            lambda: helper.set_current_search_type(Search_Edit_function, "permission"))
         self.Permission_button.clicked.connect(
             lambda: Search_Edit_function.show_user(0))
         self.Save_change_button.clicked.connect(
-            lambda: Search_Edit_function.get_data_from_table())
+            lambda: helper.get_data_from_table(Login_function.Concentrate_Advance_ui.Display_table, Search_Edit_function))
         self.Delete_User_button.clicked.connect(
             lambda: Search_Edit_function.show_delete_confirm())
         self.Add_User_button.clicked.connect(
@@ -851,7 +865,8 @@ class Ui_Concentrate_Advance(object):
             lambda: Search_Edit_function.show_user(self.User_info_pages.value()))
 
         # get the maximum page number
-        Search_Edit_function.set_user_info_pages_maximum(None)
+        Search_Edit_function.user_info_pages_maximum = helper.get_pages_maximum(
+            Search_Edit_function, None, user_info_table)
 
         # set the maximum number for spinbox
         self.User_info_pages.setMaximum(2147483647)
@@ -868,23 +883,23 @@ class Ui_Concentrate_Advance(object):
 
         # connect button to function
         self.Show_all_button_login_history.clicked.connect(
-            lambda: Login_History_function.set_current_search_type("all"))
+            lambda: helper.set_current_search_type(Login_History_function, "all"))
         self.Show_all_button_login_history.clicked.connect(
             lambda: Login_History_function.show_login_history(0))
         self.ID_search_button_login_history.clicked.connect(
-            lambda: Login_History_function.set_current_search_type("id"))
+            lambda: helper.set_current_search_type(Login_History_function, "id"))
         self.ID_search_button_login_history.clicked.connect(
             lambda: Login_History_function.show_login_history(0))
         self.Status_show_button.clicked.connect(
-            lambda: Login_History_function.set_current_search_type("status"))
+            lambda: helper.set_current_search_type(Login_History_function, "status"))
         self.Status_show_button.clicked.connect(
             lambda: Login_History_function.show_login_history(0))
         self.Fail_type_button.clicked.connect(
-            lambda: Login_History_function.set_current_search_type("specific_type_fail"))
+            lambda: helper.set_current_search_type(Login_History_function, "specific_type_fail"))
         self.Fail_type_button.clicked.connect(
             lambda: Login_History_function.show_login_history(0))
         self.Success_type_button.clicked.connect(
-            lambda: Login_History_function.set_current_search_type("specific_type_success"))
+            lambda: helper.set_current_search_type(Login_History_function, "specific_type_success"))
         self.Success_type_button.clicked.connect(
             lambda: Login_History_function.show_login_history(0))
 
@@ -892,7 +907,8 @@ class Ui_Concentrate_Advance(object):
             lambda: Login_History_function.show_login_history(self.Login_History_Pages.value()))
 
         # get the maximum page number
-        Login_History_function.set_login_history_pages_maximum(None)
+        Login_History_function.login_history_pages_maximum = helper.get_pages_maximum(
+            Login_History_function, None, login_record_table)
 
         # set the maximum number for spinbox
         self.Login_History_Pages.setMaximum(2147483647)
@@ -903,6 +919,7 @@ class Ui_Concentrate_Advance(object):
         # let table be read only
         self.Display_Login_info.setEditTriggers(
             QtWidgets.QAbstractItemView.NoEditTriggers)
+
 
     # Modding for plate info
         # adjust column size
@@ -956,6 +973,10 @@ class Ui_Concentrate_Advance(object):
         # show all info initially
         Plate_Info_function.show_plate_info(0)
 
+        # get the maximum page number
+        Plate_Info_function.plate_info_pages_maximum = helper.get_pages_maximum(
+            Plate_Info_function, None, plate_info_table)
+
 
 class Ui_Register(object):
     # global variable
@@ -963,93 +984,86 @@ class Ui_Register(object):
 
     def setupUi(self, Register):
         Register.setObjectName("Register")
-        Register.resize(294, 402)
+        Register.resize(312, 402)
         self.ID_input = QtWidgets.QLineEdit(Register)
         self.ID_input.setGeometry(QtCore.QRect(112, 20, 141, 21))
         self.ID_input.setText("")
         self.ID_input.setObjectName("ID_input")
         self.Add_a_user_button = QtWidgets.QPushButton(Register)
-        self.Add_a_user_button.setGeometry(QtCore.QRect(100, 300, 113, 32))
+        self.Add_a_user_button.setGeometry(QtCore.QRect(100, 320, 113, 32))
         self.Add_a_user_button.setObjectName("Add_a_user_button")
         self.Name_input = QtWidgets.QLineEdit(Register)
-        self.Name_input.setGeometry(QtCore.QRect(112, 80, 141, 21))
+        self.Name_input.setGeometry(QtCore.QRect(112, 100, 141, 21))
         self.Name_input.setText("")
         self.Name_input.setObjectName("Name_input")
         self.Gender_label = QtWidgets.QLabel(Register)
-        self.Gender_label.setGeometry(QtCore.QRect(30, 130, 81, 16))
+        self.Gender_label.setGeometry(QtCore.QRect(30, 150, 81, 16))
         self.Gender_label.setObjectName("Gender_label")
         self.Name_label = QtWidgets.QLabel(Register)
-        self.Name_label.setGeometry(QtCore.QRect(30, 80, 81, 16))
+        self.Name_label.setGeometry(QtCore.QRect(30, 100, 81, 16))
         self.Name_label.setObjectName("Name_label")
         self.ID_label = QtWidgets.QLabel(Register)
         self.ID_label.setGeometry(QtCore.QRect(30, 20, 81, 16))
         self.ID_label.setObjectName("ID_label")
         self.Male_button = QtWidgets.QRadioButton(Register)
-        self.Male_button.setGeometry(QtCore.QRect(110, 130, 100, 20))
+        self.Male_button.setGeometry(QtCore.QRect(110, 150, 100, 20))
         self.Male_button.setObjectName("Male_button")
         self.Button_group_gender = QtWidgets.QButtonGroup(Register)
         self.Button_group_gender.setObjectName("Button_group_gender")
         self.Button_group_gender.addButton(self.Male_button)
         self.Female_button = QtWidgets.QRadioButton(Register)
-        self.Female_button.setGeometry(QtCore.QRect(110, 160, 100, 20))
+        self.Female_button.setGeometry(QtCore.QRect(110, 180, 100, 20))
         self.Female_button.setObjectName("Female_button")
         self.Button_group_gender.addButton(self.Female_button)
         self.Permission_label = QtWidgets.QLabel(Register)
-        self.Permission_label.setGeometry(QtCore.QRect(30, 230, 81, 16))
+        self.Permission_label.setGeometry(QtCore.QRect(30, 250, 81, 16))
         self.Permission_label.setObjectName("Permission_label")
         self.Admin_button = QtWidgets.QRadioButton(Register)
-        self.Admin_button.setGeometry(QtCore.QRect(110, 230, 100, 20))
+        self.Admin_button.setGeometry(QtCore.QRect(110, 250, 100, 20))
         self.Admin_button.setObjectName("Admin_button")
         self.Button_group_permission = QtWidgets.QButtonGroup(Register)
         self.Button_group_permission.setObjectName("Button_group_permission")
         self.Button_group_permission.addButton(self.Admin_button)
         self.Normal_button = QtWidgets.QRadioButton(Register)
-        self.Normal_button.setGeometry(QtCore.QRect(110, 260, 100, 20))
+        self.Normal_button.setGeometry(QtCore.QRect(110, 280, 100, 20))
         self.Normal_button.setObjectName("Normal_button")
         self.Button_group_permission.addButton(self.Normal_button)
         self.ID_error_message = QtWidgets.QLabel(Register)
-        self.ID_error_message.setGeometry(QtCore.QRect(150, 40, 101, 16))
+        self.ID_error_message.setGeometry(QtCore.QRect(150, 50, 101, 16))
         self.ID_error_message.setObjectName("ID_error_message")
         self.Register_error_message = QtWidgets.QLabel(Register)
-        self.Register_error_message.setGeometry(QtCore.QRect(100, 350, 81, 20))
+        self.Register_error_message.setGeometry(QtCore.QRect(120, 360, 80, 20))
         self.Register_error_message.setObjectName("Register_error_message")
         self.Register_success_message = QtWidgets.QLabel(Register)
         self.Register_success_message.setGeometry(
-            QtCore.QRect(60, 350, 211, 20))
+            QtCore.QRect(70, 360, 211, 20))
         self.Register_success_message.setObjectName("Register_success_message")
         self.Other_button = QtWidgets.QRadioButton(Register)
-        self.Other_button.setGeometry(QtCore.QRect(110, 190, 100, 20))
+        self.Other_button.setGeometry(QtCore.QRect(110, 210, 100, 20))
         self.Other_button.setObjectName("Other_button")
-        self.Button_group_gender.addButton(self.Other_button)
         self.line = QtWidgets.QFrame(Register)
-        self.line.setGeometry(QtCore.QRect(30, 60, 251, 20))
+        self.line.setGeometry(QtCore.QRect(30, 70, 251, 20))
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         self.line_2 = QtWidgets.QFrame(Register)
-        self.line_2.setGeometry(QtCore.QRect(30, 110, 251, 20))
+        self.line_2.setGeometry(QtCore.QRect(30, 130, 251, 20))
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.line_3 = QtWidgets.QFrame(Register)
-        self.line_3.setGeometry(QtCore.QRect(30, 210, 251, 20))
+        self.line_3.setGeometry(QtCore.QRect(30, 230, 251, 20))
         self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_3.setObjectName("line_3")
         self.line_4 = QtWidgets.QFrame(Register)
-        self.line_4.setGeometry(QtCore.QRect(30, 280, 251, 20))
+        self.line_4.setGeometry(QtCore.QRect(30, 300, 251, 20))
         self.line_4.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_4.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_4.setObjectName("line_4")
-        # hide the error message initially
-        self.ID_error_message.setHidden(True)
-        self.Register_error_message.setHidden(True)
-        self.Register_success_message.setHidden(True)
 
         self.retranslateUi(Register)
         QtCore.QMetaObject.connectSlotsByName(Register)
-
-        self.modding()
 
     def retranslateUi(self, Register):
         _translate = QtCore.QCoreApplication.translate
@@ -1070,13 +1084,21 @@ class Ui_Register(object):
             _translate("Register", "Successfully added the user!"))
         self.Other_button.setText(_translate("Register", "Others"))
 
+        self.modding()
+
     def modding(self):
         # connect button to function
         self.Add_a_user_button.clicked.connect(lambda: Register_function.press_register(
             self.ID_input.text(), self.default_password, self.Name_input.text()))
 
+        # hide the error message initially
+        self.ID_error_message.setHidden(True)
+        self.Register_error_message.setHidden(True)
+        self.Register_success_message.setHidden(True)
 
 # Function class
+
+
 class UI_Login_function:
     def check_ID_password_function(self, userid, password):
         try:
@@ -1084,65 +1106,67 @@ class UI_Login_function:
             # initialize
             ID_password_match = False
             ID_is_admin = False
-            ID_exist = SQL_function.check_ID_exist(userid)
+            ID_exist = SQL_function.check_ID_action(
+                2, userid, None,  user_info_table)
 
             # encrypt the password
             encrypted_password = helper.encode_password(password)
 
             # check if id and password is correct
-            ID_password_match = SQL_function.check_ID_password(
-                userid, encrypted_password)
+            ID_password_match = SQL_function.check_ID_action(
+                0, userid, encrypted_password, user_info_table)
             # error handler
-            if(ID_password_match == -1):
-                return -1
+            if (ID_password_match == -1):
+                return False
 
             # check if user is admin
-            ID_is_admin = SQL_function.check_ID_is_admin(userid)
+            ID_is_admin = SQL_function.check_ID_action(
+                1, userid, None, user_info_table)
             # error handler
-            if(ID_is_admin == -1):
-                return - 1
+            if (ID_is_admin == -1):
+                return False
 
-            if(ID_password_match is True):
+            if (ID_password_match is True):
                 # enter Advance mode
-                if(ID_is_admin is True and Loginui.checkBox.isChecked()):
+                if (ID_is_admin is True and Loginui.checkBox.isChecked()):
                     SQL_function.add_login_record(
                         userid, "SUCCESS", "Login with Advance mode")
                     self.open_Concentrate_Advance_window()
                     Login.close()
-                    return 1
+                    return True
                 # Fail: Not admin but try to entering advance mode
-                elif(ID_is_admin is False and self.checkBox.isChecked()):
+                elif (ID_is_admin is False and Loginui.checkBox.isChecked()):
                     SQL_function.add_login_record(
                         userid, "FAIL", "A normal user tries to enter Advance mode")
                     Loginui.Error_Message_for_permission.setHidden(False)
                     Loginui.Error_Message_for_password.setHidden(True)
                     Loginui.Error_Message_for_ID.setHidden(True)
-                    return - 1
+                    return False
                 # Normal user mode
                 else:
                     self.display_normal_welcome_message()
                     SQL_function.add_login_record(
                         userid, "SUCCESS", "Login with normal user mode")
                     Login.close()
-                    return 1
+                    return True
             # Fail: ID doesn't exist
-            elif(ID_exist is False):
+            elif (ID_exist is False):
                 SQL_function.add_login_record(
                     userid, "FAIL", "ID doesn't exist")
                 # display the error message
                 Loginui.Error_Message_for_permission.setHidden(True)
                 Loginui.Error_Message_for_password.setHidden(True)
                 Loginui.Error_Message_for_ID.setHidden(False)
-                return - 1
+                return False
             # Fail: ID doesn't match password
-            elif(ID_password_match is False):
+            elif (ID_password_match is False):
                 SQL_function.add_login_record(
                     userid, "FAIL", "ID and Password doesn't match")
                 # display the error message
                 Loginui.Error_Message_for_password.setHidden(False)
                 Loginui.Error_Message_for_permission.setHidden(True)
                 Loginui.Error_Message_for_ID.setHidden(True)
-                return - 1
+                return False
         except:
             ErrorLogger.logger.error(
                 "check_ID_password_function Encountered error")
@@ -1182,7 +1206,7 @@ class UI_Login_function:
             confirm.setDefaultButton(QMessageBox.Cancel)
             confirm.accepted.connect(lambda: self.open_Info_Editor_window())
             confirm.accepted.connect(
-                lambda: Info_Editor_function.show_user_info_into_table())
+                lambda: Info_Editor_function.show_user(0))
             x = confirm.exec_()
         except:
             ErrorLogger.logger.error(
@@ -1191,17 +1215,16 @@ class UI_Login_function:
 
 
 class UI_Info_Editor_function:
-
     initial_data = []
     edited_data = []
 
-    def show_user_info_into_table(self):
+    def show_user(self, pages):
         try:
             data = SQL_function.get_data_from_database("User_Information",
                                                        "id_strict", Login_function.Info_Editor_ui.current_user_ID, 0)
             Login_function.Info_Editor_ui.Display_table.setRowCount(0)
             row = 0
-            self.check_button_array_normal_edit = []
+            self.check_button_array = []
             self.initial_data = []
             for login_record in data:
                 Login_function.Info_Editor_ui.Display_table.insertRow(row)
@@ -1222,7 +1245,8 @@ class UI_Info_Editor_function:
                 check_box = QtWidgets.QCheckBox()
                 Login_function.Info_Editor_ui.Display_table.setCellWidget(
                     row, 0, check_box)
-                self.check_button_array_normal_edit.append(check_box)
+
+                self.check_button_array.append(check_box)
                 row = row+1
                 SQL_function.update_plate_user_have(login_record[1])
                 self.initial_data.append(
@@ -1233,55 +1257,11 @@ class UI_Info_Editor_function:
             helper.lock_the_Column(
                 Login_function.Info_Editor_ui.Display_table, 3)
             helper.lock_the_Column(
-                Login_function.Info_Editor_ui.Display_table, 6)
+                Login_function.Info_Editor_ui.Display_table, 6)                
+
         except:
             ErrorLogger.logger.error(
-                "show_user_info_into_table Encountered error")
-            return -1
-
-    def get_data_from_table(self):
-        try:
-            # this function will reset edited_data
-            self.edited_data = []
-            # go through entire table row by row
-            for row in range(Login_function.Info_Editor_ui.Display_table.rowCount()):
-                edited_row = []
-                for column in range(Login_function.Info_Editor_ui.Display_table.columnCount()):
-                    if(Login_function.Info_Editor_ui.Display_table.item(row, column) != None):
-                        edited_row.append(
-                            Login_function.Info_Editor_ui.Display_table.item(row, column).text())
-
-                self.edited_data.append(edited_row)
-                # check if check box is checked (防呆機制)
-                if(self.check_button_array_normal_edit[row].isChecked()):
-                    # check if input permission and gender fit format
-                    if((edited_row[2] == "USER" or edited_row[2] == "ADMIN") and ((edited_row[4] == "MALE" or edited_row[4] == "FEMALE" or edited_row[4] == "OTHERS"))):
-                        # update name, gender, and permission
-                        SQL_function.update_data_to_user_info(
-                            edited_row[0], None, edited_row[2], edited_row[3], edited_row[4], edited_row[5])
-                        Login_function.Info_Editor_ui.Input_Invalid.setHidden(
-                            True)
-                    else:
-                        Login_function.Info_Editor_ui.Input_Invalid.setHidden(
-                            False)
-                        return
-                    # check if password had been changed
-                    if(edited_row[1] != "************"):
-                        # check if edited password fit format
-                        if(helper.check_password_availability(edited_row[1])):
-                            SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(
-                                edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
-                            Login_function.Info_Editor_ui.Input_Invalid.setHidden(
-                                True)
-                        else:
-                            Login_function.Info_Editor_ui.Input_Invalid.setHidden(
-                                False)
-                            return
-            helper.data_comparison(self.edited_data, self.initial_data)
-            self.show_user_info_into_table()
-        except:
-            ErrorLogger.logger.error(
-                "get_data_from_table Encountered error")
+                "'show_user' in 'UI_Info_Editor_function' Encountered error")
             return -1
 
 
@@ -1290,40 +1270,41 @@ class UI_Search_Edit_function:
     edited_data = []
     user_info_pages_maximum = 0
     current_search_type = "all"
-    check_button_array_search_edit = []
-    # Function for Search/Edit
+    check_button_array = []
 
+    # Function for Search/Edit
     def show_user(self, pages):
         try:
-            if(self.current_search_type == "id"):
-                if(Login_function.Concentrate_Advance_ui.ID_input.text() == None):
+            if (self.current_search_type == "id"):
+                if (Login_function.Concentrate_Advance_ui.ID_input.text() == None):
                     value = ""
                 value = Login_function.Concentrate_Advance_ui.ID_input.text()
-            elif(self.current_search_type == "name"):
-                if(Login_function.Concentrate_Advance_ui.Name_input.text() == None):
+            elif (self.current_search_type == "name"):
+                if (Login_function.Concentrate_Advance_ui.Name_input.text() == None):
                     value = ""
                 value = Login_function.Concentrate_Advance_ui.Name_input.text()
-            elif(self.current_search_type == "all"):
+            elif (self.current_search_type == "all"):
                 value = None
-            elif(self.current_search_type == "permission"):
-                if(Login_function.Concentrate_Advance_ui.User_button.isChecked()):
+            elif (self.current_search_type == "permission"):
+                if (Login_function.Concentrate_Advance_ui.User_button.isChecked()):
                     value = "USER"
-                elif(Login_function.Concentrate_Advance_ui.Admin_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Admin_button.isChecked()):
                     value = "ADMIN"
                 else:
                     value = ""
-            elif(self.current_search_type == "gender"):
-                if(Login_function.Concentrate_Advance_ui.Male_button.isChecked()):
+            elif (self.current_search_type == "gender"):
+                if (Login_function.Concentrate_Advance_ui.Male_button.isChecked()):
                     value = "MALE"
-                elif(Login_function.Concentrate_Advance_ui.Female_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Female_button.isChecked()):
                     value = "FEMALE"
-                elif(Login_function.Concentrate_Advance_ui.Others_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Others_button.isChecked()):
                     value = "OTHERS"
                 else:
                     value = ""
 
-            self.set_user_info_pages_maximum(value)
-            if(self.user_info_pages_maximum <= pages):
+            self.user_info_pages_maximum = helper.get_pages_maximum(
+                Search_Edit_function, value, user_info_table)
+            if (self.user_info_pages_maximum <= pages):
                 Login_function.Concentrate_Advance_ui.User_info_pages.setValue(
                     self.user_info_pages_maximum)
                 pages = self.user_info_pages_maximum
@@ -1333,73 +1314,17 @@ class UI_Search_Edit_function:
 
             helper.insert_data_into_table(
                 Login_function.Concentrate_Advance_ui.Display_table, data)
-            self.insert_checkbox_search_edit(data)
+            helper.insert_checkbox(
+                Search_Edit_function, Login_function.Concentrate_Advance_ui.Display_table, data)
+            # lock the column
             helper.lock_the_Column(
                 Login_function.Concentrate_Advance_ui.Display_table, 1)
             helper.lock_the_Column(
-                Login_function.Concentrate_Advance_ui.Display_table, 6)
+                Login_function.Concentrate_Advance_ui.Display_table, 6)        
+
         except:
             ErrorLogger.logger.error(
                 "show_user Encountered error")
-            return -1
-
-    def insert_checkbox_search_edit(self, data):
-        try:
-            for check_box_row in range(len(data)):
-                # set a button to table
-                check_box = QtWidgets.QCheckBox()
-                Login_function.Concentrate_Advance_ui.Display_table.setCellWidget(
-                    check_box_row, 0, check_box)
-                self.check_button_array_search_edit.append(check_box)
-        except:
-            ErrorLogger.logger.error(
-                "insert_checkbox_search_edit Encountered error")
-            return -1
-
-    def get_data_from_table(self):
-        try:
-            self.edited_data = []
-            # go through entire table row by row
-            for row in range(Login_function.Concentrate_Advance_ui.Display_table.rowCount()):
-                edited_row = []
-                for column in range(Login_function.Concentrate_Advance_ui.Display_table.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_table.item(row, column) != None):
-                        edited_row.append(
-                            Login_function.Concentrate_Advance_ui.Display_table.item(row, column).text())
-                # update plate_number_nomatter_what
-                SQL_function.update_plate_user_have(edited_row[1])
-                self.edited_data.append(edited_row)
-
-                # check if check box is checked (防呆機制)
-                if(self.check_button_array_search_edit[row].isChecked()):
-                    # check if input permission and gender fit format
-                    if((edited_row[2] == "USER" or edited_row[2] == "ADMIN") and (edited_row[4] == "MALE" or edited_row[4] == "FEMALE" or edited_row[4] == "OTHERS")):
-                        # update name, gender, and permission
-                        SQL_function.update_data_to_user_info(
-                            edited_row[0], None, edited_row[2], edited_row[3], edited_row[4], edited_row[5])
-                        Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(
-                            True)
-                    else:
-                        Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(
-                            False)
-                        return
-                    # check if password had been changed
-                    if(edited_row[1] != "************"):
-                        # check if edited password fit format
-                        if(helper.check_password_availability(edited_row[1])):
-                            SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(
-                                edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])
-                            Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(
-                                True)
-                        else:
-                            Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(
-                                False)
-                            return
-            helper.data_comparison(self.edited_data, self.initial_data)
-            self.show_user(0)
-        except:
-            ErrorLogger.logger.error(
-                "get_data_from_table Encountered error")
             return -1
 
     def open_Register_window(self):
@@ -1434,46 +1359,26 @@ class UI_Search_Edit_function:
             for row in range(Login_function.Concentrate_Advance_ui.Display_table.rowCount()):
                 data = []
                 for column in range(Login_function.Concentrate_Advance_ui.Display_table.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_table.item(row, column) != None):
+                    if (Login_function.Concentrate_Advance_ui.Display_table.item(row, column) != None):
                         data.append(Login_function.Concentrate_Advance_ui.Display_table.item(
                             row, column).text())
-                if(self.check_button_array_search_edit[row].isChecked()):
+                if (self.check_button_array[row].isChecked()):
                     plate_list = SQL_function.get_plate_id_user_have(data[0])
                     for plate_id in plate_list:
-                        SQL_function.deassign_plate_from_user(
-                            plate_id[0], "TRUE", helper.get_time())
+                        SQL_function.deassign_assign_plate_to_user(0, plate_id[0], None)
                     SQL_function.remove_user(data[0])
-            Search_Edit_function.set_current_search_type("all")
+            helper.set_current_search_type(Search_Edit_function, "all")
             Search_Edit_function.show_user(0)
             Plate_Info_function.show_plate_info(0)
 
         except:
             ErrorLogger.logger.error(
-                "delete_users Encountered error")
-            return -1
-
-    def set_user_info_pages_maximum(self, value):
-        try:
-            self.user_info_pages_maximum = SQL_function.get_row_number_from_database(user_info_table,
-                                                                                     self.current_search_type, value) // 20
-            if(SQL_function.get_row_number_from_database(user_info_table, self.current_search_type, value) % 20 == 0 and SQL_function.get_row_number_from_database(user_info_table, self.current_search_type, value) > 20):
-                self.user_info_pages_maximum = (SQL_function.get_row_number_from_database(user_info_table,
-                                                                                          self.current_search_type, value) // 20) - 1
-        except:
-            ErrorLogger.logger.error(
-                "set_user_info_pages_maximum Encountered error")
-            return -1
-
-    def set_current_search_type(self, type):
-        try:
-            self.current_search_type = type
-        except:
-            ErrorLogger.logger.error(
-                "set_current_search_type Encountered error")
+                "'delete_users' in 'UI_Search_Edit_function' Encountered error")
             return -1
 
 
 class UI_Register_function:
+
     def press_register(self, userid, password, real_name):
         try:
             return_flag = False
@@ -1481,7 +1386,7 @@ class UI_Register_function:
             admin_flag = False
             name_flag = False
             # handle invalid input
-            if(SQL_function.check_ID_exist(userid) is True or userid == "" or len(userid) < 4 or (helper.has_invalid_character(userid))):
+            if (SQL_function.check_ID_action(2, userid, None, user_info_table) is True or userid == "" or len(userid) < 4 or (helper.has_invalid_character(userid))):
                 Search_Edit_function.Register_ui.ID_error_message.setHidden(
                     False)
                 return_flag = True
@@ -1489,41 +1394,42 @@ class UI_Register_function:
                 Search_Edit_function.Register_ui.ID_error_message.setHidden(
                     True)
 
-            if(Search_Edit_function.Register_ui.Male_button.isChecked() or Search_Edit_function.Register_ui.Female_button.isChecked() or Search_Edit_function.Register_ui.Other_button.isChecked()):
+            if (Search_Edit_function.Register_ui.Male_button.isChecked() or Search_Edit_function.Register_ui.Female_button.isChecked() or Search_Edit_function.Register_ui.Other_button.isChecked()):
                 gender_flag = True
-            if(Search_Edit_function.Register_ui.Admin_button.isChecked() or Search_Edit_function.Register_ui.Normal_button.isChecked()):
+            if (Search_Edit_function.Register_ui.Admin_button.isChecked() or Search_Edit_function.Register_ui.Normal_button.isChecked()):
                 admin_flag = True
-            if(real_name == ""):
+            if (real_name == ""):
                 name_flag = True
 
-            if(return_flag is True or name_flag is True or gender_flag is False or admin_flag is False):
+            if (return_flag is True or name_flag is True or gender_flag is False or admin_flag is False):
                 Search_Edit_function.Register_ui.Register_error_message.setHidden(
                     False)
                 Search_Edit_function.Register_ui.Register_success_message.setHidden(
                     True)
-                return -1
+                return False
 
             # transfer radio button information to string
-            if(Search_Edit_function.Register_ui.Male_button.isChecked()):
+            if (Search_Edit_function.Register_ui.Male_button.isChecked()):
                 gender = "MALE"
-            elif(Search_Edit_function.Register_ui.Female_button.isChecked()):
+            elif (Search_Edit_function.Register_ui.Female_button.isChecked()):
                 gender = "FEMALE"
-            elif(Search_Edit_function.Register_ui.Other_button.isChecked()):
+            elif (Search_Edit_function.Register_ui.Other_button.isChecked()):
                 gender = "OTHERS"
-            if(Search_Edit_function.Register_ui.Admin_button.isChecked()):
+            if (Search_Edit_function.Register_ui.Admin_button.isChecked()):
                 permission = "ADMIN"
-            elif(Search_Edit_function.Register_ui.Normal_button.isChecked()):
+            elif (Search_Edit_function.Register_ui.Normal_button.isChecked()):
                 permission = "USER"
 
             # add the user
             SQL_function.add_user(userid, helper.encode_password(
                 password), permission, real_name, gender)
-            Search_Edit_function.set_current_search_type("all")
+            helper.set_current_search_type(Search_Edit_function, "all")
             Search_Edit_function.show_user(0)
             Search_Edit_function.Register_ui.Register_error_message.setHidden(
                 True)
             Search_Edit_function.Register_ui.Register_success_message.setHidden(
                 False)
+            return True
         except:
             ErrorLogger.logger.error(
                 "press_register Encountered error")
@@ -1537,38 +1443,39 @@ class UI_Login_History_function:
     # Function for Login History
     def show_login_history(self, pages):
         try:
-            if(self.current_search_type == "id"):
-                if(Login_function.Concentrate_Advance_ui.ID_input_login_history.text() == None):
+            if (self.current_search_type == "id"):
+                if (Login_function.Concentrate_Advance_ui.ID_input_login_history.text() == None):
                     value = ""
                 value = Login_function.Concentrate_Advance_ui.ID_input_login_history.text()
-            elif(self.current_search_type == "all"):
+            elif (self.current_search_type == "all"):
                 value = None
-            elif(self.current_search_type == "status"):
-                if(Login_function.Concentrate_Advance_ui.Success_button.isChecked()):
+            elif (self.current_search_type == "status"):
+                if (Login_function.Concentrate_Advance_ui.Success_button.isChecked()):
                     value = "SUCCESS"
-                elif(Login_function.Concentrate_Advance_ui.Fail_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Fail_button.isChecked()):
                     value = "FAIL"
                 else:
                     value = ""
-            elif(self.current_search_type == "specific_type_fail"):
-                if(Login_function.Concentrate_Advance_ui.ID_doesnt_exist_button.isChecked()):
+            elif (self.current_search_type == "specific_type_fail"):
+                if (Login_function.Concentrate_Advance_ui.ID_doesnt_exist_button.isChecked()):
                     value = "ID doesn't exist"
-                elif(Login_function.Concentrate_Advance_ui.Password_doesnt_match_ID_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Password_doesnt_match_ID_button.isChecked()):
                     value = "ID and Password doesn't match"
-                elif(Login_function.Concentrate_Advance_ui.User_enter_advance_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.User_enter_advance_button.isChecked()):
                     value = "A normal user tries to enter Advance mode"
                 else:
                     value = ""
-            elif(self.current_search_type == "specific_type_success"):
-                if(Login_function.Concentrate_Advance_ui.Normal_login_button.isChecked()):
+            elif (self.current_search_type == "specific_type_success"):
+                if (Login_function.Concentrate_Advance_ui.Normal_login_button.isChecked()):
                     value = "Login with normal user mode"
-                elif(Login_function.Concentrate_Advance_ui.Advance_login_button.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Advance_login_button.isChecked()):
                     value = "Login with Advance mode"
                 else:
                     value = ""
 
-            self.set_login_history_pages_maximum(value)
-            if(self.login_history_pages_maximum <= pages):
+            self.login_history_pages_maximum = helper.get_pages_maximum(
+                self, value, login_record_table)
+            if (self.login_history_pages_maximum <= pages):
                 Login_function.Concentrate_Advance_ui.Login_History_Pages.setValue(
                     self.login_history_pages_maximum)
                 pages = self.login_history_pages_maximum
@@ -1582,56 +1489,36 @@ class UI_Login_History_function:
                 "show_login_history Encountered error")
             return -1
 
-    def set_login_history_pages_maximum(self, value):
-        try:
-            self.login_history_pages_maximum = SQL_function.get_row_number_from_database(login_record_table,
-                                                                                         self.current_search_type, value) // 20
-            if(SQL_function.get_row_number_from_database(login_record_table, self.current_search_type, value) % 20 == 0
-               and SQL_function.get_row_number_from_database(login_record_table, self.current_search_type, value) > 20):
-                self.login_history_pages_maximum = (SQL_function.get_row_number_from_database(login_record_table,
-                                                                                              self.current_search_type, value) // 20) - 1
-        except:
-            ErrorLogger.logger.error(
-
-                "set_login_history_pages_maximum Encountered error")
-            return -1
-
-    def set_current_search_type(self, type):
-        try:
-            self.current_search_type = type
-        except:
-            ErrorLogger.logger.error(
-                "set_current_search_type Encountered error")
-            return -1
-
 
 class UI_Plate_info_function:
     plate_info_pages_maximum = 0
     current_search_type = "all"
+    check_button_array = []
 
     # Function for Plate Scan
     def show_plate_info(self, pages):
         try:
-            if(self.current_search_type == "all"):
+            if (self.current_search_type == "all"):
                 value = None
-            elif(self.current_search_type == "user_id"):
-                if(Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text() == None):
+            elif (self.current_search_type == "user_id"):
+                if (Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text() == None):
                     value = ""
                 value = Login_function.Concentrate_Advance_ui.ID_input_Plate_Info.text()
-            elif(self.current_search_type == "plate_id"):
-                if(Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text() == None):
+            elif (self.current_search_type == "plate_id"):
+                if (Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text() == None):
                     value = ""
                 value = Login_function.Concentrate_Advance_ui.Plate_ID_input_Plate_Info.text()
-            elif(self.current_search_type == "availability"):
-                if(Login_function.Concentrate_Advance_ui.Available_FALSE.isChecked()):
+            elif (self.current_search_type == "availability"):
+                if (Login_function.Concentrate_Advance_ui.Available_FALSE.isChecked()):
                     value = "FALSE"
-                elif(Login_function.Concentrate_Advance_ui.Available_TRUE.isChecked()):
+                elif (Login_function.Concentrate_Advance_ui.Available_TRUE.isChecked()):
                     value = "TRUE"
                 else:
                     value = ""
 
-            self.set_plate_info_pages_maximum(value)
-            if(self.plate_info_pages_maximum <= pages):
+            self.plate_info_pages_maximum = helper.get_pages_maximum(
+                self, value, plate_info_table)
+            if (self.plate_info_pages_maximum <= pages):
                 Login_function.Concentrate_Advance_ui.Plate_info_pages.setValue(
                     self.plate_info_pages_maximum)
                 pages = self.plate_info_pages_maximum
@@ -1640,30 +1527,18 @@ class UI_Plate_info_function:
                                                        self.current_search_type, value, pages)
             helper.insert_data_into_table(
                 Login_function.Concentrate_Advance_ui.Display_Plate_Info, data)
-            self.insert_checkbox_plate_info(data)
+            helper.insert_checkbox(
+                Plate_Info_function, Login_function.Concentrate_Advance_ui.Display_Plate_Info, data)
         except:
             ErrorLogger.logger.error(
                 "show_plate_info Encountered error")
-            return -1
-
-    def insert_checkbox_plate_info(self, data):
-        try:
-            for check_box_row in range(len(data)):
-                # set a button to table
-                check_box = QtWidgets.QCheckBox()
-                Login_function.Concentrate_Advance_ui.Display_Plate_Info.setCellWidget(
-                    check_box_row, 0, check_box)
-                self.check_button_array_plate_info.append(check_box)
-        except:
-            ErrorLogger.logger.error(
-                "insert_checkbox_plate_info Encountered error")
             return -1
 
     def show_add_new_plate_window(self):
         try:
             plateid, read_next_plate = QtWidgets.QInputDialog().getText(
                 Login_function.Concentrate_Advance_ui.Plate_Scan_Tab, '', 'Please scan the bar code on the plate.')
-            if(read_next_plate is True and plateid != ''):
+            if (read_next_plate is True and plateid != ''):
                 SQL_function.add_new_plate(plateid)
                 self.show_plate_info(0)
                 self.show_add_new_plate_window()
@@ -1679,64 +1554,63 @@ class UI_Plate_info_function:
             confirm.setText("Remove these plates from database?")
             confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
             confirm.setDefaultButton(QMessageBox.Cancel)
-            confirm.accepted.connect(lambda: self.remove_plate())
+            confirm.accepted.connect(lambda: self.plate_action(1, None))
             x = confirm.exec_()
         except:
             ErrorLogger.logger.error(
                 "show_delete_plate_confirm Encountered error")
             return -1
 
-    def remove_plate(self):
+    # mode 0 for deassign
+    # mdoe 1 for remove
+    # mode 2 for assign
+
+    def plate_action(self, mode, userid):
         try:
             for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
                 data = []
                 for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
+                    if (Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
                         data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(
                             row, column).text())
-                if(self.check_button_array_plate_info[row].isChecked()):
-                    SQL_function.remove_plate(data[0])
+                if (self.check_button_array[row].isChecked()):
+                    if (mode == 0):
+                        if (data[2] == "FALSE"):
+                            SQL_function.deassign_assign_plate_to_user(0, data[0], None)
+                    elif (mode == 1):
+                        SQL_function.remove_plate(data[0])
+                    elif (mode == 2):
+                        if (SQL_function.check_ID_action(2, userid, None,  user_info_table) is True):
+                            SQL_function.deassign_assign_plate_to_user(
+                                1, data[0], userid)
+                            Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(
+                                False)
+                            Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
+                                True)
+                        else:
+                            Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(
+                                True)
+                            Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
+                                False)
+                if (mode == 0):
+                    SQL_function.update_plate_user_have(data[1])
 
             self.show_plate_info(0)
             Search_Edit_function.show_user(0)
         except:
             ErrorLogger.logger.error(
-                "remove_plate Encountered error")
+                "plate_action Encountered error")
             return -1
 
     def show_assign_plate_to_user_window(self):
         try:
+            # create a dialog widgets
             userid, ok = QtWidgets.QInputDialog().getText(Login_function.Concentrate_Advance_ui.Plate_Scan_Tab,
                                                           '', 'Please enter the user id that you like to assign to.')
-            if(ok):
-
-                if(SQL_function.check_ID_exist(userid) is True):
-                    # go through entire table row by row
-                    for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
-                        data = []
-                        for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
-                            if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
-                                data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(
-                                    row, column).text())
-                        if(self.check_button_array_plate_info[row].isChecked()):
-                            if(data[2] == "TRUE"):
-                                SQL_function.assign_plate_to_user(
-                                    data[0], userid, "FALSE", helper.get_time())
-                                Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(
-                                    False)
-                                Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
-                                    True)
-                else:
-                    Login_function.Concentrate_Advance_ui.Assign_success_label.setHidden(
-                        True)
-                    Login_function.Concentrate_Advance_ui.Assign_fail_label.setHidden(
-                        False)
-            self.show_plate_info(0)
-            self.update_whole_table()
-            Search_Edit_function.show_user(0)
+            if (ok):
+                self.plate_action(2, userid)
         except:
             ErrorLogger.logger.error(
-
                 "show_assign_plate_to_user_window Encountered error")
             return -1
 
@@ -1747,88 +1621,18 @@ class UI_Plate_info_function:
             confirm.setText("Deassign these plates from Users?")
             confirm.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
             confirm.setDefaultButton(QMessageBox.Cancel)
-            confirm.accepted.connect(lambda: self.deassign_plate())
+            confirm.accepted.connect(lambda: self.plate_action(0, None))
             x = confirm.exec_()
         except:
             ErrorLogger.logger.error(
                 "show_deassign_plate_to_user_window Encountered error")
             return -1
 
-    def deassign_plate(self):
-        try:
-            for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
-                data = []
-                for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
-                        data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(
-                            row, column).text())
-
-                if(self.check_button_array_plate_info[row].isChecked()):
-
-                    if(data[2] == "FALSE"):
-                        SQL_function.deassign_plate_from_user(
-                            data[0], "TRUE", helper.get_time())
-            self.show_plate_info(0)
-            self.update_whole_table()
-            Search_Edit_function.show_user(0)
-        except:
-            ErrorLogger.logger.error(
-                "deassign_plate Encountered error")
-            return -1
-
-    def update_whole_table(self):
-        try:
-            for row in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.rowCount()):
-                data = []
-                for column in range(Login_function.Concentrate_Advance_ui.Display_Plate_Info.columnCount()):
-                    if(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(row, column) != None):
-                        data.append(Login_function.Concentrate_Advance_ui.Display_Plate_Info.item(
-                            row, column).text())
-                SQL_function.update_plate_user_have(data[1])
-        except:
-            ErrorLogger.logger.error(
-                "update_whole_table Encountered error")
-            return -1
-
-    def set_plate_info_pages_maximum(self, value):
-        try:
-            self.plate_info_pages_maximum = SQL_function.get_row_number_from_database(plate_info_table,
-                                                                                      self.current_search_type, value) // 20
-            if(SQL_function.get_row_number_from_database(plate_info_table, self.current_search_type, value) % 20 == 0
-               and SQL_function.get_row_number_from_database(plate_info_table, self.current_search_type, value) > 20):
-                self.plate_info_pages_maximum = (SQL_function.get_row_number_from_database(plate_info_table,
-                                                                                           self.current_search_type, value) // 20) - 1
-        except:
-            ErrorLogger.logger.error(
-                "set_plate_info_pages_maximum Encountered error")
-            return -1
-
-    def set_login_history_pages_maximum(self, function_class, value, table):
-        try:
-            self.login_history_pages_maximum = SQL_function.get_row_number_from_database(table,
-                                                                                         self.current_search_type, value) // 20
-            if(SQL_function.get_row_number_from_database(table, self.current_search_type, value) % 20 == 0
-               and SQL_function.get_row_number_from_database(table, self.current_search_type, value) > 20):
-                self.login_history_pages_maximum = (SQL_function.get_row_number_from_database(login_record_table,
-                                                                                              self.current_search_type, value) // 20) - 1
-        except:
-            ErrorLogger.logger.error(
-                "set_login_history_pages_maximum Encountered error")
-            return -1
-
-    def set_current_search_type(self, type):
-        try:
-            self.current_search_type = type
-        except:
-            ErrorLogger.logger.error(
-                "set_current_search_type Encountered error")
-            return -1
-
 
 class helper_function:
 
+
     # helper function
-    # change info in connect_to_database() to connect to different database
     def encode_password(self, password):
         try:
             hash_md5 = hashlib.md5()
@@ -1861,13 +1665,11 @@ class helper_function:
     # checker for password
     def has_capital_letters(self, password):
         try:
-            has_capital = False
             for letters in password:
                 # checking for uppercase character and flagging
                 if letters.isupper():
-                    has_capital = True
-                    break
-            return has_capital
+                    return True
+            return False
         except:
             ErrorLogger.logger.error(
                 "has_capital_letters Encountered error")
@@ -1875,13 +1677,11 @@ class helper_function:
 
     def has_lower_letters(self, password):
         try:
-            has_lower = False
             for letters in password:
                 # checking for uppercase character and flagging
                 if letters.islower():
-                    has_lower = True
-                    break
-            return has_lower
+                    return True
+            return False
         except:
             ErrorLogger.logger.error(
                 "has_lower_letters Encountered error")
@@ -1902,7 +1702,7 @@ class helper_function:
             regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
             # Pass the string in search
             # method of regex object.
-            if(re.search("[^a-zA-Z0-9s]", password) or (' ' in password) is True):
+            if (re.search("[^a-zA-Z0-9s]", password) or (' ' in password) is True):
                 return True
             else:
                 return False
@@ -1913,7 +1713,7 @@ class helper_function:
 
     def check_password_availability(self, password):
         try:
-            if(len(password) >= 6 and self.has_capital_letters(password) is True and self.has_numbers(password) and self.has_lower_letters(password) is True and (self.has_invalid_character(password) is False)):
+            if (len(password) >= 6 and self.has_capital_letters(password) is True and self.has_numbers(password) and self.has_lower_letters(password) is True and (self.has_invalid_character(password) is False)):
                 return True
             return False
         except:
@@ -1925,16 +1725,16 @@ class helper_function:
     def data_comparison(self, edited_data, initial_data):
         try:
             for row in zip(edited_data, initial_data):
-                if(row[0][1] != "************"):
+                if (row[0][1] != "************"):
                     AdminEditorLogger.logger.info(
                         "USER ID: '" + row[0][0] + "'s password has been edited.")
-                if(row[0][2] != row[1][2]):
+                if (row[0][2] != row[1][2]):
                     AdminEditorLogger.logger.info(
                         "USER ID: '" + row[0][0] + "'s permission has been edited from '" + row[1][2] + "' to '" + row[0][2] + "'.")
-                if(row[0][3] != row[1][3]):
+                if (row[0][3] != row[1][3]):
                     AdminEditorLogger.logger.info(
                         "USER ID: '" + row[0][0] + "'s name has been edited from '" + row[1][3] + "' to '" + row[0][3] + "'.")
-                if(row[0][4] != row[1][4]):
+                if (row[0][4] != row[1][4]):
                     AdminEditorLogger.logger.info(
                         "USER ID: '" + row[0][0] + "'s gender has been edited from '" + row[1][4] + "' to '" + row[0][4] + "'.")
         except:
@@ -1942,14 +1742,14 @@ class helper_function:
                 "data_comparison Encountered error")
             return -1
 
-    def insert_data_into_table(self, display_table,  data):
+    def insert_data_into_table(self, display_table, data):
         try:
             # initialize the table
             display_table.setRowCount(0)
             row_count = 0
 
-            if(display_table == Login_function.Concentrate_Advance_ui.Display_table):
-                Search_Edit_function.check_button_array_search_edit = []
+            if (display_table == Login_function.Concentrate_Advance_ui.Display_table):
+                Search_Edit_function.check_button_array = []
                 Search_Edit_function.initial_data = []
                 for row in data:
                     display_table.insertRow(
@@ -1964,8 +1764,7 @@ class helper_function:
                     Search_Edit_function.initial_data.append(
                         (row[1], row[2], row[3], row[4], row[5], row[6]))
                     row_count = row_count + 1
-
-            elif(display_table == Login_function.Concentrate_Advance_ui.Display_Login_info):
+            elif (display_table == Login_function.Concentrate_Advance_ui.Display_Login_info):
                 for row in data:
                     display_table.insertRow(
                         row_count)
@@ -1978,8 +1777,8 @@ class helper_function:
                     display_table.setItem(
                         row_count, 3, QtWidgets.QTableWidgetItem(row[4]))
                     row_count = row_count+1
-            elif(display_table == Login_function.Concentrate_Advance_ui.Display_Plate_Info):
-                Plate_Info_function.check_button_array_plate_info = []
+            elif (display_table == Login_function.Concentrate_Advance_ui.Display_Plate_Info):
+                Plate_Info_function.check_button_array = []
                 # goes through every row
                 for row in data:
                     display_table.insertRow(
@@ -2001,8 +1800,96 @@ class helper_function:
                 "insert_data_into_table Encountered error")
             return -1
 
+    def insert_checkbox(self, function_class, display_table, data):
+        try:
+            for check_box_row in range(len(data)):
+                # set a button to table
+                check_box = QtWidgets.QCheckBox()
+                display_table.setCellWidget(
+                    check_box_row, 0, check_box)
+                function_class.check_button_array.append(check_box)
+        except:
+            ErrorLogger.logger.error(
+                "insert_checkbox Encountered error")
+            return -1
+
+    def get_pages_maximum(self, function_class, value, table):
+        try:
+            if (SQL_function.get_row_number_from_database(table, function_class.current_search_type, value) % 20 == 0
+               and SQL_function.get_row_number_from_database(table, function_class.current_search_type, value) > 20):
+                return SQL_function.get_row_number_from_database(table, function_class.current_search_type, value) // 20 - 1
+            return SQL_function.get_row_number_from_database(table, function_class.current_search_type, value) // 20
+        except:
+            ErrorLogger.logger.error(
+                "get_pages_maximum Encountered error")
+            return -1
+
+    def set_current_search_type(self, function_class,  type):
+        try:
+            function_class.current_search_type = type
+        except:
+            ErrorLogger.logger.error(
+                "set_current_search_type Encountered error")
+            return -1
+
+    def get_data_from_table(self, display_table, function_class):
+        try:
+            function_class.edited_data = []
+            Permission_fit = False
+            Gender_fit = False
+            Password_fit = False
+            # go through entire table row by row
+            for row in range(display_table.rowCount()):
+                edited_row = []
+                for column in range(display_table.columnCount()):
+                    if (display_table.item(row, column) != None):
+                        edited_row.append(
+                            display_table.item(row, column).text())
+                function_class.edited_data.append(edited_row)
+
+                # check if check box is checked (防呆機制)
+                if (function_class.check_button_array[row].isChecked()):
+                    if (edited_row[2] == "USER" or edited_row[2] == "ADMIN"):
+                        Permission_fit = True
+                    else:
+                        Permission_fit = False
+                    if (edited_row[4] == "MALE" or edited_row[4] == "FEMALE" or edited_row[4] == "OTHERS"):
+                        Gender_fit = True
+                    else:
+                        Gender_fit = False
+                    if (edited_row[1] == "************"):
+                        Password_fit = True
+                    else:
+                        if(helper.check_password_availability(edited_row[1])):
+                            Password_fit = True
+                        else:
+                            Password_fit = False
+
+                    if (Gender_fit and Permission_fit and Password_fit):
+                        if (edited_row[1] == "************"):
+                            SQL_function.update_data_to_user_info(edited_row[0], None, edited_row[2], edited_row[3], edited_row[4], edited_row[5])
+                        else:
+                            SQL_function.update_data_to_user_info(edited_row[0], helper.encode_password(edited_row[1]), edited_row[2], edited_row[3], edited_row[4], edited_row[5])                             
+
+                                
+                    if (function_class == Info_Editor_function):                            
+                        Login_function.Info_Editor_ui.Permission_Invalid.setHidden(Permission_fit)
+                        Login_function.Info_Editor_ui.Gender_Invalid.setHidden(Gender_fit)
+                        Login_function.Info_Editor_ui.Password_Invalid.setHidden(Password_fit)
+                    if (function_class == Search_Edit_function):
+                        Login_function.Concentrate_Advance_ui.Edit_error_message.setHidden(Permission_fit and Gender_fit and helper.check_password_availability(edited_row[1]))
+                SQL_function.update_plate_user_have(edited_row[1])
+            helper.data_comparison(
+                function_class.edited_data, function_class.initial_data)
+            function_class.show_user(0)
+        except:
+            ErrorLogger.logger.error(
+                "get_data_from_table Encountered error")
+            return -1
+
 
 class MySQL_function:
+
     def connect_to_database(self):
         try:
             mydb = mysql.connector.connect(
@@ -2042,7 +1929,7 @@ class MySQL_function:
                 "SELECT EXISTS (SELECT 1 FROM `User_Information`)")
             data = mycursor.fetchone()
             user_amount = data[0]
-            if(user_amount == 0):
+            if (user_amount == 0):
                 sql = (
                     "INSERT INTO User_Information(ID, PASSWORD, PERMISSION, REAL_NAME, GENDER, PLATE_NUM) VALUES ('ADMIN', %s, 'ADMIN','name', 'OTHERS', '0')")
                 val = (helper.encode_password('Point1'), )
@@ -2055,87 +1942,34 @@ class MySQL_function:
                 "check_if_user_info_is_empty Encountered error")
             return -1
 
-    def check_ID_password(self, userid, password):
-        Match = False
+    # mode 0 ID_password matching or not
+    # mode 1 ID is ADMIN or not
+    # mode 2 ID exist already or not
+    def check_ID_action(self, mode, userid, password, table):
         try:
             # Connect to database
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-
-            # Actually insert plate into table
-            mycursor.execute("SELECT * FROM User_Information")
+            mycursor.execute("SELECT * FROM " + table)
             for User_record in mycursor:
                 # compare the id
-                if(User_record[1] == userid):
-                    # compare the password
-                    if(User_record[2] == password):
-                        Match = True
-            return Match
+                if (User_record[1] == userid):
+                    if (mode == 0):
+                        # compare the password
+                        if (User_record[2] == password):
+                            return True
+                    elif (mode == 1):
+                        # check the permission
+                        if (User_record[3] == "ADMIN"):
+                            return True
+                    elif (mode == 2):
+                        return True
+            return False
         except:
             ErrorLogger.logger.error(
-                "Check_ID_password Encountered error!")
-            return -1
-
-    def check_ID_is_admin(self, userid):
-        is_admin = False
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-            mycursor.execute('''SELECT * FROM User_Information''')
-            for User_record in mycursor:
-                # compare the id
-                if(User_record[1] == userid):
-                    # check the permission
-                    if(User_record[3] == "ADMIN"):
-                        is_admin = True
-            return is_admin
-        except:
-            ErrorLogger.logger.error(
-                "check_ID_is_admin Encountered error")
-            return -1
-
-    def check_ID_exist(self, userid):
-        Exist = False
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-            mycursor.execute('''SELECT * FROM User_Information''')
-            for User_record in mycursor:
-                # compare the id
-                if(User_record[1] == userid):
-                    # ID exists in the database
-                    Exist = True
-                    return Exist
-            return Exist
-        except:
-            ErrorLogger.logger.error(
-                "check_ID_exist Encountered error!")
-            return -1
-
-    def remove_user(self, userid):
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-            sql = ("DELETE FROM User_Information WHERE ID=%s")
-            val = (userid, )
-            mycursor.execute(sql, val)
-            mydb.commit()
-            AdminEditorLogger.logger.info("User with ID: '" +
-                                          userid + "' has been deleted!")
-        except:
-            ErrorLogger.logger.error(
-                "remove_user Encountered error!")
+                "check_ID_action Encountered error!")
             return -1
 
     def add_user(self, userid, password, permission, real_name, gender):
@@ -2156,6 +1990,24 @@ class MySQL_function:
                 "add_user Encountered error!")
             return -1
 
+    def remove_user(self, userid):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+            sql = ("DELETE FROM User_Information WHERE ID=%s")
+            val = (userid, )
+            mycursor.execute(sql, val)
+            mydb.commit()
+            AdminEditorLogger.logger.info("User with ID: '" +
+                                          userid + "' has been deleted!")
+        except:
+            ErrorLogger.logger.error(
+                "remove_user Encountered error!")
+            return -1
+
     def add_login_record(self, userid, login_state, type):
         try:
             # Connect to database
@@ -2174,78 +2026,6 @@ class MySQL_function:
                 "add_login_record Encountered error!")
             return -1
 
-    def get_data_from_database(self, database, type, value, pages):
-        # Open database
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-            if(database == login_record_table):
-                if(type == "all"):
-                    sql = ("SELECT * FROM Login_record LIMIT %s OFFSET %s")
-                    val = (20, 20*pages)
-                if(type == "id"):
-                    sql = (
-                        "SELECT * FROM Login_record WHERE ID=%s LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-                if(type == "status"):
-                    sql = (
-                        "SELECT * FROM Login_record WHERE LOGIN_STATE=%s LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-                if(type == "specific_type_fail" or type == "specific_type_success"):
-                    sql = (
-                        "SELECT * FROM Login_record WHERE SPECIFIC_TYPE=%s LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-            elif(database == user_info_table):
-                if(type == "all"):
-                    sql = ("SELECT * FROM User_Information LIMIT %s OFFSET %s")
-                    val = (20, 20*pages)
-                if(type == "id_strict"):
-                    sql = (
-                        "SELECT * FROM User_Information WHERE ID=%s ORDER BY ID ASC")
-                    val = (value,)
-                if(type == "id"):
-                    sql = (
-                        "SELECT * FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC LIMIT %s OFFSET %s")
-                    val = ('%'+value+'%', 20, 20*pages)
-                if(type == "name"):
-                    sql = (
-                        "SELECT * FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC LIMIT %s OFFSET %s")
-                    val = ('%'+value+'%', 20, 20*pages)
-                if(type == "permission"):
-                    sql = (
-                        "SELECT * FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-                if(type == "gender"):
-                    sql = (
-                        "SELECT * FROM User_Information WHERE GENDER=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-            elif(database == plate_info_table):
-                if(type == "all"):
-                    sql = ("SELECT * FROM Plate_Information LIMIT %s OFFSET %s")
-                    val = (20, 20*pages)
-                if(type == "plate_id"):
-                    sql = (
-                        "SELECT * FROM Plate_Information WHERE PLATE_ID LIKE %s ORDER BY PLATE_ID ASC LIMIT %s OFFSET %s")
-                    val = ('%'+value+'%', 20, 20*pages)
-                if(type == "user_id"):
-                    sql = (
-                        "SELECT * FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID LIKE %s ORDER BY LAST_ASSIGNED_USER_ID ASC LIMIT %s OFFSET %s")
-                    val = ('%'+value+'%', 20, 20*pages)
-                if(type == "availability"):
-                    sql = (
-                        "SELECT * FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s LIMIT %s OFFSET %s")
-                    val = (value, 20, 20*pages)
-            mycursor.execute(sql, val)
-            data = mycursor.fetchall()
-            return data
-        except:
-            ErrorLogger.logger.error(
-                "get_data_from_database Encountered error!")
-            return -1
-
     def update_data_to_user_info(self, userid, password, permission, real_name, gender, plate_amount):
         try:
             # Connect to database
@@ -2253,7 +2033,7 @@ class MySQL_function:
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-            if(password != None):
+            if (password != None):
                 sql = (
                     "UPDATE User_Information SET PASSWORD=%s, PERMISSION=%s, REAL_NAME=%s, GENDER=%s, PLATE_NUM=%s WHERE ID=%s")
                 val = (password, permission, real_name,
@@ -2265,12 +2045,10 @@ class MySQL_function:
                 val = (permission, real_name, gender, plate_amount, userid)
                 mycursor.execute(sql, val)
             mydb.commit()
-            data = mycursor.fetchall()
         except:
             ErrorLogger.logger.error(
                 "update_data_to_user_info Encountered error!")
             return -1
-        return data
 
     def add_new_plate(self, plateid):
         try:
@@ -2292,47 +2070,6 @@ class MySQL_function:
                 "add_new_plate Encountered error!")
             return -1
 
-    def assign_plate_to_user(self, plateid, userid, availability, last_assign_time):
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-
-            # Assign plate to user
-            sql = "UPDATE Plate_Information SET LAST_ASSIGNED_USER_ID=%s, AVAILABLE_FOR_ASSIGN=%s, LAST_ASSIGN_TIME=%s WHERE PLATE_ID=%s"
-            val = (userid, availability, last_assign_time, plateid)
-            mycursor.execute(sql, val)
-            mydb.commit()
-            PlateInfoLogger.logger.info(
-                "the plate: '" + plateid + "' has been assigned to user with userID: " + userid)
-            self.update_plate_user_have(userid)
-        except:
-            ErrorLogger.logger.error(
-                "assign_plate_to_user Encountered error!")
-            return -1
-
-    def deassign_plate_from_user(self, plateid, availability, last_deassign_time):
-        try:
-            # Connect to database
-            mydb = self.connect_to_database()
-            mycursor = mydb.cursor()
-            # Create table if not exist
-            self.create_table_first(mycursor)
-
-            sql = (
-                "UPDATE Plate_Information SET AVAILABLE_FOR_ASSIGN=%s, LAST_DEASSIGN_TIME=%s WHERE PLATE_ID=%s")
-            val = (availability, last_deassign_time, plateid)
-            mycursor.execute(sql, val)
-            mydb.commit()
-            PlateInfoLogger.logger.info(
-                "the plate: '" + plateid + "' has been deassigned.")
-        except:
-            ErrorLogger.logger.error(
-                "deassign_plate_from_user Encountered error!")
-            return -1
-
     def remove_plate(self, plateid):
         try:
             # Connect to database
@@ -2352,6 +2089,35 @@ class MySQL_function:
                 "remove_plate Encountered error!")
             return -1
 
+    # mode = 0 for deassign
+    # mode = 1 for assign
+    def deassign_assign_plate_to_user(self, mode, plateid, userid):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+            if(mode == 1):
+                # Assign plate to user
+                sql = (
+                    "UPDATE Plate_Information SET LAST_ASSIGNED_USER_ID=%s, AVAILABLE_FOR_ASSIGN='FALSE', LAST_ASSIGN_TIME=%s WHERE PLATE_ID=%s")
+                val = (userid, helper.get_time(), plateid)
+                PlateInfoLogger.logger.info("the plate: '" + plateid + "' has been assigned to user with userID: '" + userid + "'")                
+            elif(mode == 0):
+                # Deassign plate to user
+                sql = (
+                    "UPDATE Plate_Information SET AVAILABLE_FOR_ASSIGN='TRUE', LAST_DEASSIGN_TIME=%s WHERE PLATE_ID=%s")
+                val = (helper.get_time(), plateid)
+                PlateInfoLogger.logger.info("the plate: '" + plateid + "' has been deassigned.")                                
+            mycursor.execute(sql, val)
+            mydb.commit()
+            self.update_plate_user_have(userid)
+        except:
+            ErrorLogger.logger.error(
+                "deassign_assign_plate_to_user Encountered error!")
+            return -1
+
     def update_plate_user_have(self, userid):
         try:
             # Connect to database
@@ -2369,66 +2135,139 @@ class MySQL_function:
                 "update_plate_user_have Encountered error!")
             return -1
 
-    def get_row_number_from_database(self, database, type, value):
+    def get_data_from_database(self, table, type, value, pages):
+        # Open database
         try:
             # Connect to database
             mydb = self.connect_to_database()
             mycursor = mydb.cursor()
             # Create table if not exist
             self.create_table_first(mycursor)
-            if(database == login_record_table):
-                if(type == "all"):
+            if (table == login_record_table):
+                if (type == "all"):
+                    sql = ("SELECT * FROM Login_record LIMIT %s OFFSET %s")
+                    val = (20, 20*pages)
+                if (type == "id"):
+                    sql = (
+                        "SELECT * FROM Login_record WHERE ID=%s LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+                if (type == "status"):
+                    sql = (
+                        "SELECT * FROM Login_record WHERE LOGIN_STATE=%s LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+                if (type == "specific_type_fail" or type == "specific_type_success"):
+                    sql = (
+                        "SELECT * FROM Login_record WHERE SPECIFIC_TYPE=%s LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+            elif (table == user_info_table):
+                if (type == "all"):
+                    sql = (
+                        "SELECT * FROM User_Information ORDER BY ID ASC LIMIT %s OFFSET %s")
+                    val = (20, 20*pages)
+                if (type == "id_strict"):
+                    sql = (
+                        "SELECT * FROM User_Information WHERE ID=%s ORDER BY ID ASC")
+                    val = (value,)
+                if (type == "id"):
+                    sql = (
+                        "SELECT * FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                    val = ('%'+value+'%', 20, 20*pages)
+                if (type == "name"):
+                    sql = (
+                        "SELECT * FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC LIMIT %s OFFSET %s")
+                    val = ('%'+value+'%', 20, 20*pages)
+                if (type == "permission"):
+                    sql = (
+                        "SELECT * FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+                if (type == "gender"):
+                    sql = (
+                        "SELECT * FROM User_Information WHERE GENDER=%s ORDER BY ID ASC LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+            elif (table == plate_info_table):
+                if (type == "all"):
+                    sql = ("SELECT * FROM Plate_Information LIMIT %s OFFSET %s")
+                    val = (20, 20*pages)
+                if (type == "plate_id"):
+                    sql = (
+                        "SELECT * FROM Plate_Information WHERE PLATE_ID LIKE %s ORDER BY PLATE_ID ASC LIMIT %s OFFSET %s")
+                    val = ('%'+value+'%', 20, 20*pages)
+                if (type == "user_id"):
+                    sql = (
+                        "SELECT * FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID LIKE %s ORDER BY LAST_ASSIGNED_USER_ID ASC LIMIT %s OFFSET %s")
+                    val = ('%'+value+'%', 20, 20*pages)
+                if (type == "availability"):
+                    sql = (
+                        "SELECT * FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s LIMIT %s OFFSET %s")
+                    val = (value, 20, 20*pages)
+            mycursor.execute(sql, val)
+            data = mycursor.fetchall()
+            return data
+        except:
+            ErrorLogger.logger.error(
+                "get_data_from_database Encountered error!")
+            return -1
+
+    def get_row_number_from_database(self, table, type, value):
+        try:
+            # Connect to database
+            mydb = self.connect_to_database()
+            mycursor = mydb.cursor()
+            # Create table if not exist
+            self.create_table_first(mycursor)
+            if (table == login_record_table):
+                if (type == "all"):
                     sql = ("SELECT count(*) FROM Login_record")
                     val = ()
-                if(type == "id"):
+                if (type == "id"):
                     sql = (
                         "SELECT count(*) FROM Login_record WHERE ID=%s ORDER BY ID ASC")
                     val = (value,)
-                if(type == "status"):
+                if (type == "status"):
                     sql = (
                         "SELECT count(*) FROM Login_record WHERE LOGIN_STATE=%s ORDER BY ID ASC ")
                     val = (value,)
-                if(type == "specific_type_fail" or type == "specific_type_success"):
+                if (type == "specific_type_fail" or type == "specific_type_success"):
                     sql = (
                         "SELECT count(*) FROM Login_record WHERE SPECIFIC_TYPE=%s ORDER BY ID ASC ")
                     val = (value,)
-            elif(database == user_info_table):
-                if(type == "all"):
+            elif (table == user_info_table):
+                if (type == "all"):
                     sql = ("SELECT count(*) FROM User_Information")
                     val = ()
-                if(type == "id_strict"):
+                if (type == "id_strict"):
                     sql = (
                         "SELECT count(*) FROM User_Information WHERE ID=%s ORDER BY ID ASC")
                     val = (value,)
-                if(type == "id"):
+                if (type == "id"):
                     sql = (
                         "SELECT count(*) FROM User_Information WHERE ID LIKE %s ORDER BY ID ASC ")
                     val = ('%'+value+'%',)
-                if(type == "name"):
+                if (type == "name"):
                     sql = (
                         "SELECT count(*) FROM User_Information WHERE REAL_NAME LIKE %s ORDER BY REAL_NAME ASC ")
                     val = ('%'+value+'%',)
-                if(type == "permission"):
+                if (type == "permission"):
                     sql = (
                         "SELECT count(*) FROM User_Information WHERE PERMISSION=%s ORDER BY ID ASC ")
                     val = (value,)
-                if(type == "gender"):
+                if (type == "gender"):
                     sql = (
                         "SELECT count(*) FROM User_Information WHERE GENDER=%s ORDER BY ID ASC ")
                     val = (value,)
-            elif(database == plate_info_table):
-                if(type == "all"):
+            elif (table == plate_info_table):
+                if (type == "all"):
                     sql = ("SELECT count(*) FROM Plate_Information")
                     val = ()
-                if(type == "user_id"):
+                if (type == "user_id"):
                     sql = (
                         "SELECT count(*) FROM Plate_Information WHERE LAST_ASSIGNED_USER_ID=%s ORDER BY LAST_ASSIGNED_USER_ID ASC")
                     val = (value,)
-                if(type == "plate_id"):
+                if (type == "plate_id"):
                     sql = (
                         "SELECT count(*) FROM Plate_Information WHERE PLATE_ID=%s ORDER BY LAST_ASSIGNED_USER_ID ASC ")
                     val = (value,)
-                if(type == "availability"):
+                if (type == "availability"):
                     sql = (
                         "SELECT count(*) FROM Plate_Information WHERE AVAILABLE_FOR_ASSIGN=%s ORDER BY LAST_ASSIGNED_USER_ID ASC ")
                     val = (value,)
@@ -2486,6 +2325,7 @@ if __name__ == "__main__":
         "Admin_Editor_logger", logging.INFO, "Log_Folder/Admin_editor.log")
     PlateInfoLogger = logger_class(
         "Plate_Infor_logger", logging.INFO, "Log_Folder/Plate_Info.log")
+
     # open login UI
     app = QtWidgets.QApplication(sys.argv)
     Login = QtWidgets.QMainWindow()
